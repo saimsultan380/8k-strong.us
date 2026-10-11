@@ -435,7 +435,8 @@ div[style*="feature-icon-bg"] {
 a.bg-gradient-brand,
 button.bg-gradient-brand,
 a[style*="hero-cta-primary-bg"],
-button[style*="hero-cta-primary-bg"] {
+button[style*="hero-cta-primary-bg"],
+.btn-shine {
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -452,7 +453,8 @@ a[style*="hero-cta-primary-bg"]:not(.flex) {
 a.bg-gradient-brand::after,
 button.bg-gradient-brand::after,
 a[style*="hero-cta-primary-bg"]::after,
-button[style*="hero-cta-primary-bg"]::after {
+button[style*="hero-cta-primary-bg"]::after,
+.btn-shine::after {
   content: "";
   position: absolute;
   top: -20%;
@@ -477,7 +479,8 @@ button[style*="hero-cta-primary-bg"]::after {
   a.bg-gradient-brand::after,
   button.bg-gradient-brand::after,
   a[style*="hero-cta-primary-bg"]::after,
-  button[style*="hero-cta-primary-bg"]::after {
+  button[style*="hero-cta-primary-bg"]::after,
+  .btn-shine::after {
     animation: none;
     display: none;
   }

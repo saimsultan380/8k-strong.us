@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
-import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { DEVICE_GUIDES, type DeviceGuide } from "@/data/device-guides";
 import { routes } from "@/lib/routes";
 
@@ -21,14 +22,13 @@ function GuideBody({ device }: { device: DeviceGuide }) {
       ) : null}
 
       {device.steps ? (
-        <ol className="space-y-3">
+        <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {device.steps.map((step, i) => (
             <li
               key={i}
-              className="flex gap-3 rounded-xl border p-4 text-sm leading-[1.7] sm:text-[15px]"
+              className="flex gap-3 rounded-xl border bg-transparent p-4 text-sm leading-[1.7] sm:text-[15px]"
               style={{
-                borderColor: "var(--feature-card-border)",
-                backgroundColor: "transparent",
+                borderColor: "rgba(212, 168, 75, 0.45)",
                 color: "var(--feature-body)",
               }}
             >
@@ -90,6 +90,26 @@ function GuideBody({ device }: { device: DeviceGuide }) {
 }
 
 export function InstallationDeviceSelector() {
+  const reduceMotion = useReducedMotion();
+  const [activeId, setActiveId] = useState(DEVICES[0].id);
+  const active = DEVICES.find((device) => device.id === activeId) ?? DEVICES[0];
+
+  useEffect(() => {
+    const sync = () => {
+      const id = window.location.hash.replace("#", "");
+      if (DEVICES.some((device) => device.id === id)) setActiveId(id);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  function selectDevice(id: string) {
+    setActiveId(id);
+    const next = `${window.location.pathname}${window.location.search}#${id}`;
+    window.history.replaceState(null, "", next);
+  }
+
   return (
     <section
       id="choose-device"
@@ -117,54 +137,71 @@ export function InstallationDeviceSelector() {
           </p>
         </FadeIn>
 
-        <nav className="mt-10 flex flex-wrap gap-2 sm:gap-3" aria-label="Device guides">
-          {DEVICES.map((device, index) => {
+        <div className="mt-10 flex flex-wrap gap-2 sm:gap-3" role="tablist" aria-label="Device guides">
+          {DEVICES.map((device) => {
             const Icon = device.Icon;
+            const selected = device.id === active.id;
             return (
-              <FadeIn key={device.id} delay={Math.min(0.04 * index, 0.36)}>
-              <a
-                href={`#${device.id}`}
-                className="inline-flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-sm font-semibold transition-all duration-200 hover:border-[var(--hero-accent)] hover:text-[var(--hero-accent)]"
-                style={{
-                  borderColor: "var(--feature-card-border)",
-                  color: "var(--hero-muted)",
-                  backgroundColor: "transparent",
-                }}
+              <motion.button
+                key={device.id}
+                type="button"
+                role="tab"
+                id={`tab-${device.id}`}
+                aria-selected={selected}
+                aria-controls="device-guide-panel"
+                onClick={() => selectDevice(device.id)}
+                whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+                className={`${selected ? "btn-shine" : ""} inline-flex items-center gap-2 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-colors duration-200`}
+                style={
+                  selected
+                    ? {
+                        background: "var(--grad-brand)",
+                        color: "#000000",
+                        boxShadow: "var(--hero-cta-primary-shadow)",
+                      }
+                    : {
+                        backgroundColor: "var(--feature-card-bg)",
+                        color: "var(--hero-heading)",
+                        boxShadow: "var(--glass-shadow)",
+                      }
+                }
               >
                 <Icon className="h-4 w-4" strokeWidth={1.75} />
                 <span className="hidden sm:inline">{device.label}</span>
                 <span className="sm:hidden">{device.shortLabel}</span>
-              </a>
-              </FadeIn>
+              </motion.button>
             );
           })}
-        </nav>
-
-        <div className="mt-10 space-y-6">
-          {DEVICES.map((device, index) => (
-            <ScrollReveal key={device.id} delay={Math.min(index * 0.04, 0.24)} once>
-            <article
-              key={device.id}
-              id={device.id}
-              className="scroll-mt-28 rounded-2xl border p-6 sm:p-8 md:p-10"
-              style={{
-                borderColor: "var(--feature-card-border)",
-                backgroundColor: "transparent",
-              }}
-            >
-              <h2
-                className="max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[34px]"
-                style={{ color: "var(--hero-heading)" }}
-              >
-                {device.title}
-              </h2>
-              <div className="mt-6">
-                <GuideBody device={device} />
-              </div>
-            </article>
-            </ScrollReveal>
-          ))}
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.article
+            key={active.id}
+            id="device-guide-panel"
+            role="tabpanel"
+            aria-labelledby={`tab-${active.id}`}
+            className="mt-8 scroll-mt-28 rounded-2xl border p-6 sm:p-8 md:p-10"
+            style={{
+              borderColor: "var(--feature-card-border)",
+              backgroundColor: "var(--feature-card-bg)",
+            }}
+            initial={reduceMotion ? false : { opacity: 0, y: 14, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -8, filter: "blur(6px)" }}
+            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h2
+              className="max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[34px]"
+              style={{ color: "var(--hero-heading)" }}
+            >
+              {active.title}
+            </h2>
+            <div className="mt-6">
+              <GuideBody device={active} />
+            </div>
+          </motion.article>
+        </AnimatePresence>
       </Container>
     </section>
   );
