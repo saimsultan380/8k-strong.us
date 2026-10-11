@@ -6,6 +6,7 @@ import { FadeIn } from "@/components/animation/fade-in";
 import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { HOME_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
 
 export function PricingSection() {
@@ -114,7 +115,9 @@ export function PricingSection() {
               View All Subscription Plans
             </Link>
             <Link
-              href={`${routes.contactUs}?enquiry=free-trial`}
+              href={enquiryWhatsApp("free-trial")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-xl border px-6 py-3.5 text-[13px] font-bold transition-all duration-200 hover:border-[var(--hero-accent)] sm:text-[15px]"
               style={{
                 borderColor: "var(--hero-btn-border)",

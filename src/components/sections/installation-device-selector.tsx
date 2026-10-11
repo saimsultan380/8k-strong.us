@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
 import { DEVICE_GUIDES, type DeviceGuide } from "@/data/device-guides";
-import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 const DEVICES = DEVICE_GUIDES;
 
@@ -77,12 +76,14 @@ function GuideBody({ device }: { device: DeviceGuide }) {
         >
           Change Device
         </a>
-        <Link
-          href={`${routes.contactUs}?enquiry=installation`}
+        <a
+          href={enquiryWhatsApp("installation")}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-xl bg-gradient-brand px-4 py-3 text-sm font-bold text-black"
         >
           {device.helpLabel}
-        </Link>
+        </a>
       </div>
       </RevealParts>
     </div>

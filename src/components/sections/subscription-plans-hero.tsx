@@ -6,6 +6,7 @@ import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
 import { motion } from "framer-motion";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import Link from "next/link";
 
 export function SubscriptionPlansHero() {
@@ -65,7 +66,9 @@ export function SubscriptionPlansHero() {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href={`${routes.contactUs}?enquiry=free-trial`}
+                href={enquiryWhatsApp("free-trial")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex w-full max-w-xs items-center justify-center gap-2 rounded-xl border px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:border-[var(--hero-accent)] hover:text-[var(--hero-accent)] sm:w-auto sm:max-w-none sm:text-[15px]"
                 style={{
                   borderColor: "var(--hero-btn-border)",

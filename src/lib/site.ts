@@ -42,6 +42,24 @@ export function whatsappUrlWithText(text: string): string {
   return `${whatsappUrl}?text=${encodeURIComponent(text)}`;
 }
 
+const ENQUIRY_WHATSAPP_TEXT: Record<string, string> = {
+  "free-trial": "I would like to request a Strong 8k free trial.",
+  "content-request": "I would like to request a film, series or live event.",
+  installation: "I need help installing Strong 8k.",
+  playback: "I need help with playback.",
+  renewal: "I would like to renew my Strong 8k subscription.",
+  refund: "I would like to ask about a refund.",
+  "reseller-pricing": "I would like a Strong 8k reseller credit quote.",
+  subscription: "I would like help choosing a Strong 8k subscription.",
+};
+
+/** Opens WhatsApp for a support enquiry instead of another site page. */
+export function enquiryWhatsApp(enquiry: string): string {
+  return whatsappUrlWithText(
+    ENQUIRY_WHATSAPP_TEXT[enquiry] ?? "I would like to contact Strong 8k support.",
+  );
+}
+
 /** Exact SERP titles (shown in Google + browser tab) */
 export const pageTitles = {
   home: "Strong 8k - Premium UHD IPTV Subscription For UK with 40k+ Channels",

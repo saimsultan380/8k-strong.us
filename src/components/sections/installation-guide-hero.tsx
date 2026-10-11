@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { Container } from "@/components/layout/container";
 import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
@@ -56,7 +57,9 @@ export function InstallationGuideHero() {
           <div className="mt-8 flex flex-row items-center justify-center gap-3">
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="flex-1 sm:flex-initial">
               <Link
-                href={`${routes.contactUs}?enquiry=installation`}
+                href={enquiryWhatsApp("installation")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex min-h-12 items-center justify-center rounded-xl px-4 py-3.5 text-[13px] font-bold transition-all duration-200 hover:brightness-110 sm:px-7 sm:text-[15px]"
                 style={{
                   background: "var(--hero-cta-primary-bg)",

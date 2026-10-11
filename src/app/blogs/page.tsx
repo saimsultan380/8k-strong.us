@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { pageBreadcrumbs } from "@/lib/breadcrumbs";
 import { createPageMetadata, pageDescriptions, pageTitles } from "@/lib/site";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
 import { HeroReveal } from "@/components/animation/hero-reveal";
@@ -18,17 +19,23 @@ export const metadata: Metadata = createPageMetadata({
   path: routes.blogs,
 });
 
+const cardStyle = {
+  backgroundColor: "var(--feature-card-bg)",
+  borderColor: "var(--feature-card-border)",
+  boxShadow: "var(--feature-card-shadow)",
+} as const;
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="relative isolate overflow-hidden py-16 md:py-20" style={{ backgroundColor: "var(--hero-base)" }}>
       <Container className="relative z-10">
-        <div className="mx-auto max-w-3xl">
-          <FadeIn delay={0.05}>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
-              {title}
-            </h2>
-          </FadeIn>
-          <div className="mt-6 space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+        <FadeIn delay={0.05}>
+          <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+            {title}
+          </h2>
+        </FadeIn>
+        <div className="mt-8 rounded-2xl border p-6 sm:p-8 md:p-10" style={cardStyle}>
+          <div className="space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
             <RevealParts>{children}</RevealParts>
           </div>
         </div>
@@ -37,7 +44,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-const linkClass = "font-semibold underline";
+const linkClass = "inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black";
 
 export default function BlogsPage() {
   return (
@@ -107,7 +114,7 @@ export default function BlogsPage() {
         <p>Restart the player and check whether other internet services work. For buffering, consider Wi-Fi signal strength and other household activity. Where supported, try a wired connection or a different available quality option. Avoid repeatedly deleting account data before you know which part has failed.</p>
         <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Send a useful problem report</h3>
         <p>Tell support your device model, player, affected content, error message and the time. Explain whether anything else plays. For our app, the current installation code is 4330396. The previous version used 439873. This section provides troubleshooting steps; it is not a live outage status report.</p>
-        <Link href={`${routes.contactUs}?enquiry=playback`} className={linkClass} style={{ color: "var(--hero-heading)" }}>Get Playback Help</Link>
+        <Link href={enquiryWhatsApp("playback")} target="_blank" rel="noopener noreferrer" className={linkClass}>Get Playback Help</Link>
       </Section>
 
       <Section title="Understand Strong 8k IPTV Reddit Reviews and Discussions">
@@ -118,7 +125,7 @@ export default function BlogsPage() {
         <p>Prices, app versions and content availability can change. Look at when the experience happened and which device, player and connection were used. A wired Android TV setup and an older television app on weak Wi-Fi may behave differently.</p>
         <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Look for specific observations</h3>
         <p>Useful reviews explain what was watched, which problem occurred and how support responded. EPG, catch-up, live channels and VOD are separate parts of the service. A missing programme schedule is different from failed playback. If a post includes a referral link or reseller offer, consider that relationship when assessing its recommendation. Use the information to plan your own trial and questions.</p>
-        <Link href={`${routes.contactUs}?enquiry=free-trial`} className={linkClass} style={{ color: "var(--hero-heading)" }}>Ask About a Free Trial</Link>
+        <Link href={enquiryWhatsApp("free-trial")} target="_blank" rel="noopener noreferrer" className={linkClass}>Ask About a Free Trial</Link>
       </Section>
 
       <Section title="Compare 8k VIP Labels with Actual Subscription Features">
@@ -141,17 +148,17 @@ export default function BlogsPage() {
         <p>Some players show a device ID, MAC address or key. Confirm the app name and send the required identifiers privately to support. Follow that player’s activation process and refresh after account linking.</p>
         <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Rejected login or failed playback</h3>
         <p>Check expiry, typing errors and the account method selected. If the catalogue loads but playback fails, close other streams and check the connection allowance. Try another source and report the scope of the problem.</p>
-        <Link href={`${routes.contactUs}?enquiry=installation`} className={linkClass} style={{ color: "var(--hero-heading)" }}>Get Login Help</Link>
+        <Link href={enquiryWhatsApp("installation")} target="_blank" rel="noopener noreferrer" className={linkClass}>Get Login Help</Link>
       </Section>
 
       <Section title="Choose the Right Player for Your Supported Device">
         <p>Your device determines the appropriate installation route. For compatible Fire OS and Android devices, our own app uses Downloader code 4330396. TiviMate is an alternative for supported TV devices. Smart TVs use a suitable player for their operating system. Samsung Tizen and LG webOS models do not use an Android APK simply because they are Smart TVs. For iPhone and iPad, options include iPlayTV AIO, UHF IPTV, GSE Smart IPTV and IBO Player Pro where compatible. Windows, Mac and Roku also need a player matched to the device and available version. Check the model and any player licence before purchasing.</p>
-        <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>Find Your Device Instructions</Link>
+        <Link href={routes.installationGuide} className={linkClass}>Find Your Device Instructions</Link>
       </Section>
 
       <Section title="Check Programme Guides, Catch-Up and Content Request Options">
         <p>Our EPG programme information and catch-up availability are limited. A channel may play without a complete guide, and a programme listed in the schedule may have no available replay. Check the specific channels during your trial if those features matter to you. For a missing film, send the title, release year and preferred language. For a series, include the season and episode. Mention subtitles or a preferred version where relevant. Support will check whether the requested content can be added. For a live event, include its name and scheduled date when asking for current information.</p>
-        <Link href={`${routes.contactUs}?enquiry=content-request`} className={linkClass} style={{ color: "var(--hero-heading)" }}>Send a Content or Event Enquiry</Link>
+        <Link href={enquiryWhatsApp("content-request")} target="_blank" rel="noopener noreferrer" className={linkClass}>Send a Content or Event Enquiry</Link>
       </Section>
 
       <Section title="Protect Your Account Information When Asking for Help">
@@ -161,10 +168,10 @@ export default function BlogsPage() {
       <Section title="Find Subscription Prices, Installation Instructions and Customer Support">
         <p>Compare durations and connections on Pricing, follow the Installation Guide for your device, or ask support about a trial and content availability. For business access, the Reseller Panel page explains the 120-credit minimum and personal branding options.</p>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href={routes.subscriptionPlans} className={linkClass} style={{ color: "var(--hero-heading)" }}>Compare Subscription Prices</Link>
-          <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>Read the Installation Guide</Link>
-          <Link href={routes.resellerPanel} className={linkClass} style={{ color: "var(--hero-heading)" }}>Explore Reseller Options</Link>
-          <Link href={routes.contactUs} className={linkClass} style={{ color: "var(--hero-heading)" }}>Contact Strong 8k</Link>
+          <Link href={routes.subscriptionPlans} className={linkClass}>Compare Subscription Prices</Link>
+          <Link href={routes.installationGuide} className={linkClass}>Read the Installation Guide</Link>
+          <Link href={routes.resellerPanel} className={linkClass}>Explore Reseller Options</Link>
+          <Link href={routes.contactUs} className={linkClass}>Contact Strong 8k</Link>
         </div>
       </Section>
       <Footer />

@@ -5,7 +5,7 @@ import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
 
 import Link from "next/link";
-import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 export function ResellerPanelHero() {
   return (
@@ -58,7 +58,9 @@ export function ResellerPanelHero() {
         <HeroReveal variant="cta" delay={0.34}>
           <div className="mt-8 flex flex-row items-center justify-center gap-3">
             <Link
-              href={`${routes.contactUs}?enquiry=reseller-pricing`}
+              href={enquiryWhatsApp("reseller-pricing")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex min-h-12 flex-1 items-center justify-center rounded-xl px-4 py-3.5 text-[13px] font-bold transition-all duration-200 hover:brightness-110 sm:flex-initial sm:px-7 sm:text-[15px]"
               style={{
                 background: "var(--hero-cta-primary-bg)",

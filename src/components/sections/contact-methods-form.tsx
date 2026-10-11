@@ -122,6 +122,8 @@ export function ContactMethodsForm() {
           <ScrollReveal direction="up" delay={0.05} once>
             <a
               href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-full flex-col rounded-2xl border p-5 transition-colors hover:border-[var(--hero-accent)] sm:p-6"
               style={{
                 borderColor: "var(--feature-card-border)",

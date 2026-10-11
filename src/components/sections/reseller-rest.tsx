@@ -3,8 +3,15 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
+
+const cardStyle = {
+  backgroundColor: "var(--feature-card-bg)",
+  borderColor: "var(--feature-card-border)",
+  boxShadow: "var(--feature-card-shadow)",
+} as const;
 
 function Block({
   id,
@@ -18,13 +25,13 @@ function Block({
   return (
     <section id={id} className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
       <Container className="relative z-10">
-        <div className="mx-auto max-w-3xl">
-          <FadeIn delay={0.05}>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
-              {title}
-            </h2>
-          </FadeIn>
-          <div className="mt-6 space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+        <FadeIn delay={0.05}>
+          <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+            {title}
+          </h2>
+        </FadeIn>
+        <div className="mt-8 rounded-2xl border p-6 sm:p-8 md:p-10" style={cardStyle}>
+          <div className="max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
             <RevealParts>{children}</RevealParts>
           </div>
         </div>
@@ -82,60 +89,90 @@ export function ResellerRest() {
         <p>The minimum opening purchase is 120 credits.</p>
         <p>Contact us for the current cash price and any larger purchase requirement.</p>
         <p>Your quote should confirm:</p>
-        <ul className="space-y-2">
+        <ul className="grid gap-3 sm:grid-cols-2">
           {QUOTE.map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span className="mt-[9px] h-px w-3 shrink-0" style={{ background: "var(--grad-brand)" }} aria-hidden />
-              <span>{item}</span>
+            <li key={item} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
+              {item}
             </li>
           ))}
         </ul>
         <p>Do not calculate customer capacity from another provider’s credit rules. Confirm the schedule for this panel first.</p>
-        <Link href={`${routes.contactUs}?enquiry=reseller-pricing`} className="font-semibold underline" style={{ color: "var(--hero-heading)" }}>
+        <Link href={enquiryWhatsApp("reseller-pricing")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black" style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
           Request a Credit Quote
         </Link>
       </Block>
 
       <Block title="Activate Your Panel with Your Email and Username">
-        <ol className="list-decimal space-y-2 pl-5">
-          <li>Tell us the credit quantity you want, starting from 120.</li>
-          <li>Explain the customer account types you intend to sell.</li>
-          <li>Include any domain, branding, VPS or URL requirements.</li>
-          <li>Review the confirmed price and credit terms.</li>
-          <li>Provide your chosen email address and username.</li>
-          <li>Complete payment through the verified instructions.</li>
-          <li>Receive the panel activation details.</li>
-          <li>Check access and your opening credit balance.</li>
+        <ol className="grid gap-3 sm:grid-cols-2">
+          {[
+            "Tell us the credit quantity you want, starting from 120.",
+            "Explain the customer account types you intend to sell.",
+            "Include any domain, branding, VPS or URL requirements.",
+            "Review the confirmed price and credit terms.",
+            "Provide your chosen email address and username.",
+            "Complete payment through the verified instructions.",
+            "Receive the panel activation details.",
+            "Check access and your opening credit balance.",
+          ].map((step, index) => (
+            <li key={step} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
+              <span className="mr-2 font-bold text-gradient-brand">{index + 1}.</span>
+              {step}
+            </li>
+          ))}
         </ol>
         <p>Use an email address you control and check its spelling before activation.</p>
         <p>If someone else manages your accounts, agree which address will receive panel information. Tell support promptly if the supplied details need correcting.</p>
       </Block>
 
-      <Block title="Add Your Own Branding and Personal Customer URLs">
-        <p>Your panel address, customer playback URL, VPS and VPN configuration have different roles.</p>
-        <p>Describe the outcome you need so we can arrange the correct setup.</p>
-        <h3 className="pt-2 text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Use Your Own Domain for a Branded Panel</h3>
-        <p>We can add a personal domain to the panel so you can use your own branding and URL.</p>
-        <p>Send the domain you control and the preferred hostname or subdomain.</p>
-        <p>We will explain the required configuration, what can display your branding and any setup cost.</p>
-        <p>A panel-domain change does not automatically change every address used in customer players. Ask us to confirm both requirements if you need a branded dashboard and customer playback address.</p>
-        <h3 className="pt-2 text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Discuss VPS Configuration and Secure Customer URL Options</h3>
-        <p>We can configure a compatible virtual private server arrangement for your panel and customer URLs.</p>
-        <p>Tell us whether you already have a VPS and what you want it to do.</p>
-        <p>We can check the compatible configuration, HTTPS requirements, maintenance responsibilities and cost.</p>
-        <p>A personal URL alone does not establish encryption or a private server. The relevant security features need to be configured as part of the agreed setup.</p>
-        <h3 className="pt-2 text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Confirm the Correct Service URL for VPN Users</h3>
-        <p>For customers who want to use a VPN, we can arrange a compatible URL according to the supported account setup.</p>
-        <p>Confirm the correct address with us before giving customers VPN instructions.</p>
-        <p>A VPN is different from a VPS, and a VPN-compatible service URL does not automatically include a VPN subscription.</p>
-        <p>Provide the device, player and intended VPN arrangement so we can check the configuration.</p>
-      </Block>
+      <section className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
+        <Container className="relative z-10">
+          <FadeIn delay={0.05}>
+            <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+              Add Your Own Branding and Personal Customer URLs
+            </h2>
+          </FadeIn>
+          <p className="mt-6 max-w-3xl text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+            Your panel address, customer playback URL, VPS and VPN configuration have different roles. Describe the outcome you need so we can arrange the correct setup.
+          </p>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            <article className="rounded-2xl border p-6" style={cardStyle}>
+              <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Use Your Own Domain for a Branded Panel</h3>
+              <div className="mt-4 space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+                <p>We can add a personal domain to the panel so you can use your own branding and URL.</p>
+                <p>Send the domain you control and the preferred hostname or subdomain.</p>
+                <p>We will explain the required configuration, what can display your branding and any setup cost.</p>
+                <p>A panel-domain change does not automatically change every address used in customer players. Ask us to confirm both requirements if you need a branded dashboard and customer playback address.</p>
+              </div>
+            </article>
+            <article className="rounded-2xl border p-6" style={cardStyle}>
+              <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Discuss VPS Configuration and Secure Customer URL Options</h3>
+              <div className="mt-4 space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+                <p>We can configure a compatible virtual private server arrangement for your panel and customer URLs.</p>
+                <p>Tell us whether you already have a VPS and what you want it to do.</p>
+                <p>We can check the compatible configuration, HTTPS requirements, maintenance responsibilities and cost.</p>
+                <p>A personal URL alone does not establish encryption or a private server. The relevant security features need to be configured as part of the agreed setup.</p>
+              </div>
+            </article>
+            <article className="rounded-2xl border p-6" style={cardStyle}>
+              <h3 className="text-xl font-bold" style={{ color: "var(--hero-heading)" }}>Confirm the Correct Service URL for VPN Users</h3>
+              <div className="mt-4 space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+                <p>For customers who want to use a VPN, we can arrange a compatible URL according to the supported account setup.</p>
+                <p>Confirm the correct address with us before giving customers VPN instructions.</p>
+                <p>A VPN is different from a VPS, and a VPN-compatible service URL does not automatically include a VPN subscription.</p>
+                <p>Provide the device, player and intended VPN arrangement so we can check the configuration.</p>
+              </div>
+            </article>
+          </div>
+        </Container>
+      </section>
 
       <Block title="Offer Your Customers Live Channels and On-Demand Content">
         <p>Customer subscriptions use the available Strong 8k service catalogue:</p>
-        <ul className="space-y-2">
+        <ul className="grid gap-3 sm:grid-cols-2">
           {CATALOGUE.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={item} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
+              {item}
+            </li>
           ))}
         </ul>
         <p>Check specific titles, languages and events before promising them to a customer.</p>
@@ -146,9 +183,11 @@ export function ResellerRest() {
         <p>We provide assistance with panel access, credit questions and service issues.</p>
         <p>Contact us about account creation problems, renewals, domain configuration, URL arrangements or a fault that needs investigation.</p>
         <p>For a customer issue, send:</p>
-        <ul className="list-disc space-y-1 pl-5">
+        <ul className="grid gap-3 sm:grid-cols-2">
           {SUPPORT_DETAILS.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={item} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
+              {item}
+            </li>
           ))}
         </ul>
         <p>Hide passwords and full private playlist links in screenshots.</p>

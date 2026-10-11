@@ -23,14 +23,21 @@ export function InstallationBeforeStart() {
           <RevealParts>
           <p>Have your device make and model, an internet connection and an active trial or subscription ready.</p>
           <p>Contact support for your login details. Depending on the player, setup may use:</p>
-          <ul className="space-y-2">
-            {METHODS.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span className="mt-[9px] h-px w-3 shrink-0" style={{ background: "var(--grad-brand)" }} aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          </RevealParts>
+        </div>
+        <ul className="mt-6 grid gap-3 md:grid-cols-3">
+          {METHODS.map((item) => (
+            <li
+              key={item}
+              className="rounded-2xl border bg-transparent p-5 text-sm leading-[1.7]"
+              style={{ borderColor: "rgba(212, 168, 75, 0.45)", color: "var(--hero-muted)" }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+          <RevealParts>
           <p>Some third-party players have a separate licence charge. An app licence and a Strong 8k viewing subscription are separate purchases.</p>
           <p>If you already have a player installed, tell support its name so we can check the correct account method.</p>
           </RevealParts>

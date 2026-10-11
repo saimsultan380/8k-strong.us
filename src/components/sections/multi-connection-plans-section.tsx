@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 const CONNECTION_OPTIONS = [1, 2, 3, 4] as const;
 
@@ -114,7 +115,7 @@ export function MultiConnectionPlansSection() {
               className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
               style={{ color: "var(--hero-heading)" }}
             >
-              Choose Your Strong 8k IPTV Subscription and Connection Allowance
+              Choose Your IPTV Subscription Duration and Connection Allowance
             </h2>
           </FadeIn>
 
@@ -178,12 +179,23 @@ export function MultiConnectionPlansSection() {
               hidden={!active}
               className={cn(!active && "hidden")}
             >
-              <p className="mb-4 text-sm leading-[1.7]" style={{ color: "var(--hero-muted)" }}>
-                A connection means one stream playing at a time. Two connections allow two
-                simultaneous streams, three allow three and four allow four. Watching on a
-                television and using another supported device later is different from playing
-                both at once.
-              </p>
+              <div className="mb-6 max-w-3xl space-y-3 text-sm leading-[1.7]" style={{ color: "var(--hero-muted)" }}>
+                <p>
+                  A connection means one stream playing at a time. Two connections allow two
+                  simultaneous streams, three allow three and four allow four.
+                </p>
+                <p>
+                  Watching on a television and using another supported device later is different
+                  from playing both at once. A two-screen IPTV arrangement needs two connections
+                  when both screens are streaming simultaneously.
+                </p>
+                <p>
+                  For multi-connection IPTV, count the streams you need running together rather
+                  than the total number of devices you own. Your order will confirm the permitted
+                  device and location arrangement. Contact us before ordering if you need several
+                  addresses or more than four simultaneous streams.
+                </p>
+              </div>
               <div className="grid w-full items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
                 {PLAN_DURATIONS.map((plan, i) => (
                   <PricingCard
@@ -199,16 +211,22 @@ export function MultiConnectionPlansSection() {
         })}
 
         <FadeIn delay={0.15} className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
-            All displayed prices are full-term totals, rather than monthly instalments.
-            Select your required connection allowance to see the corresponding amount for
-            each duration. For multi-connection IPTV, count the streams you need running
-            together rather than the total number of devices you own. Your order will
-            confirm the permitted device and location arrangement. Contact us before
-            ordering if you need several addresses or more than four simultaneous streams.
-          </p>
+          <div className="space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+            <p>
+              All displayed prices are full-term totals, rather than monthly instalments.
+              Select your required connection allowance to see the corresponding amount for
+              each duration.
+            </p>
+            <p>
+              Individual channels, titles, languages and features can change. If a particular
+              programme, channel or viewing feature is essential to you, ask us about its
+              current availability before choosing a plan.
+            </p>
+          </div>
           <Link
-            href={`${routes.contactUs}?enquiry=subscription`}
+            href={enquiryWhatsApp("subscription")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-black"
             style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
           >

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
@@ -82,7 +83,9 @@ export function SubscriptionCtaSection() {
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-12">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href={`${routes.contactUs}?enquiry=free-trial`}
+                  href={enquiryWhatsApp("free-trial")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-[15px] font-bold text-white transition-all duration-200 hover:brightness-110"
                   style={{
                     background: "var(--hero-cta-primary-bg)",
@@ -94,7 +97,9 @@ export function SubscriptionCtaSection() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href={routes.contactUs}
+                  href={enquiryWhatsApp("subscription")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-xl border px-8 py-4 text-[15px] font-bold transition-all duration-200 hover:brightness-110"
                   style={{
                     borderColor: "var(--hero-pill-border)",

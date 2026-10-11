@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 export function HomepageCtaSection() {
   return (
@@ -53,7 +54,9 @@ export function HomepageCtaSection() {
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-12">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
                 <a
-                  href={`${routes.contactUs}?enquiry=free-trial`}
+                  href={enquiryWhatsApp("free-trial")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center rounded-xl px-4 py-4 text-[13px] font-bold transition-all duration-200 hover:brightness-110 sm:px-8 sm:text-[15px]"
                   style={{
                     background: "var(--hero-cta-primary-bg)",

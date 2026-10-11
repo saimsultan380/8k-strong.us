@@ -2,11 +2,20 @@
 
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { PRICING_PLAN_FEATURES } from "@/lib/plans";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { FaqAccordionSection, type FaqItem } from "@/components/sections/faq-section";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
+
+const cardStyle = {
+  backgroundColor: "var(--feature-card-bg)",
+  borderColor: "var(--feature-card-border)",
+  boxShadow: "var(--feature-card-shadow)",
+} as const;
+
+const buttonClass =
+  "inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110 sm:text-[15px]";
 
 function Prose({
   id,
@@ -20,13 +29,13 @@ function Prose({
   return (
     <section id={id} className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
       <Container className="relative z-10">
-        <div className="mx-auto max-w-3xl">
-          <FadeIn delay={0.05}>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
-              {title}
-            </h2>
-          </FadeIn>
-          <div className="mt-6 space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+        <FadeIn delay={0.05}>
+          <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+            {title}
+          </h2>
+        </FadeIn>
+        <div className="mt-8 rounded-2xl border p-6 sm:p-8 md:p-10" style={cardStyle}>
+          <div className="max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
             <RevealParts>{children}</RevealParts>
           </div>
         </div>
@@ -34,8 +43,6 @@ function Prose({
     </section>
   );
 }
-
-const linkClass = "font-semibold underline";
 
 const PRICING_FAQS: FaqItem[] = [
   {
@@ -60,87 +67,59 @@ const PRICING_FAQS: FaqItem[] = [
   },
 ];
 
+const SETUP_CARDS = [
+  "Watch available HD, FHD and UHD content. Picture quality depends on the channel or film, your device, player and internet connection. EPG programme guides and catch-up are limited, so check your preferred channels with support or during a trial.",
+  "Compatible devices include Smart TVs, Firestick, Fire TV, Android, iPhone, iPad, Apple TV, Windows, Mac and Roku. Our app uses Downloader code 4330396 on compatible Fire OS and Android devices; 439873 is the old code. TiviMate is another option for compatible Android TV devices. Samsung and LG televisions use players from their own app stores. Tell support your device model and existing player before ordering.",
+  "Request a Strong 8k free trial to test your channels, on-demand content and UHD viewing. Support will confirm the duration, access details and conditions. To order a Strong 8k IPTV subscription, choose your connections and 1, 3, 6 or 12 months, then confirm the price, devices, locations and activation details. Keep login and device activation details private. 24/7 customer support is available.",
+];
+
 export function PricingDetails() {
   return (
     <>
-      <Prose title="See What Every Strong 8k Subscription Plan Includes">
-        <p>The following catalogue and service features apply across all subscription durations and connection options:</p>
-        <ul className="space-y-2">
-          {PRICING_PLAN_FEATURES.map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span className="mt-[9px] h-px w-3 shrink-0" style={{ background: "var(--grad-brand)" }} aria-hidden />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p>
-          Individual channels, titles, languages and features can change. If a particular programme, channel or viewing feature is essential to you, ask us about its current availability before choosing a plan.
-        </p>
-      </Prose>
-
       <Prose title="Request Favourite Films, Series and Live Event Updates">
         <p>Looking for a favourite film or series that you cannot find in the catalogue? Send the title to our support team.</p>
         <p>Include the release year where possible. For a series, tell us which season or episodes you want. These details help us identify the correct content and avoid confusion between titles with similar names.</p>
         <p>We can add requested films and series to the server, subject to availability. Support will confirm what can be added and any available update on the request.</p>
         <p>For live events, send the event name, date and approximate start time. We provide event updates and can help you check the available viewing options before it begins.</p>
-        <Link href={`${routes.contactUs}?enquiry=content-request`} className={linkClass} style={{ color: "var(--hero-heading)" }}>
+        <Link href={enquiryWhatsApp("content-request")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
           Request Content or Ask About an Event
         </Link>
       </Prose>
 
-      <Prose title="Understand Picture Quality, Programme Guides and Catch-Up Availability">
-        <p>Available streams include HD, FHD and UHD sources. The quality you receive depends on the channel or title, your device, the player and your internet connection.</p>
-        <p>A UHD-capable television can display a suitable UHD source, but the source itself determines the available picture detail. Ask us about a particular channel or programme if its resolution matters to your choice.</p>
-        <p>EPG availability is limited. Programme information may appear for some channels while being unavailable or incomplete for others. The player you use can also affect how the guide is displayed.</p>
-        <p>Catch-up is also limited. It is available only for supported content and requires a player that can use the supplied catch-up information. Check a particular channel with support before relying on catch-up for a programme you want to watch.</p>
-      </Prose>
-
-      <Prose title="Check Your Devices Before Ordering a Strong 8k Subscription">
-        <p>Tell us which devices you intend to use so we can recommend the appropriate installation route.</p>
-        <p>Supported setups include compatible Smart TVs, Firestick and Fire TV devices, Android devices, iPhone, iPad, Apple TV, Windows, Mac and Roku. The available player and installation method depend on the exact model and operating system.</p>
-        <p>Our current app uses Downloader code 4330396 on compatible Fire OS and Android devices. The earlier code 439873 belongs to the previous version.</p>
-        <p>For compatible Android TV devices, TiviMate is another player option. Samsung and LG televisions use an available player from their own app stores, while Apple TV and other platforms require an app compatible with that platform.</p>
-        <p>If you already have a player, send us its exact name before ordering. We can check whether it supports the account method supplied for your subscription.</p>
-        <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          Open the Strong 8k Installation Guide
-        </Link>
-      </Prose>
-
-      <Prose title="Request a Free Trial Before Choosing Your Subscription">
-        <p>Contact us for a Strong 8k free trial and tell us which device you want to test.</p>
-        <p>The trial gives you an opportunity to check the available catalogue, use the recommended player and assess playback on your own internet connection. Test the channels and on-demand categories that matter most to you.</p>
-        <p>Support will confirm the trial duration, access details and any applicable conditions when arranging it.</p>
-        <p>Testing your intended device is particularly useful if you are considering UHD viewing or a player you have not used before. If you need several simultaneous streams, tell support so the connection requirement can be discussed.</p>
-        <Link href={`${routes.contactUs}?enquiry=free-trial`} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          Request Your Free Trial
-        </Link>
-      </Prose>
-
-      <Prose title="Order Your Strong 8k IPTV Subscription in Simple Steps">
-        <ol className="list-decimal space-y-3 pl-5">
-          <li>Select your connections. Choose the number of streams you need playing simultaneously.</li>
-          <li>Choose your duration. Select a one-month, three-month, six-month or twelve-month plan.</li>
-          <li>Send your device details. Tell us the device model and player you intend to use.</li>
-          <li>Confirm your order. Check the total price, connection allowance, location arrangement and activation details before payment.</li>
-          <li>Follow the supplied setup instructions. Use your account details with the recommended app or compatible player.</li>
-          <li>Keep your login information private. If setup requires device activation, send the required identifiers directly to support.</li>
-        </ol>
-        <p>Our customer support is available 24/7 for subscription enquiries and assistance with the supported setup process.</p>
-        <p>
-          If you intend to sell subscriptions to your own customers, visit the{" "}
-          <Link href={routes.resellerPanel} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-            Strong 8k Reseller Panel
-          </Link>{" "}
-          for business enquiries.
-        </p>
-      </Prose>
+      <section className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
+        <Container className="relative z-10">
+          <FadeIn delay={0.05}>
+            <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+              IPTV Setup, Free Trial and Help With Your Subscription
+            </h2>
+          </FadeIn>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {SETUP_CARDS.map((text) => (
+              <article key={text.slice(0, 24)} className="rounded-2xl border p-6" style={cardStyle}>
+                <p className="text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>{text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href={routes.installationGuide} className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
+              Open the Strong 8k Installation Guide
+            </Link>
+            <Link href={enquiryWhatsApp("free-trial")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
+              Request Your Free Trial
+            </Link>
+            <Link href={routes.resellerPanel} className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
+              Strong 8k Reseller Panel
+            </Link>
+          </div>
+        </Container>
+      </section>
 
       <Prose title="Renew Your Strong 8k Subscription Before Access Expires">
         <p>For subscription renewal, contact us with your existing order reference or the account information requested by support.</p>
         <p>Tell us whether you want to keep your current duration and connection allowance or discuss a different arrangement. We will confirm the available renewal option and its price before you pay.</p>
         <p>For an existing Strong8k account, make clear that you are renewing. This helps support identify the correct subscription and explain how the renewal will apply.</p>
         <p>If you also want to change devices, mention this in the same enquiry. Some players use direct account credentials, while others require device linking or a refreshed playlist.</p>
-        <Link href={`${routes.contactUs}?enquiry=renewal`} className={linkClass} style={{ color: "var(--hero-heading)" }}>
+        <Link href={enquiryWhatsApp("renewal")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
           Ask About Subscription Renewal
         </Link>
       </Prose>
@@ -149,12 +128,12 @@ export function PricingDetails() {
         faqs={PRICING_FAQS}
         defaultOpenId="change-connections"
         eyebrow="FAQ"
-        description="Connections, devices, player licences and picture quality."
-        title={<>Answers to Common Questions About Strong 8k Subscriptions</>}
+        description=""
+        title="Answers to Common Questions About Your IPTV Subscription"
       />
       <Prose title="Need help choosing your subscription?">
         <p>Send us your device details, preferred duration and required connection allowance. We can help you check the plan before you order.</p>
-        <Link href={routes.contactUs} className={linkClass} style={{ color: "var(--hero-heading)" }}>
+        <Link href={enquiryWhatsApp("subscription")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
           Contact Strong 8k About Your Subscription
         </Link>
       </Prose>

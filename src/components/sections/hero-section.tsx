@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tv, Film, Headphones } from "lucide-react";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 import { Container } from "@/components/layout/container";
 import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
@@ -93,7 +94,9 @@ export function HeroSection() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="min-w-0 flex-[1.15] sm:flex-initial">
                 <Link
-                  href={`${routes.contactUs}?enquiry=free-trial`}
+                  href={enquiryWhatsApp("free-trial")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex min-h-11 items-center justify-center whitespace-nowrap rounded-xl bg-gradient-brand px-2.5 py-3 text-[12px] font-bold text-black transition-all duration-200 hover:brightness-110 sm:min-w-52 sm:px-7 sm:text-[14px]"
                   style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
                 >

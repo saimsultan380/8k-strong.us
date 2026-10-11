@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
-import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 export function HomepageFreeTrialSection() {
   return (
@@ -81,7 +81,9 @@ export function HomepageFreeTrialSection() {
               <FadeIn delay={0.3} className="mt-8">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
                   <Link
-                    href={`${routes.contactUs}?enquiry=free-trial`}
+                    href={enquiryWhatsApp("free-trial")}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 rounded-xl px-7 py-4 text-[14px] font-bold transition-all duration-200 hover:brightness-110 sm:text-[15px]"
                     style={{
                       background: "var(--hero-cta-primary-bg)",

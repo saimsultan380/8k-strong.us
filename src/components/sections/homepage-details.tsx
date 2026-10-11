@@ -8,6 +8,7 @@ import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
 import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { routes } from "@/lib/routes";
+import { enquiryWhatsApp } from "@/lib/site";
 
 const DEVICES = [
   ["Compatible Fire OS Firestick or Fire TV", "Our app through Downloader, or TiviMate where compatible"],
@@ -96,7 +97,9 @@ export function HomepageDetails() {
           <FadeIn delay={0.16} className="mt-8">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
               <Link
-                href={`${routes.contactUs}?enquiry=content-request`}
+                href={enquiryWhatsApp("content-request")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={buttonClass}
                 style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
               >
@@ -204,7 +207,9 @@ export function HomepageDetails() {
           <FadeIn delay={0.18} className="mt-8">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
               <Link
-                href={routes.contactUs}
+                href={enquiryWhatsApp("installation")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={buttonClass}
                 style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
               >

@@ -58,6 +58,8 @@ export function ContactCtaSection() {
             <div className="mt-8 flex justify-center">
               <a
                 href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:brightness-110 sm:text-[15px]"
                 style={{
                   background: "var(--hero-cta-primary-bg)",

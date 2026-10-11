@@ -72,26 +72,6 @@ export function ContactHelpTopics() {
             Support
           </span>
         </FadeIn>
-        <FadeIn delay={0.1}>
-          <h2
-            className="mt-3 max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[36px]"
-            style={{ color: "var(--hero-heading)" }}
-          >
-            What you can ask support
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.15}>
-          <div className="mt-5 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-            <p>
-              Use the topics below for trials, subscriptions, installation, content requests, live events, playback and reseller pricing.{" "}
-              <Link href={`${routes.subscriptionPlans}#refund-policy`} className="font-semibold underline" style={{ color: "var(--hero-heading)" }}>
-                Read the Refund Terms
-              </Link>
-              .
-            </p>
-          </div>
-        </FadeIn>
-
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           {TOPICS.map((topic, i) => (
             <ScrollReveal key={topic.title} direction="up" delay={0.05 * i} once className="h-full">
@@ -102,12 +82,12 @@ export function ContactHelpTopics() {
                   backgroundColor: "transparent",
                 }}
               >
-                <h3
-                  className="text-base font-bold"
+                <h2
+                  className="text-lg font-bold leading-snug"
                   style={{ color: "var(--hero-heading)" }}
                 >
                   {topic.title}
-                </h3>
+                </h2>
                 <div
                   className="mt-2 text-sm leading-[1.7]"
                   style={{ color: "var(--feature-body)" }}
