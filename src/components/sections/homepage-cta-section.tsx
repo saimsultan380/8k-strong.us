@@ -35,7 +35,7 @@ export function HomepageCtaSection() {
               className="mx-auto mt-5 max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[44px]"
               style={{ color: "var(--hero-heading)" }}
             >
-              Ready to Choose Your Strong 8k Viewing Plan?
+              Choose Your IPTV Subscription or Request a Free Trial
             </h2>
           </FadeIn>
 
@@ -46,15 +46,6 @@ export function HomepageCtaSection() {
             >
               Check your device, ask about your favourite content and choose the
               connections your household needs.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.18}>
-            <p
-              className="mx-auto mt-5 max-w-[680px] text-[15px] leading-[1.8] sm:text-base"
-              style={{ color: "var(--hero-muted)" }}
-            >
-              Request a free trial, compare plans, or speak to support.
             </p>
           </FadeIn>
 
@@ -101,23 +92,6 @@ export function HomepageCtaSection() {
               </motion.div>
             </div>
           </ScrollReveal>
-
-          <FadeIn delay={0.25}>
-            <p
-              className="mx-auto mt-8 max-w-[600px] text-sm leading-[1.75] sm:text-[15px]"
-              style={{ color: "var(--hero-muted)" }}
-            >
-              Questions before you order? Reach our team any time via the{" "}
-              <Link
-                href={routes.contactUs}
-                className="font-semibold underline transition-colors hover:text-[var(--hero-accent)]"
-                style={{ color: "var(--hero-heading)" }}
-              >
-                Contact Us
-              </Link>{" "}
-              page.
-            </p>
-          </FadeIn>
         </div>
       </Container>
     </section>

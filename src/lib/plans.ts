@@ -66,15 +66,19 @@ export const PLAN_DURATIONS = [
 ] as const;
 
 export const HOME_PLAN_FEATURES = [
-  "40,000+ UK and international live channels.",
+  "40,000+ available live channels.",
   "140,000+ VOD titles, including films and series.",
+  "UK-focused and international viewing.",
   "HD, FHD and UHD options where supported.",
-  "Multilingual content where available.",
+  "Multilingual content, with audio and subtitles varying by title.",
   "Requests for favourite films and series.",
   "Live event updates and availability enquiries.",
-  "Limited EPG and catch-up coverage.",
-  "Support for compatible devices and players.",
+  "Limited catch-up on supported channels and programmes.",
+  "Limited EPG programme information.",
+  "Our app for compatible Fire OS and Android devices.",
+  "Help setting up supported devices and players.",
   "24/7 customer support.",
+  "Plans for one or more simultaneous connections.",
 ] as const;
 
 export const PRICING_PLAN_FEATURES = [

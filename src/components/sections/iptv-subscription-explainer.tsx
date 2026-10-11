@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
-import { routes } from "@/lib/routes";
 
 const POINTS = [
   "Account details for a supported player",
@@ -111,17 +109,17 @@ export function IptvSubscriptionExplainer() {
               >
                 If you are unsure which player to choose, send us your device
                 model. We can explain the suitable installation route and account
-                format before you pay. Our aim is to make the service useful for
-                your household: clear plans, practical setup help and a way to ask
-                about the programmes you enjoy.
+                format before you pay.
+              </p>
+              <p
+                className="text-sm leading-[1.8] sm:text-[15px] md:text-base"
+                style={{ color: "var(--feature-body)" }}
+              >
+                Our aim is to make the service useful for your household: clear
+                plans, practical setup help and a way to ask about the programmes
+                you enjoy.
               </p>
             </div>
-            <Link
-              href={routes.installationGuide}
-              className="mt-8 inline-flex text-sm font-bold underline transition-opacity hover:opacity-85 text-gradient-brand"
-            >
-              Find your installation instructions →
-            </Link>
           </div>
         </FadeIn>
       </Container>

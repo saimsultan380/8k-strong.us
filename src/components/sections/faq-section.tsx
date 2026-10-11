@@ -251,11 +251,13 @@ export function FaqAccordionSection({
                 {title}
               </h2>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <p className="mt-6 max-w-sm text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
-                {description}
-              </p>
-            </FadeIn>
+            {description ? (
+              <FadeIn delay={0.15}>
+                <p className="mt-6 max-w-sm text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+                  {description}
+                </p>
+              </FadeIn>
+            ) : null}
           </div>
 
           <div className="min-w-0">
@@ -273,12 +275,8 @@ export function FaqSection() {
       faqs={HOMEPAGE_FAQS}
       defaultOpenId="name"
       eyebrow="FAQ"
-      description="Brand name, content, reviews and refund terms."
-      title={
-        <>
-          Answers to Common Questions Before Choosing Your Subscription
-        </>
-      }
+      description=""
+      title="Answers to Common Questions About Your IPTV Subscription"
     />
   );
 }

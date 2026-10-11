@@ -58,9 +58,6 @@ export function PricingSection() {
                 >
                   {PLAN_PRICES[1][plan.months]}
                 </p>
-                <p className="mt-3 text-[13px] leading-[1.6]" style={{ color: "var(--hero-muted)" }}>
-                  {plan.summary}
-                </p>
                 <p className="mt-5 text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
                   Included catalogue and features:
                 </p>
@@ -94,13 +91,20 @@ export function PricingSection() {
         </div>
 
         <FadeIn delay={0.2} className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-            Need more than one screen playing at once? Visit our Pricing page for
-            two, three and four-connection options. Ask us about your important
-            channels, titles and device before ordering. Individual content
-            availability can change, and some third-party players have a separate
-            licence charge.
-          </p>
+          <div className="space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+            <p>
+              Need more than one screen playing at once? Visit our{" "}
+              <Link href={routes.subscriptionPlans} className="font-semibold underline" style={{ color: "var(--hero-heading)" }}>
+                Pricing page
+              </Link>{" "}
+              for two, three and four-connection options.
+            </p>
+            <p>
+              Ask us about your important channels, titles and device before ordering.
+              Individual content availability can change, and some third-party players
+              have a separate licence charge.
+            </p>
+          </div>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href={routes.subscriptionPlans}
@@ -120,6 +124,10 @@ export function PricingSection() {
               Ask About a Free Trial
             </Link>
           </div>
+          <p className="mt-6 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+            A specific channel, title or feature can change. If something is essential
+            to your viewing, ask us to check it before choosing a plan.
+          </p>
         </FadeIn>
       </Container>
     </section>

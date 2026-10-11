@@ -93,11 +93,12 @@ export function Header() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="inline-flex"
             >
               <Link
                 href={routes.subscriptionPlans}
                 id="hero-get-started"
-                className="shrink-0 rounded-xl bg-gradient-brand px-4 py-2 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:brightness-110 sm:px-5"
+                className="relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-brand px-4 py-2 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:brightness-110 sm:px-5"
                 style={{
                   boxShadow: "var(--hero-cta-primary-shadow)",
                 }}
@@ -168,7 +169,7 @@ export function Header() {
                   >
                     <Link
                       href={routes.subscriptionPlans}
-                      className="flex w-full items-center justify-center rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:brightness-110"
+                      className="relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:brightness-110"
                       style={{
                         boxShadow: "var(--hero-cta-primary-shadow)",
                       }}

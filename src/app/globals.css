@@ -138,9 +138,9 @@
   --site-scrim:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.62) 0%,
-      rgba(0, 0, 0, 0.48) 45%,
-      rgba(0, 0, 0, 0.58) 100%
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.58) 45%,
+      rgba(0, 0, 0, 0.68) 100%
     );
 
   /* Shared glass — light black panels (no backdrop blur; avoids scroll pop-in) */
@@ -159,7 +159,7 @@
   --glass-accent-ring: 0 0 0 1px rgba(212, 168, 75, 0.55);
 
   /* Features */
-  --feature-card-bg: var(--glass-bg);
+  --feature-card-bg: rgba(0, 0, 0, 0.56);
   --feature-card-border: transparent;
   --feature-card-shadow: var(--glass-shadow);
   --feature-icon-bg: rgba(0, 0, 0, 0.35);
@@ -198,7 +198,7 @@
   }
 
   .glass-card {
-    background-color: var(--glass-bg);
+    background-color: var(--feature-card-bg);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     border-radius: var(--glass-radius);
@@ -243,7 +243,7 @@
 @layer components {
   /* Panels that use card tokens in inline styles */
   [style*="var(--feature-card-bg)"] {
-    background-color: var(--glass-bg) !important;
+    background-color: var(--feature-card-bg) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     border-radius: var(--glass-radius);
@@ -268,14 +268,14 @@
 
   /* Inline transparent bg must not punch holes through glass panels */
   [style*="feature-card-border"][style*="transparent"] {
-    background-color: var(--glass-bg) !important;
+    background-color: var(--feature-card-bg) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     box-shadow: var(--glass-shadow);
   }
 
   :is(div, a, form, article):is(.rounded-2xl, .rounded-xl).border[style*="feature-card-border"] {
-    background-color: var(--glass-bg) !important;
+    background-color: var(--feature-card-bg) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     border-radius: var(--glass-radius);
@@ -422,16 +422,13 @@ div[style*="feature-icon-bg"] {
   border-radius: 9999px !important;
 }
 
-/* Periodic shine sweep across gold CTA buttons (once every 2.5s) */
+/* Snapchat-style gloss: a soft sheen travels inside the pill over 5s, then loops. */
 @keyframes btn-shine {
   0% {
-    left: -70%;
-  }
-  22% {
-    left: 140%;
+    left: -65%;
   }
   100% {
-    left: 140%;
+    left: 130%;
   }
 }
 
@@ -444,24 +441,34 @@ button[style*="hero-cta-primary-bg"] {
   isolation: isolate;
 }
 
+/* Inline links ignore overflow, which let the sheen paint outside the header pill. */
+a.bg-gradient-brand:not(.flex),
+a[style*="hero-cta-primary-bg"]:not(.flex) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 a.bg-gradient-brand::after,
 button.bg-gradient-brand::after,
 a[style*="hero-cta-primary-bg"]::after,
 button[style*="hero-cta-primary-bg"]::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -70%;
-  height: 100%;
-  width: 45%;
+  top: -20%;
+  left: -65%;
+  height: 140%;
+  width: 38%;
   background: linear-gradient(
-    105deg,
+    100deg,
     transparent 0%,
+    rgba(255, 255, 255, 0.08) 35%,
     rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.08) 65%,
     transparent 100%
   );
-  transform: skewX(-20deg);
-  animation: btn-shine 2.5s ease-in-out infinite;
+  transform: skewX(-18deg);
+  animation: btn-shine 5s linear infinite;
   pointer-events: none;
   z-index: 1;
 }

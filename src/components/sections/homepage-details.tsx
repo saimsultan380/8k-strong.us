@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { Clapperboard, Radio, MonitorPlay, Download, Tv, Languages } from "lucide-react";
+import { motion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
+import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { routes } from "@/lib/routes";
 
 const DEVICES = [
@@ -12,115 +15,103 @@ const DEVICES = [
   ["Android phones and tablets", "Our compatible app or a touchscreen player"],
   ["Samsung, LG and other Smart TVs", "A suitable player from the television’s app store"],
   ["iPhone and iPad", "iPlayTV AIO, UHF, GSE Smart IPTV or IBO Player Pro where compatible"],
+  ["Apple TV", "Compatible IBO Player / IBO Player Pro, or an existing compatible app supporting Xtream Codes or M3U"],
   ["Windows and Mac", "A compatible IBO Player or IBO Player Pro version"],
   ["Roku", "A compatible IBO player available for the model and region"],
 ];
 
-function Block({
-  id,
-  title,
-  children,
-}: {
-  id?: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
-      <Container className="relative z-10">
-        <FadeIn delay={0.05}>
-          <h2
-            className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
-            style={{ color: "var(--hero-heading)" }}
-          >
-            {title}
-          </h2>
-        </FadeIn>
-        <div className="mt-6 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-          <RevealParts>{children}</RevealParts>
-        </div>
-      </Container>
-    </section>
-  );
-}
+const cardStyle = {
+  backgroundColor: "var(--feature-card-bg)",
+  borderColor: "var(--feature-card-border)",
+  boxShadow: "var(--feature-card-shadow)",
+} as const;
+
+const buttonClass =
+  "inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110 sm:text-[15px]";
 
 const linkClass = "font-semibold underline transition-colors hover:text-[var(--hero-accent)]";
+
+const CONTENT_TOPICS = [
+  {
+    icon: Clapperboard,
+    label: "Content requests",
+    body: "Enjoy UK television and on-demand content. Request your favourite films and series through support. Send the title, year, language and any season, episode or subtitle details. We’ll check what’s available to add.",
+  },
+  {
+    icon: Radio,
+    label: "Live event updates",
+    body: "For live event updates, send support the event name and date. We’ll help you check availability and find the right channel. Test playback before the event starts and contact us if you need help.",
+  },
+  {
+    icon: MonitorPlay,
+    label: "UHD picture quality",
+    body: "Watch available HD, Full HD (FHD) and UHD content. Picture quality depends on the channel or film, your device and internet connection. Test your preferred content during your trial. Strong 8k is our brand name; not every stream is 8K.",
+  },
+] as const;
+
+const APP_POINTS = [
+  {
+    icon: Tv,
+    body: "Choose one to four connections for that many screens playing at once. Installing the app on more devices does not add connections. Tell support which screens and locations you need. EPG programme guides and catch-up are limited, so check your channels and available replay times during a trial.",
+  },
+  {
+    icon: Languages,
+    body: "Audio languages and subtitles vary by title. For stable playback, check your internet connection and restart the app. Contact support if you need help.",
+  },
+] as const;
 
 export function HomepageDetails() {
   return (
     <>
-      <Block id="content-requests" title="Request Your Favourite Films and Series Through Support">
-        <p>
-          If your favourite film or series is missing, contact us. We accept content
-          requests and can arrange additions where the requested title is available for the service.
-        </p>
-        <p>
-          Send the title, release year and preferred language. For a series, include
-          the season and episode numbers. Mention subtitles if you need them.
-        </p>
-        <p>
-          A clear request helps us find the correct programme, especially when several
-          films share a name or a series has different versions.
-        </p>
-        <p>
-          We will check the request and explain availability. The time needed depends
-          on the content and source, so additions are not promised immediately.
-        </p>
-        <p>
-          You can also ask about a missing language, season or available quality option
-          for a title already in the library.
-        </p>
-        <Link href={`${routes.contactUs}?enquiry=content-request`} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          Send a Content Request
-        </Link>
-      </Block>
-
-      <Block id="live-events" title="Follow UK Television and the Latest Live Event Updates">
-        <p>
-          Our service is aimed mainly at UK viewers, with prices in pounds and setup
-          information written in British English.
-        </p>
-        <p>
-          For a live event, send support the event name and scheduled date. We can help
-          you check the current information and find the relevant available category.
-        </p>
-        <p>
-          Before an important programme begins, open the app and test playback. Check
-          that your account is active and that other screens are not using connections you need.
-        </p>
-        <p>
-          If an available feed fails, tell us the channel or event, when it stopped and
-          whether other content still plays.
-        </p>
-        <p>
-          Event updates help you follow current availability. They are not a guarantee
-          that every event or competition worldwide is included.
-        </p>
-      </Block>
-
-      <Block id="picture-quality" title="Enjoy HD, Full HD and Available UHD Picture Quality">
-        <p>Strong 8k offers available HD, Full HD and UHD streams.</p>
-        <p>
-          The picture you receive depends on the source, player, device, display and
-          connection. A UHD television does not turn every channel into a genuine UHD source.
-        </p>
-        <p>
-          For everyday programmes, a consistent HD or FHD picture may suit your setup.
-          For available UHD content, check that the device and screen support it and that
-          the connection remains stable.
-        </p>
-        <p>Strong 8k is the brand name. It does not mean that every stream is supplied in 8K.</p>
-        <p>
-          During a trial, test the content and resolution you actually intend to watch.
-          If you need a particular quality option, ask support to check that channel or title.
-        </p>
-      </Block>
+      <section id="content-requests" className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
+        <Container className="relative z-10">
+          <FadeIn delay={0.05}>
+            <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]" style={{ color: "var(--hero-heading)" }}>
+              Content Requests, Live Event Updates and UHD Picture Quality
+            </h2>
+          </FadeIn>
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {CONTENT_TOPICS.map((topic, index) => {
+              const Icon = topic.icon;
+              return (
+                <ScrollReveal key={topic.label} direction="up" delay={0.05 * index} once className="h-full">
+                  <article className="flex h-full flex-col rounded-2xl border p-6 sm:p-7" style={cardStyle}>
+                    <span
+                      className="flex h-11 w-11 items-center justify-center rounded-xl border"
+                      style={{ borderColor: "var(--feature-card-border)", color: "var(--hero-accent)" }}
+                    >
+                      <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                    </span>
+                    <p className="mt-5 text-lg font-bold leading-snug" style={{ color: "var(--hero-heading)" }}>
+                      {topic.label}
+                    </p>
+                    <p className="mt-3 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+                      {topic.body}
+                    </p>
+                  </article>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+          <FadeIn delay={0.16} className="mt-8">
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
+              <Link
+                href={`${routes.contactUs}?enquiry=content-request`}
+                className={buttonClass}
+                style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
+              >
+                Send a Content Request
+              </Link>
+            </motion.div>
+          </FadeIn>
+        </Container>
+      </section>
 
       <section id="device-compatibility" className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
         <Container className="relative z-10">
           <FadeIn delay={0.05}>
             <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]" style={{ color: "var(--hero-heading)" }}>
-              Watch Strong 8k on Your Preferred Supported Device
+              Watch UK IPTV on Smart TVs and Supported Devices
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -161,68 +152,120 @@ export function HomepageDetails() {
         </Container>
       </section>
 
-      <Block id="app-code" title="Install Our App Using the Current Downloader Code">
-        <p>For compatible Fire OS and Android devices, install Downloader by AFTVnews and enter:</p>
-        <p className="text-3xl font-black tracking-tight text-gradient-brand">4330396</p>
-        <p>The previous version used 439873. Follow the current guide when installing the app or ask support about updating an existing version.</p>
-        <p>The code installs the app. It does not create a subscription or provide login access.</p>
-        <p>After installation, contact support for your account details and enter them using the method supplied.</p>
-        <p>Check the app destination before installing. If your Fire TV uses Vega OS or your device does not support the installation route, ask us for a suitable alternative.</p>
-      </Block>
-
-      <Block id="connections" title="Choose How Many Screens You Want Playing Together">
-        <p>Choose your connection allowance around simultaneous viewing.</p>
-        <p>One connection can suit someone who watches on one device at a time. Two connections can suit a household where two people watch different programmes together. Three or four connections allow the corresponding number of simultaneous streams.</p>
-        <p>Installing the player on another device does not increase the account’s allowance.</p>
-        <p>For example, watching on a TV at one time and a phone later is different from playing both at once.</p>
-        <p>Tell us the screens and locations you need. We will confirm the permitted account arrangement before ordering.</p>
-        <Link href={routes.subscriptionPlans} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          View connection prices
-        </Link>
-      </Block>
-
-      <Block id="guide-catchup" title="Check Programme Guide Information and Available Catch-Up Coverage">
-        <p>An EPG shows programme information where schedule data is supplied and supported by the player.</p>
-        <p>Our EPG coverage is limited. Some channels may play without showing a complete schedule.</p>
-        <p>Catch-up allows replay of supported programmes. Our catch-up availability is also limited, and replay periods can differ.</p>
-        <p>A programme appearing in the guide does not prove that a replay is available. Likewise, a player advertising catch-up does not supply an archive for every channel.</p>
-        <p>If either feature matters to you, check the specific channels during a trial or ask support before subscribing.</p>
-      </Block>
-
-      <Block id="languages" title="Find Available Audio Languages and Subtitles for Your Viewing">
-        <p>Explore available programmes in different languages alongside UK content.</p>
-        <p>Audio tracks and subtitles vary by title. Tell support which language you need and whether you prefer original audio, dubbed content or subtitles.</p>
-        <p>Some catalogues use labels such as VO for original version, VF for French-language versions and VOSTFR for original audio with French subtitles. These labels describe versions; they do not guarantee a language option on every title.</p>
-        <p>For English subtitles or another requirement, check the specific content you want. We can also handle enquiries about available animation, anime and film genres without assuming every category contains a particular release.</p>
-      </Block>
-
-      <Block id="playback" title="Get Help Keeping Playback Stable on Your Setup">
-        <p>We focus on reliable viewing and provide support when something stops working.</p>
-        <p>A playback issue can involve a source, device, app or connection. Notice whether it affects one channel, one title or the whole catalogue before contacting us.</p>
-        <p>Check your account expiry and simultaneous connection allowance. Restart the player, then tell us if the problem continues.</p>
-        <p>For Wi-Fi viewing, signal strength and other household activity can affect playback. A wired connection can help where supported.</p>
-        <p>Terms such as anti-freeze IPTV appear in service advertising, but no label guarantees that playback can never pause. Test your own setup and ask about actual symptoms when you need assistance.</p>
-      </Block>
-
-      <Block id="support" title="Contact Our Support Team Before and After Subscribing">
-        <p>Our customer support is available 24/7 for subscription, installation and service enquiries.</p>
-        <p>We can help you choose a plan, check your device, use the app code, add account details and report a playback problem.</p>
-        <p>You can also contact us about content requests, live events, renewals and reseller access.</p>
-        <p>For a technical question, send your device model, player name, account reference and the message on screen. Explain whether other content works.</p>
-        <p>Keep passwords and full playlist links out of public posts and screenshots.</p>
-        <Link href={routes.contactUs} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          Contact Customer Support
-        </Link>
-      </Block>
-
-      <Block id="reseller" title="Run Your Own Reseller Dashboard with Personal Branding">
-        <p>Our reseller dashboard starts with a minimum initial purchase of 120 credits.</p>
-        <p>After payment, we activate the panel using your supplied email address and username.</p>
-        <p>Ask about your own domain, personal panel URL, VPS arrangements and a compatible URL for VPN use. We provide reseller support and confirm the credit price before purchase.</p>
-        <Link href={routes.resellerPanel} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-          Explore Reseller Options
-        </Link>
-      </Block>
+      <section id="app-code" className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
+        <Container className="relative z-10">
+          <FadeIn delay={0.05}>
+            <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]" style={{ color: "var(--hero-heading)" }}>
+              Install the Strong 8k App and Set Up Connections
+            </h2>
+          </FadeIn>
+          <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+            <ScrollReveal direction="up" delay={0.05} once className="h-full">
+              <article className="flex h-full flex-col rounded-2xl border p-6 sm:p-8" style={cardStyle}>
+                <span
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border"
+                  style={{ borderColor: "var(--feature-card-border)", color: "var(--hero-accent)" }}
+                >
+                  <Download className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                </span>
+                <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--hero-accent)" }}>
+                  Downloader code
+                </p>
+                <p className="mt-3 text-5xl font-black tracking-tight text-gradient-brand sm:text-6xl">4330396</p>
+                <p className="mt-5 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+                  On compatible Fire OS and Android devices, install Downloader by AFTVnews and
+                  enter 4330396. The old code was 439873. Check the app details before installing,
+                  then contact support for subscription login details. If your device uses Vega OS,
+                  ask us for another setup option.
+                </p>
+              </article>
+            </ScrollReveal>
+            <div className="grid h-full gap-4">
+              {APP_POINTS.map((point, index) => {
+                const Icon = point.icon;
+                return (
+                  <ScrollReveal key={point.body.slice(0, 24)} direction="up" delay={0.1 + index * 0.06} once className="h-full">
+                    <article className="flex h-full gap-4 rounded-2xl border p-6 sm:p-7" style={cardStyle}>
+                      <span
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
+                        style={{ borderColor: "var(--feature-card-border)", color: "var(--hero-accent)" }}
+                      >
+                        <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                      </span>
+                      <p className="text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+                        {point.body}
+                      </p>
+                    </article>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          </div>
+          <FadeIn delay={0.18} className="mt-8">
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
+              <Link
+                href={routes.contactUs}
+                className={buttonClass}
+                style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
+              >
+                Contact Strong 8k for Help
+              </Link>
+            </motion.div>
+          </FadeIn>
+        </Container>
+      </section>
     </>
+  );
+}
+
+export function HomepageResellerSection() {
+  return (
+    <section id="reseller" className="relative isolate overflow-hidden py-16 md:py-24" style={{ backgroundColor: "var(--hero-base)" }}>
+      <Container className="relative z-10">
+        <div className="overflow-hidden rounded-2xl border" style={{ borderColor: "var(--feature-card-border)", backgroundColor: "var(--feature-card-bg)", boxShadow: "var(--feature-card-shadow)" }}>
+          <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
+            <div
+              className="flex flex-col items-center justify-center border-b px-8 py-10 text-center lg:border-b-0 lg:border-r lg:py-14"
+              style={{ borderColor: "var(--feature-card-border)" }}
+            >
+              <FadeIn delay={0.05}>
+                <span className="text-[11px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--hero-muted)" }}>
+                  Minimum purchase
+                </span>
+                <p className="mt-4 text-6xl font-black leading-none text-gradient-brand sm:text-7xl">120</p>
+                <p className="mt-3 text-xl font-black uppercase tracking-wide" style={{ color: "var(--hero-accent)" }}>
+                  credits
+                </p>
+              </FadeIn>
+            </div>
+            <div className="p-7 sm:p-10 lg:p-12">
+              <FadeIn delay={0.08}>
+                <h2 className="max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl" style={{ color: "var(--hero-heading)" }}>
+                  Run Your Own Reseller Dashboard With White Label Branding
+                </h2>
+              </FadeIn>
+              <div className="mt-6 max-w-xl space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+                <RevealParts>
+                  <p>Our reseller dashboard starts with a minimum initial purchase of 120 credits.</p>
+                  <p>After payment, we activate the panel using your supplied email address and username.</p>
+                  <p>Ask about your own domain, personal panel URL, VPS arrangements and a compatible URL for VPN use. We provide reseller support and confirm the credit price before purchase.</p>
+                </RevealParts>
+              </div>
+              <FadeIn delay={0.2} className="mt-8">
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
+                  <Link
+                    href={routes.resellerPanel}
+                    className={buttonClass}
+                    style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
+                  >
+                    Explore Reseller Options
+                  </Link>
+                </motion.div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
