@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { CSSProperties, ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import {
   createScrollRevealVariants,
   heroRevealAnimate,
@@ -32,10 +32,19 @@ export function HeroReveal({
 }: HeroRevealProps) {
   const reduceMotion = useReducedMotion();
   const meshReady = useMeshReady();
-  const initial =
-    variant === "text"
-      ? heroRevealInitial
-      : createScrollRevealVariants(variant).hidden;
+  const [settled, setSettled] = useState(false);
+  const preset = createScrollRevealVariants(variant);
+  const initial = variant === "text" ? heroRevealInitial : preset.hidden;
+  const duration =
+    variant === "logo" || variant === "logoHero"
+      ? preset.visible(0).transition.duration
+      : variant === "cta"
+        ? 0.52
+        : heroRevealDuration;
+  const shown =
+    variant === "logo" || variant === "logoHero"
+      ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+      : heroRevealAnimate;
 
   if (reduceMotion) {
     return (
@@ -47,14 +56,17 @@ export function HeroReveal({
 
   return (
     <motion.div
-      className={`telvis-motion-reveal${className ? ` ${className}` : ""}`}
+      className={`telvis-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
       style={style}
       initial={initial}
-      animate={meshReady ? heroRevealAnimate : initial}
+      animate={meshReady ? shown : initial}
       transition={{
-        duration: variant === "cta" ? 0.52 : heroRevealDuration,
+        duration,
         delay,
         ease: motionEase,
+      }}
+      onAnimationComplete={() => {
+        if (meshReady) setSettled(true);
       }}
     >
       {children}

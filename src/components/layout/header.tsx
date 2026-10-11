@@ -37,7 +37,7 @@ export function Header() {
           className="glass-nav pointer-events-auto relative mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-2.5 sm:px-5 sm:py-3 lg:max-w-6xl"
         >
           {/* Logo */}
-          <HeroReveal variant="media" delay={0.04} className="shrink-0">
+          <HeroReveal variant="logo" delay={0.05} className="shrink-0">
             <Link
               href={routes.home}
               id="hero-logo"
@@ -45,7 +45,7 @@ export function Header() {
               onClick={closeMenu}
             >
               <Image
-                src="/strong-8k.PNG?v=2"
+                src="/strong-8k.PNG?v=3"
                 alt="Strong 8k"
                 width={64}
                 height={64}

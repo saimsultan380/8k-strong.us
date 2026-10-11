@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     google: "6css43Rhe2qtd8Qoqo6sByeuJKNR16A3P4h5LBTTBLc",
   },
   icons: {
-    icon: "/strong-8k.PNG?v=2",
-    shortcut: "/strong-8k.PNG?v=2",
-    apple: "/strong-8k.PNG?v=2",
+    icon: "/strong-8k.PNG?v=3",
+    shortcut: "/strong-8k.PNG?v=3",
+    apple: "/strong-8k.PNG?v=3",
   },
 };
 

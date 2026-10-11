@@ -51,7 +51,7 @@ export function Footer() {
           <div>
             <Link href={routes.home} className="inline-flex items-center gap-2.5 no-underline">
               <Image
-                src="/strong-8k.PNG?v=2"
+                src="/strong-8k.PNG?v=3"
                 alt="Strong 8k"
                 width={64}
                 height={64}

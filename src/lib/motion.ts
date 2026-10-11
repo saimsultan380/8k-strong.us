@@ -17,7 +17,7 @@ export const ctaRevealDuration = 0.52;
 export const mediaRevealDuration = 0.68;
 export const heroRevealDuration = 0.72;
 
-export type ScrollRevealVariant = "text" | "cta" | "media";
+export type ScrollRevealVariant = "text" | "cta" | "media" | "logo" | "logoHero";
 
 const scrollRevealPresets = {
   text: {
@@ -35,6 +35,18 @@ const scrollRevealPresets = {
     blur: "blur(10px)",
     duration: mediaRevealDuration,
   },
+  logo: {
+    y: 4,
+    blur: "blur(14px)",
+    scale: 0.92,
+    duration: 1.05,
+  },
+  logoHero: {
+    y: 14,
+    blur: "blur(28px)",
+    scale: 0.88,
+    duration: 1.25,
+  },
 } as const;
 
 export function createScrollRevealVariants(
@@ -49,11 +61,13 @@ export function createScrollRevealVariants(
       opacity: 0,
       y,
       filter: preset.blur,
+      ...("scale" in preset ? { scale: preset.scale } : {}),
     },
     visible: (delay: number) => ({
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
+      ...("scale" in preset ? { scale: 1 } : {}),
       transition: {
         duration: preset.duration,
         delay,

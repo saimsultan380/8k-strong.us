@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
+import { HOME_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { enquiryWhatsApp } from "@/lib/site";
@@ -78,9 +78,21 @@ function PricingCard({
           </span>
         </p>
         <PriceGlowDivider />
-        <p className="mb-8 flex-1 text-[13px] leading-[1.65] sm:text-[14px]" style={{ color: "rgba(255, 255, 255, 0.82)" }}>
-          {plan.pricingSummary}
+        <p className="text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
+          Included catalogue and features:
         </p>
+        <ul className="mb-8 mt-3 flex flex-1 flex-col gap-2.5">
+          {HOME_PLAN_FEATURES.map((feature) => (
+            <li key={feature} className="flex items-start gap-3 text-[13px] leading-[1.55]">
+              <span
+                className="mt-[9px] h-px w-3 shrink-0"
+                style={{ background: "var(--grad-brand)" }}
+                aria-hidden
+              />
+              <span style={{ color: "rgba(255, 255, 255, 0.82)" }}>{feature}</span>
+            </li>
+          ))}
+        </ul>
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-auto w-full">
           <Link
             href={href}
