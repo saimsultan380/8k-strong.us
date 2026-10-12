@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/container";
 import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
 
-const WHATSAPP_LINK = "https://wa.me/447401921250";
+const WHATSAPP_LINK = "https://wa.me/447460676632";
 
 export function ContactHero() {
   return (

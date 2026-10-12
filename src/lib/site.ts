@@ -17,9 +17,9 @@ export const siteConfig = {
   siteUrl: "https://8k-strong.co.uk",
   email: "support@strong8k.com",
   /** Display format for the public support number */
-  phone: "+44 7401 921250",
+  phone: "+44 7460 676632",
   /** Digits only for wa.me / tel: links (no + or spaces) */
-  phoneE164: "447401921250",
+  phoneE164: "447460676632",
   locale: "en_GB",
   language: "en-GB",
   twitterHandle: "@strong8k",

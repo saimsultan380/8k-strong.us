@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const WHATSAPP_LINK = "https://wa.me/447401921250"; // Replace with your actual WhatsApp Link
+const WHATSAPP_LINK = "https://wa.me/447460676632"; // Replace with your actual WhatsApp Link
 
 export function SupportAndPaymentsSection() {
   return (

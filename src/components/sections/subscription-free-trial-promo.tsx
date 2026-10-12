@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 
-const WHATSAPP_LINK = "https://wa.me/447401921250";
+const WHATSAPP_LINK = "https://wa.me/447460676632";
 
 export function SubscriptionFreeTrialPromo() {
   return (

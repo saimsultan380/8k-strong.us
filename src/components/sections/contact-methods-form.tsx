@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/animation/fade-in";
 import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { siteConfig } from "@/lib/site";
 
-const WHATSAPP_LINK = "https://wa.me/447401921250";
+const WHATSAPP_LINK = "https://wa.me/447460676632";
 
 const ENQUIRY_TYPES = [
   "Free trial",
