@@ -3,15 +3,68 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { routes } from "@/lib/routes";
-import { enquiryWhatsApp } from "@/lib/site";
+import { whatsappUrlWithText } from "@/lib/site";
 import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
+import { ScrollReveal } from "@/components/animation/scroll-reveal";
+import { motion } from "framer-motion";
 
 const cardStyle = {
   backgroundColor: "var(--feature-card-bg)",
   borderColor: "var(--feature-card-border)",
   boxShadow: "var(--feature-card-shadow)",
 } as const;
+
+function PriceGlowDivider() {
+  return (
+    <div className="relative my-6 h-[2px] w-full" aria-hidden>
+      <div
+        className="absolute inset-x-[10%] top-1/2 h-3 -translate-y-1/2 blur-md"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(245, 230, 163, 0.55) 0%, rgba(212, 168, 75, 0.25) 40%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(184, 134, 11, 0.15) 12%, #b8860b 28%, #e8c547 42%, #fff8e0 50%, #e8c547 58%, #b8860b 72%, rgba(184, 134, 11, 0.15) 88%, transparent 100%)",
+          boxShadow:
+            "0 0 10px rgba(232, 197, 71, 0.45), 0 0 22px rgba(212, 168, 75, 0.25)",
+        }}
+      />
+      <div
+        className="absolute left-1/2 top-1/2 h-[3px] w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, #ffffff 0%, #fff4c4 35%, transparent 70%)",
+          boxShadow: "0 0 12px 2px rgba(255, 248, 224, 0.7)",
+        }}
+      />
+    </div>
+  );
+}
+
+const RESELLER_PACK_FEATURES = [
+  "40,000+ live channels and 140,000+ VOD titles, including films and series.",
+  "Multilingual UK-focused and international content; audio and subtitles vary by title.",
+  "HD, FHD and UHD source options.",
+  "Favourite film and series requests, plus live event enquiries and updates.",
+  "Limited EPG programme information and catch-up coverage.",
+  "Our app for compatible Fire OS and Android devices.",
+  "Help with supported devices and compatible third-party players.",
+  "Reseller dashboard to manage customer subscriptions using your credit balance.",
+  "White Label Branding, with your own domain and branded panel URL options.",
+  "VPS, secure URL and VPN-compatible URL options.",
+  "Reseller support and 24/7 customer support.",
+] as const;
+
+const RESELLER_PACKS = [
+  { name: "Starter Pack", credits: "120 Credits", highlight: false },
+  { name: "Growth Pack", credits: "240 Credits", highlight: true },
+  { name: "Pro Pack", credits: "360 Credits", highlight: false },
+] as const;
 
 function Block({
   id,
@@ -39,18 +92,6 @@ function Block({
     </section>
   );
 }
-
-const QUOTE = [
-  "The credit quantity.",
-  "Price and payment instructions.",
-  "Credit deductions for available terms.",
-  "Any extra deduction for simultaneous connections.",
-  "Trial functions and allowances, where available.",
-  "Credit expiry or usage terms.",
-  "Domain, VPS or URL setup costs.",
-  "Activation timing.",
-  "The wholesale purchase terms.",
-];
 
 const CATALOGUE = [
   "40,000+ live channels.",
@@ -85,22 +126,125 @@ export function ResellerRest() {
         <p>If you see Strong8k panel or Strong8k reseller written without a space, check the website associated with the offer. Here, Strong8k IPTV panel refers to our reseller dashboard. Choose the reseller enquiry route for business access.</p>
       </Block>
 
-      <Block id="reseller-plans" title="Start Your Reseller Dashboard with 120 Initial Credits">
-        <p>The minimum opening purchase is 120 credits.</p>
-        <p>Contact us for the current cash price and any larger purchase requirement.</p>
-        <p>Your quote should confirm:</p>
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {QUOTE.map((item) => (
-            <li key={item} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p>Do not calculate customer capacity from another provider’s credit rules. Confirm the schedule for this panel first.</p>
-        <Link href={enquiryWhatsApp("reseller-pricing")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black" style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-          Request a Credit Quote
-        </Link>
-      </Block>
+      <section
+        id="reseller-plans"
+        className="relative isolate overflow-hidden py-16 md:py-24"
+        style={{ backgroundColor: "var(--hero-base)" }}
+      >
+        <Container className="relative z-10">
+          <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-2 md:items-end md:gap-12">
+            <FadeIn delay={0.05}>
+              <h2
+                className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
+                style={{ color: "var(--hero-heading)" }}
+              >
+                Start Your Reseller Dashboard with 120 Initial Credits
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <div
+                className="space-y-3 text-sm leading-[1.75] sm:text-[15px] md:text-right"
+                style={{ color: "var(--hero-muted)" }}
+              >
+                <p>
+                  The minimum opening purchase for your Strong 8k reseller dashboard is 120
+                  credits. Contact us for the current cash price and any larger purchase
+                  requirement.
+                </p>
+                <p>
+                  All three packages include the same catalogue and available reseller features.
+                  The package size changes the credit quantity available to manage customer
+                  subscriptions.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+
+          <div className="grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6">
+            {RESELLER_PACKS.map((pack, i) => (
+              <ScrollReveal key={pack.name} direction="up" delay={0.06 * i} once className="h-full">
+                <article
+                  className="relative flex h-full flex-col rounded-xl border px-6 py-7 md:px-7 md:py-8"
+                  style={{
+                    backgroundColor: "var(--feature-card-bg)",
+                    borderColor: pack.highlight
+                      ? "rgba(212, 168, 75, 0.85)"
+                      : "var(--feature-card-border)",
+                    boxShadow: pack.highlight
+                      ? "var(--feature-card-shadow), 0 0 0 1px rgba(212, 168, 75, 0.35), 0 0 28px rgba(212, 168, 75, 0.18)"
+                      : "var(--feature-card-shadow)",
+                  }}
+                >
+                  {pack.highlight ? (
+                    <span
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+                      style={{
+                        background: "var(--grad-brand)",
+                        color: "var(--hero-cta-primary-fg)",
+                      }}
+                    >
+                      Popular
+                    </span>
+                  ) : null}
+
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-lg font-bold" style={{ color: "var(--hero-heading)" }}>
+                      {pack.name}
+                    </p>
+                    <p className="shrink-0 text-sm font-semibold" style={{ color: "var(--hero-muted)" }}>
+                      {pack.credits}
+                    </p>
+                  </div>
+
+                  <p
+                    className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em]"
+                    style={{ color: "var(--hero-muted)" }}
+                  >
+                    Pricing
+                  </p>
+                  <p className="mt-1 text-xl font-bold tracking-tight text-gradient-brand sm:text-2xl">
+                    Contact Support for Price
+                  </p>
+
+                  <PriceGlowDivider />
+
+                  <p className="text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
+                    Catalogue and reseller features:
+                  </p>
+                  <ul className="mt-3 flex flex-1 flex-col gap-2.5">
+                    {RESELLER_PACK_FEATURES.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2.5 text-[13px] leading-[1.55]"
+                      >
+                        <span className="mt-0.5 shrink-0" style={{ color: "var(--hero-accent)" }}>
+                          –
+                        </span>
+                        <span style={{ color: "rgba(255, 255, 255, 0.82)" }}>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-7">
+                    <Link
+                      href={whatsappUrlWithText(
+                        `I would like the Strong 8k ${pack.name} (${pack.credits}).`,
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center rounded-xl bg-gradient-brand px-5 py-3.5 text-center text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110"
+                      style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
+                    >
+                      Get This Package
+                    </Link>
+                  </motion.div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+
+        </Container>
+      </section>
 
       <Block title="Activate Your Panel with Your Email and Username">
         <ol className="grid gap-3 sm:grid-cols-2">

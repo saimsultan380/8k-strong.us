@@ -132,15 +132,23 @@ export function MultiConnectionPlansSection() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p
-              className="text-sm leading-[1.75] sm:text-[15px] md:text-right"
+            <div
+              className="space-y-3 text-sm leading-[1.75] sm:text-[15px] md:text-right"
               style={{ color: "var(--hero-muted)" }}
             >
-              Select your connection allowance below, then choose a subscription lasting
-              1, 3, 6 or 12 months. Every plan includes the same catalogue and service
-              features. Your selected duration determines how long your subscription lasts,
-              while your connection allowance determines how many streams can play simultaneously.
-            </p>
+              <p>
+                Choose your connection allowance (1–4) and a 1, 3, 6 or 12-month IPTV
+                subscription. Every plan includes the same catalogue and service features.
+              </p>
+              <p>
+                For multi-connection IPTV, each connection allows one stream at a time;
+                two-screen IPTV needs two. Count the screens playing together.
+              </p>
+              <p>
+                Confirm your devices and locations with support before ordering, especially
+                for several addresses or more than four simultaneous streams.
+              </p>
+            </div>
           </FadeIn>
         </div>
 
@@ -191,23 +199,6 @@ export function MultiConnectionPlansSection() {
               hidden={!active}
               className={cn(!active && "hidden")}
             >
-              <div className="mb-6 max-w-3xl space-y-3 text-sm leading-[1.7]" style={{ color: "var(--hero-muted)" }}>
-                <p>
-                  A connection means one stream playing at a time. Two connections allow two
-                  simultaneous streams, three allow three and four allow four.
-                </p>
-                <p>
-                  Watching on a television and using another supported device later is different
-                  from playing both at once. A two-screen IPTV arrangement needs two connections
-                  when both screens are streaming simultaneously.
-                </p>
-                <p>
-                  For multi-connection IPTV, count the streams you need running together rather
-                  than the total number of devices you own. Your order will confirm the permitted
-                  device and location arrangement. Contact us before ordering if you need several
-                  addresses or more than four simultaneous streams.
-                </p>
-              </div>
               <div className="grid w-full items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
                 {PLAN_DURATIONS.map((plan, i) => (
                   <PricingCard

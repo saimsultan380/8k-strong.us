@@ -21,24 +21,44 @@ export function InstallationAppsCodes() {
             </p>
           </FadeIn>
           <FadeIn delay={0.16}>
-          <div className="mt-8 overflow-x-auto rounded-2xl border" style={{ borderColor: "var(--feature-card-border)" }}>
-            <table className="w-full min-w-[520px] text-left text-sm">
-              <thead>
-                <tr style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
-                  <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Recommended player</th>
-                  <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Setup guidance</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SMART_TV_PLAYERS.map(([player, guidance]) => (
-                  <tr key={player} style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
-                    <td className="px-5 py-4 font-semibold" style={{ color: "var(--hero-heading)" }}>{player}</td>
-                    <td className="px-5 py-4" style={{ color: "var(--hero-muted)" }}>{guidance}</td>
-                  </tr>
+            <div
+              className="mt-8 rounded-2xl border p-5 sm:p-7"
+              style={{
+                backgroundColor: "var(--feature-card-bg)",
+                borderColor: "var(--feature-card-border)",
+                boxShadow: "var(--feature-card-shadow)",
+              }}
+            >
+              <p
+                className="text-sm font-bold uppercase tracking-[0.12em] text-gradient-brand"
+              >
+                Recommended players
+              </p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {SMART_TV_PLAYERS.map((player) => (
+                  <li
+                    key={player}
+                    className="flex items-center gap-3 rounded-xl border px-4 py-3.5 text-sm font-semibold sm:text-[15px]"
+                    style={{
+                      borderColor: "rgba(212,168,75,0.45)",
+                      color: "var(--hero-heading)",
+                      background:
+                        "linear-gradient(135deg, rgba(212,168,75,0.12) 0%, rgba(0,0,0,0.2) 100%)",
+                    }}
+                  >
+                    <span
+                      className="h-2 w-2 shrink-0 rounded-full"
+                      style={{
+                        background: "var(--grad-brand)",
+                        boxShadow: "0 0 10px rgba(212,168,75,0.55)",
+                      }}
+                      aria-hidden
+                    />
+                    {player}
+                  </li>
                 ))}
-              </tbody>
-            </table>
-          </div>
+              </ul>
+            </div>
           </FadeIn>
           <div className="mt-6 max-w-3xl space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
             <RevealParts>
