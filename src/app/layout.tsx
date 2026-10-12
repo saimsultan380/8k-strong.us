@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ...siteMetadataBase,
   metadataBase: new URL(canonicalUrl(routes.home)),
   verification: {
-    google: "6css43Rhe2qtd8Qoqo6sByeuJKNR16A3P4h5LBTTBLc",
+    google: "mQRPFUjrZxye77pMaig-wBVfguUClB7P72FIJQ6Xib0",
   },
   icons: {
     icon: "/strong-8k.PNG?v=3",
