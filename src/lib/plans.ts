@@ -4,10 +4,10 @@ export const CONNECTION_COUNTS = [1, 2, 3, 4] as const;
 
 /** Full-term totals in the order 1 / 2 / 3 / 4 connections. */
 export const PLAN_PRICES: Record<number, Record<number, string>> = {
-  1: { 1: "£8.98", 3: "£17.98", 6: "£24.98", 12: "£41.98" },
-  2: { 1: "£17.96", 3: "£35.96", 6: "£49.96", 12: "£83.96" },
-  3: { 1: "£26.94", 3: "£53.94", 6: "£74.94", 12: "£125.94" },
-  4: { 1: "£35.92", 3: "£71.92", 6: "£99.92", 12: "£167.92" },
+  1: { 1: "£9.99", 3: "£17.98", 6: "£24.98", 12: "£41.98" },
+  2: { 1: "£19.98", 3: "£35.96", 6: "£49.96", 12: "£83.96" },
+  3: { 1: "£29.97", 3: "£53.94", 6: "£74.94", 12: "£125.94" },
+  4: { 1: "£39.96", 3: "£71.92", 6: "£99.92", 12: "£167.92" },
 };
 
 export const PLAN_DURATIONS = [
@@ -15,7 +15,7 @@ export const PLAN_DURATIONS = [
     months: 1,
     label: "1 Month",
     cardTitle: "1-Month IPTV Subscription",
-    homeTitle: "1 Month — £8.98",
+    homeTitle: "1 Month — £9.99",
     slug: "1-month",
     summary:
       "A short subscription for your first paid period after trying the service.",
