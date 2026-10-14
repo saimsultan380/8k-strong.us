@@ -5,9 +5,7 @@ import { MessageCircle, Mail } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 import { ScrollReveal } from "@/components/animation/scroll-reveal";
-import { siteConfig } from "@/lib/site";
-
-const WHATSAPP_LINK = "https://wa.me/447460676632";
+import { siteConfig, whatsappUrl, whatsappUrlWithText } from "@/lib/site";
 
 const ENQUIRY_TYPES = [
   "Free trial",
@@ -75,21 +73,17 @@ export function ContactMethodsForm() {
     setReplyError(false);
 
     const text = [
-      "Strong 8K Contact Form",
+      "Strong8k USA Contact Form",
       `Name: ${name}`,
       `Email: ${email || "Not provided"}`,
       `WhatsApp: ${whatsapp || "Not provided"}`,
       `Device: ${device}`,
-      `Enquiry: ${enquiry}`,
+      `Inquiry: ${enquiry}`,
       planNote ? `Selected: ${planNote}` : "",
       `Message: ${message}`,
     ].join("\n");
 
-    window.open(
-      `${WHATSAPP_LINK}?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    window.open(whatsappUrlWithText(text), "_blank", "noopener,noreferrer");
     setSubmitted(true);
     form.reset();
   };
@@ -114,14 +108,14 @@ export function ContactMethodsForm() {
             className="mt-3 max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[36px]"
             style={{ color: "var(--hero-heading)" }}
           >
-            Send Your Enquiry with the Relevant Account Details
+            Send Your Inquiry With the Relevant Account Details
           </h2>
         </FadeIn>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           <ScrollReveal direction="up" delay={0.05} once>
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-full flex-col rounded-2xl border p-5 transition-colors hover:border-[var(--hero-accent)] sm:p-6"
@@ -162,10 +156,26 @@ export function ContactMethodsForm() {
                 Email
               </p>
               <p className="mt-2 text-sm leading-[1.7]" style={{ color: "var(--feature-body)" }}>
-                Email: {siteConfig.email}. Do not include your account password.
+                Email: {siteConfig.email}. Leave out your account password.
               </p>
             </a>
           </ScrollReveal>
+        </div>
+
+        <div className="mt-6 space-y-2 text-sm leading-[1.7]" style={{ color: "var(--hero-muted)" }}>
+          <p>
+            For renewal inquiries, include the existing account reference and the duration and connections you want.
+          </p>
+          <p>
+            For refund requests, identify the account concerned and review the applicable seven-day window.{" "}
+            <a
+              href="/pricing#refund-policy"
+              className="font-semibold underline transition-colors hover:text-[var(--hero-accent)]"
+              style={{ color: "var(--hero-heading)" }}
+            >
+              Read the Refund Policy
+            </a>
+          </p>
         </div>
 
         <FadeIn delay={0.15}>
@@ -173,10 +183,10 @@ export function ContactMethodsForm() {
             className="mt-10 text-2xl font-bold leading-tight tracking-tight sm:text-3xl"
             style={{ color: "var(--hero-heading)" }}
           >
-            Your message
+            Your Message
           </h2>
           <p className="mt-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
-            Include the details needed for your enquiry. Do not enter your account password.
+            Include the information relevant to your inquiry. Leave out your account password.
           </p>
         </FadeIn>
 
@@ -213,7 +223,7 @@ export function ContactMethodsForm() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  placeholder="you@example.com"
+                  placeholder="you@strong8k.com"
                   className={inputClass}
                   style={inputStyle}
                 />
@@ -258,7 +268,7 @@ export function ContactMethodsForm() {
 
             <label className="mt-4 block space-y-2">
               <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--hero-muted)" }}>
-                Enquiry type
+                Inquiry type
               </span>
               <select
                 name="enquiry"
@@ -268,7 +278,7 @@ export function ContactMethodsForm() {
                 style={inputStyle}
               >
                 <option value="" disabled>
-                  Select an enquiry type
+                  Select an inquiry type
                 </option>
                 {ENQUIRY_TYPES.map((type) => (
                   <option key={type} value={type} style={{ color: "#000" }}>
@@ -286,7 +296,7 @@ export function ContactMethodsForm() {
                 name="message"
                 required
                 rows={4}
-                placeholder="Free trial, subscription, installation, playback, content request or reseller pricing"
+                placeholder="Free trial, subscription, renewal, installation, playback, content request, reseller pricing, refund"
                 className={`${inputClass} resize-y`}
                 style={inputStyle}
               />
@@ -302,11 +312,11 @@ export function ContactMethodsForm() {
                   color: "var(--hero-cta-primary-fg)",
                 }}
               >
-                Send My Enquiry
+                Open My Inquiry in WhatsApp
               </button>
               {submitted ? (
                 <p className="text-sm" style={{ color: "var(--hero-accent)" }}>
-                  Your enquiry is ready in WhatsApp. Send it there to reach the team.
+                  Your inquiry is ready in WhatsApp. Send it there to reach the team.
                 </p>
               ) : null}
               {replyError ? (
@@ -317,12 +327,11 @@ export function ContactMethodsForm() {
             </div>
             {planNote ? (
               <p className="mt-4 text-sm" style={{ color: "var(--hero-heading)" }}>
-                This enquiry includes {planNote}.
+                This inquiry includes {planNote}.
               </p>
             ) : null}
             <p className="mt-4 text-xs leading-[1.7]" style={{ color: "var(--hero-muted)" }}>
-              This form opens WhatsApp with your message. We use the details only to reply to
-              your enquiry. There is no separate privacy page on this site.
+              This form prepares your message and opens WhatsApp. Review the details there before sending them to support.
             </p>
           </form>
         </ScrollReveal>

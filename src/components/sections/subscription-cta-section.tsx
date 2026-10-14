@@ -65,7 +65,7 @@ export function SubscriptionCtaSection() {
               className="mx-auto max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
               style={{ color: "var(--hero-heading)" }}
             >
-              Need help choosing your subscription?
+              Ready to Choose Your Subscription?
             </h2>
           </FadeIn>
 
@@ -74,8 +74,7 @@ export function SubscriptionCtaSection() {
               className="mx-auto mt-7 max-w-[720px] text-[15px] leading-[1.8] sm:text-base"
               style={{ color: "var(--hero-muted)" }}
             >
-              Send us your device details, preferred duration and required connection
-              allowance. We can help you check the plan before you order.
+              Confirm your device, content requirements, duration, and connections.
             </p>
           </FadeIn>
 
@@ -96,10 +95,8 @@ export function SubscriptionCtaSection() {
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href={enquiryWhatsApp("subscription")}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a
+                  href="#pricing"
                   className="inline-flex items-center gap-2.5 rounded-xl border px-8 py-4 text-[15px] font-bold transition-all duration-200 hover:brightness-110"
                   style={{
                     borderColor: "var(--hero-pill-border)",
@@ -107,8 +104,8 @@ export function SubscriptionCtaSection() {
                     color: "var(--hero-heading)",
                   }}
                 >
-                  Contact Strong 8k About Your Subscription
-                </Link>
+                  Choose Your Strong8k Plan
+                </a>
               </motion.div>
             </div>
           </ScrollReveal>

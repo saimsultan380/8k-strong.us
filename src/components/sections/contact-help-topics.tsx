@@ -13,7 +13,7 @@ const TOPICS = [
     title: "Ask About the Right Subscription for Your Household",
     body: (
       <>
-        Tell us whether you want one, three, six or twelve months and how many simultaneous streams your household needs. If you are unsure, describe your normal viewing arrangement and the devices involved. We can check compatibility and confirm the total before ordering.{" "}
+        Tell us whether you want one, three, six, or twelve months and how many streams need to play simultaneously. Include the devices and locations involved. We can check compatibility and confirm your selected plan’s total. Website prices are displayed in US dollars and cover the full selected term.{" "}
         <Link href={routes.subscriptionPlans} className={linkClass} style={{ color: "var(--hero-heading)" }}>
           View Subscription Prices
         </Link>
@@ -21,10 +21,10 @@ const TOPICS = [
     ),
   },
   {
-    title: "Get Strong 8k Installation Help for Your Device",
+    title: "Get Strong8k Installation Help for Your Supported Device",
     body: (
       <>
-        Send your device make and model, app name and the step you reached. For compatible Fire OS and Android devices, the current app code is 4330396. The earlier version used 439873. If an installation or login message appears, copy the exact wording or send a screenshot with credentials hidden.{" "}
+        Send the device make and model, operating system, player name, and installation step you reached. The current app code for compatible Fire OS and Android devices is 4330396. The earlier version used 439873. Include the exact error or a screenshot with credentials hidden.{" "}
         <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>
           Read the Installation Guide
         </Link>
@@ -32,22 +32,22 @@ const TOPICS = [
     ),
   },
   {
-    title: "Request Your Favourite Films, Series and Missing Episodes",
-    body: "Send the exact title and release year. For a series, include the season and episode numbers. Mention your preferred audio language and any subtitle requirement. We will check whether the requested content is available to add. Timing depends on the title and source. If an existing title fails to play, include the device and player details so we can investigate it as a fault.",
+    title: "Request Your Favorite Movies, Series and Missing Episodes",
+    body: "Provide the exact title and release year. For a series, include season and episode numbers. Mention your preferred audio language and subtitle requirements. We will check whether the content is available to add. Timing depends on the title and source. If an existing item fails to play, include your device and player details.",
   },
   {
     title: "Check Current Channel Availability and Live Event Updates",
-    body: "Ask us about a particular channel, live event or language before ordering. Include the name and scheduled date for an event. For a programme or title, provide enough detail to identify the correct version. Our team can check current information and explain availability. Event updates should not be treated as a guarantee that every broadcast worldwide is included.",
+    body: "For a channel, provide the network or station name. Include your city or ZIP code when asking about a local US station. For an event, send its name, date, scheduled start time, and time zone. Support can check current information and explain availability. Confirm essential viewing before choosing a subscription.",
   },
   {
-    title: "Report Playback Problems with the Details We Need",
-    body: "A useful support message includes your account or order reference, device model, player name, affected channel or title, when the problem began, the error shown, whether other content works and whether another device is streaming. For buffering, say whether the device uses Wi-Fi or a wired connection. For a missing guide, explain whether playback still works. Keep passwords and complete playlist links private.",
+    title: "Report Playback Problems With the Details We Need",
+    body: "Include your account or order reference, device model and player, affected channel or title, date, time, and time zone, error message or playback behavior, whether other content works, whether another device is streaming, Wi-Fi or wired connection, and checks already completed. Keep passwords and complete playlist links private.",
   },
   {
-    title: "Ask About Strong 8k Reseller Pricing and Branding",
+    title: "Ask About Strong8k Reseller Pricing and Branding Options",
     body: (
       <>
-        The minimum initial purchase for a reseller dashboard is 120 credits. Tell us the credit quantity you want and whether you need a personal domain, branded panel URL, VPS arrangement or VPN-compatible address. Panel activation after payment uses the email address and username you provide.{" "}
+        The minimum opening reseller purchase is 120 credits. Tell us the quantity you want and any personal domain, white label branding, panel URL, VPS, or VPN-compatible address requirements. Panel activation uses the email address and username you supply after payment confirmation.{" "}
         <Link href={routes.resellerPanel} className={linkClass} style={{ color: "var(--hero-heading)" }}>
           View Reseller Information
         </Link>

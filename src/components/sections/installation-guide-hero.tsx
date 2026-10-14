@@ -42,13 +42,13 @@ export function InstallationGuideHero() {
         <HeroReveal delay={0.18}>
           <div className="mx-auto mt-6 max-w-[760px] space-y-4 text-sm leading-[1.75] sm:text-[15px] md:text-base">
             <p style={{ color: "var(--hero-muted)" }}>
-              Select your device to see the recommended apps and setup instructions for Strong 8k.
+              Select your device to find the recommended apps and setup instructions.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              For compatible Fire OS and Android devices, our current app is available through Strong 8k Downloader code 4330396. The previous version used 439873.
+              For compatible Fire OS and Android devices, our current app uses Downloader code 4330396. The previous version used 439873.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              For Smart TVs, Apple devices, computers and Roku, choose a compatible player and use the account details supplied by support.
+              For Smart TVs, Apple devices, computers, and Roku, use a compatible player and the account information supplied by support.
             </p>
           </div>
         </HeroReveal>
@@ -80,7 +80,7 @@ export function InstallationGuideHero() {
                   backgroundColor: "transparent",
                 }}
               >
-                View Prices
+                View Subscription Prices
               </Link>
             </motion.div>
           </div>

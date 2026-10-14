@@ -7,43 +7,43 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 const ISSUES = [
   {
     id: "login",
-    title: "The account details are rejected",
-    body: "Check the server URL, username and password, or complete M3U link. Look for missing characters or accidental spaces and confirm the account is active.",
+    title: "Account information rejected",
+    body: "Check server address, login details, complete playlist, and account expiry.",
   },
   {
-    id: "catalogue",
-    title: "The catalogue does not load",
-    body: "Restart the player and check the internet connection. Send support the exact message shown.",
+    id: "catalog",
+    title: "Catalog fails to load",
+    body: "Player restart, internet connection, and exact error message.",
   },
   {
     id: "channels",
     title: "One channel or title fails",
-    body: "Try another item. Report the affected channel or title and when the problem occurred.",
+    body: "Test another item and report the affected content and time.",
   },
   {
     id: "connections",
     title: "Playback stops when another device starts",
-    body: "Check the simultaneous connection allowance and close streams you are not using.",
+    body: "Connection allowance and background streams.",
   },
   {
     id: "epg",
-    title: "Programme information is missing",
-    body: "EPG coverage is limited. Refresh the guide where supported and check the player’s time zone.",
+    title: "Program information missing",
+    body: "EPG coverage, guide refresh, and time-zone settings.",
   },
   {
     id: "catchup",
-    title: "Catch-up is unavailable",
-    body: "Catch-up is limited to supported channels and programmes. Ask support about the specific content.",
+    title: "Catch-up unavailable",
+    body: "Whether that channel and program support replay.",
   },
   {
-    id: "licence",
-    title: "The player requests a licence payment",
-    body: "Check the app licence separately from your Strong 8k subscription.",
+    id: "license",
+    title: "Player requests a license payment",
+    body: "Separate app licensing conditions.",
   },
   {
     id: "older-app",
-    title: "You have an older app installed",
-    body: "The current code is 4330396. The previous version used 439873. Ask support about updating your existing installation.",
+    title: "Older app installed",
+    body: "Ask support about updating to the version associated with code 4330396.",
   },
 ];
 
@@ -66,11 +66,11 @@ export function InstallationTroubleshooting() {
 
         <FadeIn delay={0.1}>
           <h2 className="mt-4 max-w-4xl text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl md:text-[42px]">
-            Fix Common Strong 8k Login and Playback Problems
+            Fix Common Strong8k Account Login and Playback Problems
           </h2>
         </FadeIn>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
           {ISSUES.map((issue, i) => (
             <ScrollReveal key={issue.id} direction="up" delay={0.04 * i} once className="h-full">
               <article
@@ -112,8 +112,7 @@ export function InstallationTroubleshooting() {
             className="mt-10 text-sm sm:text-[15px]"
             style={{ color: "var(--hero-muted)" }}
           >
-            Technical support continues throughout your active subscription, including after the
-            first seven days. Contact us with your device, app and a description of the problem.
+            For buffering, include whether you use Wi-Fi or a wired connection and whether other household devices are using the internet heavily. Technical support continues throughout your active subscription.
           </p>
         </FadeIn>
       </Container>

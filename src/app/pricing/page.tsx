@@ -7,7 +7,7 @@ import { MultiConnectionPlansSection } from "@/components/sections/multi-connect
 import { PricingDetails } from "@/components/sections/pricing-details";
 import { RefundPolicySection } from "@/components/sections/refund-policy-section";
 import { SubscriptionCtaSection } from "@/components/sections/subscription-cta-section";
-import { pageDescriptions, pageTitles, createPageMetadata } from "@/lib/site";
+import { pageDescriptions, pageKeywords, pageTitles, createPageMetadata } from "@/lib/site";
 import { routes } from "@/lib/routes";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { pageBreadcrumbs } from "@/lib/breadcrumbs";
@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   title: pageTitles.subscriptionPlans,
   description: pageDescriptions.subscriptionPlans,
   path: routes.subscriptionPlans,
+  keywords: [...pageKeywords.subscriptionPlans],
 });
 
 export default function PricingPage() {

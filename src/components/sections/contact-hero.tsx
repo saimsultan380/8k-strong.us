@@ -4,8 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { HeroReveal } from "@/components/animation/hero-reveal";
 import { HeroTitleReveal } from "@/components/animation/hero-title-reveal";
-
-const WHATSAPP_LINK = "https://wa.me/447460676632";
+import { whatsappUrl } from "@/lib/site";
 
 export function ContactHero() {
   return (
@@ -35,16 +34,16 @@ export function ContactHero() {
         <HeroTitleReveal
           className="mx-auto max-w-[920px] text-center text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl md:text-[48px] lg:text-[52px]"
           style={{ color: "var(--hero-heading)" }}
-          lines={["Contact Strong 8k for Free Trials and IPTV Support"]}
+          lines={["Contact Strong8k USA for Free Trials and IPTV Support"]}
         />
 
         <HeroReveal delay={0.18}>
           <div className="mx-auto mt-5 max-w-[760px] space-y-4 text-sm leading-[1.75] sm:text-[15px] md:text-base">
             <p style={{ color: "var(--hero-muted)" }}>
-              Ask about a trial, choose a subscription or get help with your account.
+              Ask about a trial, choose a subscription, or get help with your account.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              Our customer support is available 24/7 for installation, subscription and service enquiries.
+              Strong8k customer support is available 24/7 for installation, subscriptions, playback, content requests, and reseller inquiries.
             </p>
           </div>
         </HeroReveal>
@@ -52,7 +51,9 @@ export function ContactHero() {
         <HeroReveal variant="cta" delay={0.28}>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:brightness-110 sm:text-[15px]"
               style={{
                 background: "var(--hero-cta-primary-bg)",

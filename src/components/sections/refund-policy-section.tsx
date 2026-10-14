@@ -17,7 +17,7 @@ export function RefundPolicySection() {
             className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
             style={{ color: "var(--hero-heading)" }}
           >
-            Read the Strong 8k Refund Policy Before Ordering
+            Read the Strong8k Subscription Refund Policy Before Ordering
           </h2>
         </FadeIn>
         <div
@@ -34,28 +34,29 @@ export function RefundPolicySection() {
           >
             <RevealParts>
             <p>
-              You can request a refund within seven days of activation of your paid
-              subscription if you change your mind or are dissatisfied with the service.
+              You may request a refund within seven days after activation of your paid subscription if you change your mind or are dissatisfied with the service.
             </p>
-            <p>To request a refund, contact support and provide:</p>
+            <p>Contact support and provide:</p>
             <ul className="grid gap-3 sm:grid-cols-2">
-              {["Your order reference.", "The account covered by your request.", "Your device and player details.", "A brief explanation of your request."].map((item) => (
+              {[
+                "Your order reference.",
+                "The account concerned.",
+                "Your device and player details.",
+                "A brief explanation of the request.",
+              ].map((item) => (
                 <li key={item} className="rounded-xl border bg-transparent px-4 py-3" style={{ borderColor: "rgba(212, 168, 75, 0.45)" }}>
                   {item}
                 </li>
               ))}
             </ul>
             <p>
-              Where an order contains multiple accounts, identify which account or
-              accounts the request concerns so we can confirm the applicable refund amount.
+              For orders containing multiple accounts, identify the account or accounts covered so we can confirm the applicable refund amount.
             </p>
             <p>
-              The seven-day refund period ends after that window. Technical support
-              remains available throughout your active subscription.
+              The seven-day refund period ends after that window. Technical support continues throughout your active subscription.
             </p>
             <p>
-              Reseller credit purchases follow separate wholesale terms, which should
-              be confirmed before purchasing credits.
+              Reseller credit purchases follow separate wholesale terms, which must be confirmed before purchasing credits.
             </p>
             <p>This policy does not affect your statutory rights.</p>
             <Link

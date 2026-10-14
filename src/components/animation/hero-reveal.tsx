@@ -56,7 +56,7 @@ export function HeroReveal({
 
   return (
     <motion.div
-      className={`telvis-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
+      className={`s8k-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
       style={style}
       initial={initial}
       animate={meshReady ? shown : initial}

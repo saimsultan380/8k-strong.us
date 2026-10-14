@@ -511,7 +511,7 @@ button[style*="hero-cta-primary-bg"]::after,
     animation: none;
   }
 
-  .telvis-motion-reveal {
+  .s8k-motion-reveal {
     filter: none !important;
     transform: none !important;
   }
@@ -522,23 +522,23 @@ button[style*="hero-cta-primary-bg"]::after,
   }
 }
 
-/* Telvis reveal helpers */
-.telvis-motion-reveal {
+/* Strong 8k reveal helpers */
+.s8k-motion-reveal {
   backface-visibility: hidden;
 }
 
-.telvis-motion-reveal.motion-settled {
+.s8k-motion-reveal.motion-settled {
   transform: none !important;
   filter: none !important;
 }
 
-.telvis-h1-reveal-line {
+.s8k-h1-reveal-line {
   display: block;
   overflow: hidden;
   padding-bottom: 0.06em;
 }
 
-.telvis-h1-reveal-text {
+.s8k-h1-reveal-text {
   display: inline-block;
   transform-origin: left center;
   /* Gradient clip must live on this span — h1 color:transparent does not paint nested overflow lines */
@@ -549,7 +549,7 @@ button[style*="hero-cta-primary-bg"]::after,
   -webkit-text-fill-color: transparent;
 }
 
-.telvis-h1-reveal-text span {
+.s8k-h1-reveal-text span {
   background-image: none;
   -webkit-background-clip: initial;
   background-clip: initial;

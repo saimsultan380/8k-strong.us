@@ -47,8 +47,8 @@ export function HeroSection() {
           <HeroTitleReveal
             className="max-w-[720px] text-left text-[26px] font-bold leading-[1.12] tracking-tight text-gradient-brand sm:text-4xl md:text-[40px] lg:text-[44px]"
             lines={[
-              "Strong 8k - Premium UHD IPTV Subscription ",
-              "For UK with 40k+ Channels",
+              "Strong8k - Premium UHD IPTV Subscription ",
+              "for USA Viewers with 40k+ Channels",
             ]}
           />
 
@@ -58,25 +58,16 @@ export function HeroSection() {
               style={{ color: "var(--hero-muted)" }}
             >
               <p>
-                40,000+ live channels and 140,000+ on-demand titles, with content
-                requests and 24/7 customer support.
+                Strong8k brings available live television and on-demand entertainment to compatible devices. Explore 40,000+ live channels and 140,000+ VOD titles, with content requests and 24/7 customer support.
               </p>
               <p>
-                Watch live television, find a film for the evening or return to a
-                favourite series with Strong 8k. Our IPTV service brings UK-focused
-                viewing and international entertainment together through a compatible
-                player on your own device.
+                Our premium IPTV service combines international viewing, movies, and series through a supported player on your own device. For viewers in the United States, start by checking the channels, titles, and events important to your household.
               </p>
               <p>
-                Choose a Strong 8k IPTV subscription for one, three, six or twelve
-                months, with connection options for households that need more than
-                one screen playing at once. Available quality includes HD, FHD and
-                UHD, depending on the source and your setup.
+                Choose a Strong8k IPTV subscription for one, three, six, or twelve months. Select the connection allowance you need for simultaneous viewing, then check available HD, Full HD, and UHD playback on your setup.
               </p>
               <p>
-                Before ordering, ask us about your device and the content you want.
-                You can contact support for a free trial and check the service on
-                the connection you normally use.
+                Contact support before ordering to confirm device compatibility, content availability, and your payment amount. You can request a free trial using your usual internet connection.
               </p>
             </div>
           </HeroReveal>

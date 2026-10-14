@@ -23,7 +23,7 @@ export function PricingSection() {
               className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
               style={{ color: "var(--hero-heading)" }}
             >
-              Choose Your Strong 8k IPTV Subscription and Duration
+              Choose Your Strong8k IPTV Subscription Plan and Duration
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -31,10 +31,7 @@ export function PricingSection() {
               className="text-sm leading-[1.75] sm:text-[15px] md:text-right"
               style={{ color: "var(--hero-muted)" }}
             >
-              Choose the subscription length that suits your viewing. Every plan
-              includes access to the same available live channel and on-demand
-              catalogue. The prices below cover the full selected term for one
-              connection, allowing one active stream at a time.
+              Choose the subscription duration that suits your viewing. Every plan includes the same available live-channel and on-demand catalog. The prices below cover the complete selected term for one connection, allowing one active stream at a time.
             </p>
           </FadeIn>
         </div>
@@ -60,7 +57,7 @@ export function PricingSection() {
                   {PLAN_PRICES[1][plan.months]}
                 </p>
                 <p className="mt-5 text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
-                  Included catalogue and features:
+                  Every plan includes:
                 </p>
                 <ul className="mb-8 mt-3 flex flex-1 flex-col gap-2.5">
                   {HOME_PLAN_FEATURES.map((feature) => (
@@ -94,16 +91,13 @@ export function PricingSection() {
         <FadeIn delay={0.2} className="mx-auto mt-10 max-w-3xl text-center">
           <div className="space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
             <p>
-              Need more than one screen playing at once? Visit our{" "}
+              For two, three, or four simultaneous streams, compare the connection options on our{" "}
               <Link href={routes.subscriptionPlans} className="font-semibold underline" style={{ color: "var(--hero-heading)" }}>
                 Pricing page
-              </Link>{" "}
-              for two, three and four-connection options.
+              </Link>.
             </p>
             <p>
-              Ask us about your important channels, titles and device before ordering.
-              Individual content availability can change, and some third-party players
-              have a separate licence charge.
+              All prices are in US dollars and cover the full selected subscription term.
             </p>
           </div>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -127,10 +121,6 @@ export function PricingSection() {
               Ask About a Free Trial
             </Link>
           </div>
-          <p className="mt-6 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-            A specific channel, title or feature can change. If something is essential
-            to your viewing, ask us to check it before choosing a plan.
-          </p>
         </FadeIn>
       </Container>
     </section>

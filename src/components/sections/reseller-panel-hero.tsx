@@ -35,22 +35,22 @@ export function ResellerPanelHero() {
         <HeroTitleReveal
           className="mx-auto max-w-[960px] text-center text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl md:text-[48px] lg:text-[54px]"
           style={{ color: "var(--hero-heading)" }}
-          lines={["Strong 8k Reseller Panel with Credits and White Label Branding"]}
+          lines={["Strong8k Reseller Panel With Credits and Custom White Label Branding"]}
         />
 
         <HeroReveal delay={0.18}>
           <div className="mx-auto mt-6 max-w-[760px] space-y-4 text-sm leading-[1.75] sm:text-[15px] md:text-base">
             <p style={{ color: "var(--hero-muted)" }}>
-              Sell subscriptions to your own customers using the Strong 8k reseller dashboard.
+              Manage customer subscriptions through the Strong 8k reseller panel.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              Purchase credits, manage customer access and set your retail prices. The minimum initial purchase required to create a panel is 120 credits.
+              Purchase credits, organize customer access, and set your retail prices. The minimum opening purchase required to create a panel is 120 credits.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              After payment, we activate access using the email address and username you provide.
+              After payment confirmation, we activate access using your supplied email address and username.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              We offer White Label Branding, allowing you to present the reseller panel under your own business brand. VPS and VPN-compatible URL arrangements are available according to your requirements.
+              Ask about white label branding, personal domains, branded panel URLs, VPS arrangements, and supported service addresses for VPN users.
             </p>
           </div>
         </HeroReveal>
@@ -68,7 +68,7 @@ export function ResellerPanelHero() {
                 color: "var(--hero-cta-primary-fg)",
               }}
             >
-              Contact Us for Reseller Pricing
+              Request Reseller Pricing
             </Link>
             <a
               href="#reseller-plans"

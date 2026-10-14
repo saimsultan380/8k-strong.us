@@ -43,9 +43,9 @@ export function HeroTitleReveal({
   return (
     <Tag id={id} className={className} style={style}>
       {lines.map((line, index) => (
-        <span key={index} className="telvis-h1-reveal-line">
+        <span key={index} className="s8k-h1-reveal-line">
           <motion.span
-            className="telvis-h1-reveal-text telvis-motion-reveal"
+            className="s8k-h1-reveal-text s8k-motion-reveal"
             initial={reduceMotion ? false : hidden}
             animate={reduceMotion || meshReady ? shown : hidden}
             transition={{

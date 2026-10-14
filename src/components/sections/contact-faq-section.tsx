@@ -6,34 +6,32 @@ const CONTACT_FAQS: FaqItem[] = [
   {
     id: "before",
     q: "Can I ask before ordering?",
-    a: "Yes. Contact us about your device, content preferences, connections or an 8k IPTV free trial.",
+    a: "Yes. Contact us about your device, preferred content, connections, or trial availability.",
+  },
+  {
+    id: "trial-duration",
+    q: "Is the trial always 24 hours?",
+    a: "Support confirms the available trial duration and start time when arranging access.",
   },
   {
     id: "activation",
     q: "How quickly will my account be activated?",
-    a: "We confirm the activation timing with your trial or paid order.",
+    a: "We confirm activation timing with your trial or paid order.",
   },
   {
     id: "player",
     q: "Can you help with another player?",
-    a: "Send its name and your device model so we can check the account format and available assistance.",
+    a: "Send the app name and device model so we can check its account requirements.",
   },
   {
-    id: "refund",
-    q: "Where can I read the refund terms?",
-    a: (
-      <>
-        Read the refund terms on our{" "}
-        <Link
-          href={`${routes.subscriptionPlans}#refund-policy`}
-          className="font-semibold underline"
-          style={{ color: "var(--hero-heading)" }}
-        >
-          Pricing page
-        </Link>{" "}
-        and include your order reference when requesting help.
-      </>
-    ),
+    id: "login-not-arrived",
+    q: "What if my login information has not arrived?",
+    a: "Check the contact details used for the order and your email spam folder. Send support your order reference.",
+  },
+  {
+    id: "whatsapp-us",
+    q: "Can US customers use the WhatsApp number?",
+    a: "Use the published WhatsApp link and retain the complete international number, including the +44 country code.",
   },
 ];
 
@@ -43,7 +41,7 @@ export function ContactFaqSection() {
       faqs={CONTACT_FAQS}
       defaultOpenId="before"
       eyebrow="FAQ"
-      description="Trials, activation, players and refunds."
+      description=""
       title={<>Answers to Common Questions About Contacting Our Team</>}
     />
   );

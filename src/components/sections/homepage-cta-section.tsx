@@ -45,8 +45,7 @@ export function HomepageCtaSection() {
               className="mx-auto mt-7 max-w-[680px] text-[15px] leading-[1.8] sm:text-base"
               style={{ color: "var(--hero-muted)" }}
             >
-              Check your device, ask about your favourite content and choose the
-              connections your household needs.
+              Check your device, ask about your preferred content, and choose the simultaneous connections your household needs.
             </p>
           </FadeIn>
 

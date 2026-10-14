@@ -27,7 +27,7 @@ type FadeInProps = {
 };
 
 /**
- * Scroll blur-reveal for section text blocks (Telvis text/cta/media presets).
+ * Scroll blur-reveal for section text blocks (Strong 8k text/cta/media presets).
  */
 export function FadeIn({
   children,
@@ -58,7 +58,7 @@ export function FadeIn({
 
   return (
     <MotionTag
-      className={`telvis-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
+      className={`s8k-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
       style={style}
       custom={delay}
       initial="hidden"

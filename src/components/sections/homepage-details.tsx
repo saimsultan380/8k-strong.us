@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Clapperboard, Radio, MonitorPlay, Download, Tv, Languages } from "lucide-react";
+import { Clapperboard, Radio, MonitorPlay, Download, Tv, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
@@ -12,13 +12,14 @@ import { enquiryWhatsApp } from "@/lib/site";
 
 const DEVICES = [
   ["Compatible Fire OS Firestick or Fire TV", "Our app through Downloader, or TiviMate where compatible"],
-  ["Android TV, Google TV and TV boxes", "Our compatible app or a supported TV player"],
-  ["Android phones and tablets", "Our compatible app or a touchscreen player"],
-  ["Samsung, LG and other Smart TVs", "A suitable player from the television’s app store"],
-  ["iPhone and iPad", "iPlayTV AIO, UHF, GSE Smart IPTV or IBO Player Pro where compatible"],
-  ["Apple TV", "Compatible IBO Player / IBO Player Pro, or an existing compatible app supporting Xtream Codes or M3U"],
-  ["Windows and Mac", "A compatible IBO Player or IBO Player Pro version"],
-  ["Roku", "A compatible IBO player available for the model and region"],
+  ["Android TV and Google TV", "Our compatible app or a supported television player"],
+  ["Android TV boxes", "Our compatible app or a player suited to the box"],
+  ["Android phones and tablets", "Our compatible app or a suitable touchscreen player"],
+  ["Samsung and LG Smart TVs", "A compatible player from the television’s app store"],
+  ["iPhone and iPad", "Supported versions of iPlayTV AIO, UHF IPTV, GSE Smart IPTV, or IBO Player Pro"],
+  ["Apple TV", "A compatible IBO player or an existing supported app"],
+  ["Windows and Mac", "A compatible desktop player"],
+  ["Roku", "A compatible player confirmed for the model and account region"],
 ];
 
 const cardStyle = {
@@ -36,28 +37,28 @@ const CONTENT_TOPICS = [
   {
     icon: Clapperboard,
     label: "Content requests",
-    body: "Enjoy UK television and on-demand content. Request your favourite films and series through support. Send the title, year, language and any season, episode or subtitle details. We’ll check what’s available to add.",
+    body: "Send support the movie title, release year, preferred language, and subtitle requirements. For a series, include the season and episode numbers. We will check whether the requested content is available to add.",
   },
   {
     icon: Radio,
     label: "Live event updates",
-    body: "For live event updates, send support the event name and date. We’ll help you check availability and find the right channel. Test playback before the event starts and contact us if you need help.",
+    body: "Provide the event name, scheduled date, start time, and your US time zone. Support can help you check current availability and identify the relevant viewing option. Test playback before the event starts if that content is important to you.",
   },
   {
     icon: MonitorPlay,
     label: "UHD picture quality",
-    body: "Watch available HD, Full HD (FHD) and UHD content. Picture quality depends on the channel or film, your device and internet connection. Test your preferred content during your trial. Strong 8k is our brand name; not every stream is 8K.",
+    body: "Available viewing includes HD, Full HD, and UHD sources. Picture quality depends on the original content, device, player, and internet connection. Strong 8k is our brand name. It does not mean every stream is native 8K. Check your preferred content during a trial.",
   },
 ] as const;
 
 const APP_POINTS = [
   {
     icon: Tv,
-    body: "Choose one to four connections for that many screens playing at once. Installing the app on more devices does not add connections. Tell support which screens and locations you need. EPG programme guides and catch-up are limited, so check your channels and available replay times during a trial.",
+    body: "Choose one to four connections according to the number of screens playing simultaneously. Installing the app on additional devices does not increase your connection allowance.",
   },
   {
-    icon: Languages,
-    body: "Audio languages and subtitles vary by title. For stable playback, check your internet connection and restart the app. Contact support if you need help.",
+    icon: Info,
+    body: "EPG and catch-up are limited. Check your preferred channels and replay options during a trial.",
   },
 ] as const;
 
@@ -103,7 +104,7 @@ export function HomepageDetails() {
                 className={buttonClass}
                 style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
               >
-                Send a Content Request
+                Send a Content or Event Request
               </Link>
             </motion.div>
           </FadeIn>
@@ -114,42 +115,40 @@ export function HomepageDetails() {
         <Container className="relative z-10">
           <FadeIn delay={0.05}>
             <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]" style={{ color: "var(--hero-heading)" }}>
-              Watch UK IPTV on Smart TVs and Supported Devices
+              Watch USA IPTV on Smart TVs and Supported Devices
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mt-6 max-w-3xl text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-              We support the main device families used for IPTV, subject to the exact
-              model, operating system and compatible player.
+              The appropriate setup depends on your exact device model, operating system, and compatible player.
             </p>
           </FadeIn>
           <FadeIn delay={0.16}>
-          <div className="mt-8 overflow-x-auto rounded-2xl border" style={{ borderColor: "var(--feature-card-border)" }}>
-            <table className="w-full min-w-[560px] text-left text-sm">
-              <thead>
-                <tr style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
-                  <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Your device</th>
-                  <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Typical setup</th>
-                </tr>
-              </thead>
-              <tbody>
-                {DEVICES.map(([device, setup]) => (
-                  <tr key={device} style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
-                    <td className="px-5 py-4 font-semibold" style={{ color: "var(--hero-heading)" }}>{device}</td>
-                    <td className="px-5 py-4" style={{ color: "var(--hero-muted)" }}>{setup}</td>
+            <div className="mt-8 overflow-x-auto rounded-2xl border" style={{ borderColor: "var(--feature-card-border)" }}>
+              <table className="w-full min-w-[560px] text-left text-sm">
+                <thead>
+                  <tr style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
+                    <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Device</th>
+                    <th className="px-5 py-4 font-bold" style={{ color: "var(--hero-heading)" }}>Typical setup</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {DEVICES.map(([device, setup]) => (
+                    <tr key={device} style={{ borderBottom: "1px solid var(--feature-card-border)" }}>
+                      <td className="px-5 py-4 font-semibold" style={{ color: "var(--hero-heading)" }}>{device}</td>
+                      <td className="px-5 py-4" style={{ color: "var(--hero-muted)" }}>{setup}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </FadeIn>
           <div className="mt-6 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
             <RevealParts>
-            <p>If you already use another device or player, tell us its name before ordering. We can check its account requirements.</p>
-            <p>The installation guide also explains what to check for Apple TV, MAG, Formuler, Enigma2, Linux and browser viewing.</p>
-            <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>
-              Find Your Installation Instructions
-            </Link>
+              <p>The installation guide also explains what to check for MAG, Formuler, Enigma2, Linux, and browser viewing.</p>
+              <Link href={routes.installationGuide} className={linkClass} style={{ color: "var(--hero-heading)" }}>
+                Find Your Installation Instructions
+              </Link>
             </RevealParts>
           </div>
         </Container>
@@ -159,7 +158,7 @@ export function HomepageDetails() {
         <Container className="relative z-10">
           <FadeIn delay={0.05}>
             <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]" style={{ color: "var(--hero-heading)" }}>
-              Install the Strong 8k App and Set Up Connections
+              Install the Strong8k App and Configure Your Streaming Connections
             </h2>
           </FadeIn>
           <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-[1.05fr_0.95fr]">
@@ -176,10 +175,7 @@ export function HomepageDetails() {
                 </p>
                 <p className="mt-3 text-5xl font-black tracking-tight text-gradient-brand sm:text-6xl">4330396</p>
                 <p className="mt-5 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
-                  On compatible Fire OS and Android devices, install Downloader by AFTVnews and
-                  enter 4330396. The old code was 439873. Check the app details before installing,
-                  then contact support for subscription login details. If your device uses Vega OS,
-                  ask us for another setup option.
+                  For compatible Fire OS and Android devices, install Downloader by AFTVnews and enter 4330396. Check the download destination against the app source confirmed by support before installing. Contact support for your subscription login. The earlier app version used 439873. Ask about updating if you already have an older installation. For Fire TV devices running Vega OS, confirm the appropriate setup with support.
                 </p>
               </article>
             </ScrollReveal>
@@ -204,19 +200,6 @@ export function HomepageDetails() {
               })}
             </div>
           </div>
-          <FadeIn delay={0.18} className="mt-8">
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
-              <Link
-                href={enquiryWhatsApp("installation")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonClass}
-                style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
-              >
-                Contact Strong 8k for Help
-              </Link>
-            </motion.div>
-          </FadeIn>
         </Container>
       </section>
     </>
@@ -235,7 +218,7 @@ export function HomepageResellerSection() {
             >
               <FadeIn delay={0.05}>
                 <span className="text-[11px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--hero-muted)" }}>
-                  Minimum purchase
+                  Minimum initial purchase
                 </span>
                 <p className="mt-4 text-6xl font-black leading-none text-gradient-brand sm:text-7xl">120</p>
                 <p className="mt-3 text-xl font-black uppercase tracking-wide" style={{ color: "var(--hero-accent)" }}>
@@ -251,9 +234,9 @@ export function HomepageResellerSection() {
               </FadeIn>
               <div className="mt-6 max-w-xl space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
                 <RevealParts>
-                  <p>Our reseller dashboard starts with a minimum initial purchase of 120 credits.</p>
-                  <p>After payment, we activate the panel using your supplied email address and username.</p>
-                  <p>Ask about your own domain, personal panel URL, VPS arrangements and a compatible URL for VPN use. We provide reseller support and confirm the credit price before purchase.</p>
+                  <p>The Strong 8k reseller dashboard requires a minimum initial purchase of 120 credits.</p>
+                  <p>After payment confirmation, we activate the panel using your supplied email address and username.</p>
+                  <p>Ask about white label branding, your own domain, a branded panel URL, VPS arrangements, and supported service URLs for VPN use. Credit prices and wholesale terms are confirmed before purchase.</p>
                 </RevealParts>
               </div>
               <FadeIn delay={0.2} className="mt-8">

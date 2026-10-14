@@ -131,10 +131,10 @@ export function InstallationDeviceSelector() {
             className="mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
             style={{ color: "var(--hero-heading)" }}
           >
-            Choose Your Device for Strong 8k Setup Instructions
+            Choose Your Device for Strong8k IPTV Setup Instructions
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
-            Select the box that matches your device. Your recommended apps and installation steps will appear below.
+            Select the box that matches your device. Its recommended apps and setup steps will appear below.
           </p>
         </FadeIn>
 
@@ -192,12 +192,24 @@ export function InstallationDeviceSelector() {
             exit={reduceMotion ? undefined : { opacity: 0, y: -8, filter: "blur(6px)" }}
             transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2
-              className="max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[34px]"
-              style={{ color: "var(--hero-heading)" }}
-            >
-              {active.title}
-            </h2>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style={{ borderColor: "var(--feature-card-border)" }}>
+              <h2
+                className="max-w-3xl text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[32px]"
+                style={{ color: "var(--hero-heading)" }}
+              >
+                Follow the Setup Instructions for Your Selected Streaming Device
+              </h2>
+              <span
+                className="rounded-full border px-3.5 py-1 text-xs font-bold uppercase tracking-wider"
+                style={{
+                  borderColor: "rgba(212, 168, 75, 0.45)",
+                  color: "var(--hero-accent)",
+                  backgroundColor: "rgba(212, 168, 75, 0.08)",
+                }}
+              >
+                {active.label}
+              </span>
+            </div>
             <div className="mt-6">
               <GuideBody device={active} />
             </div>

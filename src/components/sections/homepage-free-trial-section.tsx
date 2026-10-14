@@ -58,22 +58,16 @@ export function HomepageFreeTrialSection() {
               <FadeIn delay={0.15}>
                 <div className="mt-6 max-w-xl space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
                   <p>
-                    Get 24/7 customer support before and after subscribing. We can help
-                    with plans, devices, installation, app codes, account details and
-                    playback. You can also ask about content requests, live events,
-                    renewals and reseller access.
+                    Contact support before or after subscribing for help with plans, devices, app installation, account details, and playback.
                   </p>
                   <p>
-                    For technical help, send your device model, player name, account
-                    reference and any message on screen. Tell us whether other content
-                    plays. Keep passwords and full playlist links private.
+                    We can also assist with renewals, movie and series requests, live event inquiries, and reseller access.
                   </p>
                   <p>
-                    Request a Strong 8k free trial before choosing a paid plan. Support
-                    will confirm availability, duration and start time. Test your usual
-                    channels, films and series, including picture quality, audio,
-                    subtitles and player controls. Check EPG and catch-up on the
-                    channels you use.
+                    Request a free trial to test the service on your usual device and internet connection. Support will confirm availability, duration, start time, and account instructions.
+                  </p>
+                  <p>
+                    For technical help, send your device model, player name, account reference, and any error message. Explain whether other content plays.
                   </p>
                 </div>
               </FadeIn>
@@ -91,7 +85,7 @@ export function HomepageFreeTrialSection() {
                       color: "var(--hero-cta-primary-fg)",
                     }}
                   >
-                    Contact Support or Request a Free Trial
+                    Contact Support or Request a Trial
                   </Link>
                 </motion.div>
               </FadeIn>

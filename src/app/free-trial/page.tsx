@@ -5,7 +5,7 @@ import { routes } from "@/lib/routes";
 
 /**
  * Legacy /free-trial/ path.
- * Production 301 → /iptv-contact-us/ is handled in vercel.json.
+ * Production 301 → /contact-us/ is handled in vercel.json.
  */
 export const metadata: Metadata = createPageMetadata({
   title: pageTitles.contactUs,

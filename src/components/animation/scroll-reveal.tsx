@@ -24,7 +24,7 @@ type ScrollRevealProps = {
   /**
    * @deprecated Legacy directional slide.
    * When set (without an explicit variant), uses the card blur-reveal preset
-   * so existing card grids keep Telvis card timings (y 20 / blur 10 / 0.56s).
+   * so existing card grids keep Strong 8k card timings (y 20 / blur 10 / 0.56s).
    */
   direction?: "up" | "down" | "left" | "right" | "none";
   /** @deprecated Duration comes from the variant preset. */
@@ -65,7 +65,7 @@ export function ScrollReveal({
 
   return (
     <MotionTag
-      className={`telvis-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
+      className={`s8k-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`}
       style={style}
       custom={delay}
       initial="hidden"

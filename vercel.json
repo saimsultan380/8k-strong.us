@@ -3,8 +3,8 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.8k-strong.co.uk" }],
-      "destination": "https://8k-strong.co.uk/:path*",
+      "has": [{ "type": "host", "value": "www.8k-strong.us" }],
+      "destination": "https://8k-strong.us/:path*",
       "permanent": true
     },
     {

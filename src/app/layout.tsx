@@ -27,9 +27,13 @@ export const metadata: Metadata = {
     google: "mQRPFUjrZxye77pMaig-wBVfguUClB7P72FIJQ6Xib0",
   },
   icons: {
-    icon: "/strong-8k.PNG?v=3",
-    shortcut: "/strong-8k.PNG?v=3",
-    apple: "/strong-8k.PNG?v=3",
+    icon: [
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon-48x48.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -40,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en-GB"
+      lang="en-US"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >

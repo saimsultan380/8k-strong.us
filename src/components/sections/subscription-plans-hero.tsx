@@ -32,19 +32,19 @@ export function SubscriptionPlansHero() {
         <HeroTitleReveal
           className="mx-auto max-w-[920px] text-center text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl md:text-[44px] lg:text-[48px]"
           style={{ color: "var(--hero-heading)" }}
-          lines={["Strong 8k IPTV Subscription Plans for Every UK Household"]}
+          lines={["Strong 8k IPTV Subscription Plans for Every USA Household"]}
         />
 
         <HeroReveal delay={0.18}>
           <div className="mx-auto mt-6 max-w-[750px] space-y-4 text-sm leading-[1.8] sm:text-[15px] md:text-base">
             <p style={{ color: "var(--hero-muted)" }}>
-              Choose a Strong 8k IPTV subscription with 40,000+ live channels, 140,000+ VOD titles and 24/7 customer support.
+              Choose a Strong 8k IPTV subscription with 40,000+ live channels, 140,000+ VOD titles, and 24/7 customer support.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              Our premium IPTV plans bring together UK-focused viewing, international channels, films and series. Choose how long you want your subscription to last and how many streams you need playing at the same time.
+              Select how long you want access and how many streams you need playing simultaneously. Every duration includes the same available catalog and service features.
             </p>
             <p style={{ color: "var(--hero-muted)" }}>
-              Strong 8k IPTV subscription prices are shown in pounds sterling. Every amount covers the complete selected term.
+              Prices are shown in US dollars, USD. Each amount covers the complete selected term.
             </p>
           </div>
         </HeroReveal>
@@ -60,7 +60,7 @@ export function SubscriptionPlansHero() {
                   boxShadow: "var(--hero-cta-primary-shadow)",
                 }}
               >
-                View Prices Below
+                View Subscription Options
                 <ArrowRight className="h-4 w-4 opacity-75" />
               </a>
             </motion.div>

@@ -3,12 +3,6 @@
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/animation/fade-in";
 
-const POINTS = [
-  "Account details for a supported player",
-  "The player and the subscription are separate",
-  "Ask about your device before you pay",
-];
-
 export function IptvSubscriptionExplainer() {
   return (
     <section
@@ -34,7 +28,7 @@ export function IptvSubscriptionExplainer() {
               className="mt-4 max-w-xl text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-[48px]"
               style={{ color: "var(--hero-heading)" }}
             >
-              What is Strong 8K IPTV?
+              What Is Strong 8k IPTV?
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -42,14 +36,17 @@ export function IptvSubscriptionExplainer() {
               className="mt-6 max-w-xl text-sm leading-[1.8] sm:text-[15px] md:text-base"
               style={{ color: "var(--hero-muted)" }}
             >
-              Strong 8k IPTV delivers live channels and on-demand entertainment
-              over an internet connection. You receive account details to add to
-              a supported player, then browse the available catalogue.
+              Strong 8k IPTV delivers live channels and on-demand entertainment over an internet connection.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <ul className="mt-8 space-y-3">
-              {POINTS.map((benefit) => (
+              {[
+                "Account information for a compatible IPTV player",
+                "Server credentials, M3U playlist, or device activation",
+                "The player and subscription are separate",
+                "Confirm your device setup before you pay",
+              ].map((benefit) => (
                 <li key={benefit} className="flex items-start gap-3 text-sm">
                   <span
                     className="mt-[9px] h-px w-3 shrink-0"
@@ -99,25 +96,19 @@ export function IptvSubscriptionExplainer() {
                 className="text-sm leading-[1.8] sm:text-[15px] md:text-base"
                 style={{ color: "var(--feature-body)" }}
               >
-                The player provides the screen layout and playback controls. Your
-                subscription provides service access. They are separate, and some
-                third-party apps charge for their own licence or premium features.
+                After activation, you receive account information to add to a compatible IPTV player. Depending on the player, this may involve server credentials, an M3U playlist, or device activation.
               </p>
               <p
                 className="text-sm leading-[1.8] sm:text-[15px] md:text-base"
                 style={{ color: "var(--feature-body)" }}
               >
-                If you are unsure which player to choose, send us your device
-                model. We can explain the suitable installation route and account
-                format before you pay.
+                The player provides the interface and playback controls. Your subscription provides access to the available service catalog.
               </p>
               <p
                 className="text-sm leading-[1.8] sm:text-[15px] md:text-base"
                 style={{ color: "var(--feature-body)" }}
               >
-                Our aim is to make the service useful for your household: clear
-                plans, practical setup help and a way to ask about the programmes
-                you enjoy.
+                Some third-party players charge separately for an app license or premium features. Send us your device model and any existing player name so we can explain the appropriate setup before you pay.
               </p>
             </div>
           </div>

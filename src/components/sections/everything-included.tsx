@@ -8,52 +8,52 @@ import { RevealParts } from "@/components/animation/reveal-parts";
 
 const CATEGORIES = [
   {
-    id: "uk",
+    id: "live-tv",
     icon: Tv,
-    title: "UK television and entertainment",
-    description: "Available UK-focused programmes and everyday viewing",
+    title: "Live television",
+    description: "Available entertainment channels, everyday programming, and regional services",
   },
   {
     id: "sports",
     icon: Trophy,
     title: "Live sports",
-    description: "Available football, rugby, cricket, motorsport, boxing and other events",
+    description: "Available sports channels and event feeds",
   },
   {
-    id: "films",
+    id: "movies",
     icon: Film,
-    title: "Films",
-    description: "On-demand films across available genres and languages",
+    title: "Movies",
+    description: "Available genres, release years, languages, and subtitles",
   },
   {
     id: "series",
     icon: Clapperboard,
     title: "Series and box sets",
-    description: "Available seasons and episodes within the VOD library",
+    description: "Available seasons, episodes, and language versions",
   },
   {
     id: "news",
     icon: Newspaper,
-    title: "News and factual programmes",
-    description: "News, current affairs and documentary viewing",
+    title: "News and documentaries",
+    description: "Available news, current affairs, factual, and documentary programming",
   },
   {
     id: "family",
     icon: Baby,
-    title: "Children and family",
-    description: "Available animation and family programmes",
+    title: "Kids and family",
+    description: "Available animation and family entertainment",
   },
   {
     id: "international",
     icon: Globe,
     title: "International content",
-    description: "Channels and titles from different countries and languages",
+    description: "Available UK and international channels and multilingual titles",
   },
   {
     id: "music",
     icon: Music,
     title: "Music and radio",
-    description: "Available listening and music channels",
+    description: "Available music channels and radio services",
   },
 ];
 
@@ -67,16 +67,15 @@ export function EverythingIncludedSection() {
       <Container className="relative z-10">
         <div className="mb-12 max-w-4xl md:mb-16">
           <FadeIn delay={0.05}>
-          <h2
-            className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[44px]"
-            style={{ color: "var(--hero-heading)" }}
-          >
-            Explore Our UK Channels and On-Demand Content Catalogue
-          </h2>
-          <p className="mt-6 max-w-2xl text-[15px] leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
-            Browse UK television, live sports and on-demand entertainment across the
-            main categories below.
-          </p>
+            <h2
+              className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[44px]"
+              style={{ color: "var(--hero-heading)" }}
+            >
+              Explore Our Channel List and On-Demand Content Catalog
+            </h2>
+            <p className="mt-6 max-w-2xl text-[15px] leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+              Explore the available catalog by the type of entertainment you enjoy.
+            </p>
           </FadeIn>
         </div>
 
@@ -107,23 +106,21 @@ export function EverythingIncludedSection() {
 
         <div className="mt-10 max-w-3xl space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
           <RevealParts>
-          <p>
-            For live television, save your regular channels as favourites if the player
-            supports it. This gives you a shorter list for everyday use.
-          </p>
-          <p>
-            For films, check the available version, audio language and subtitles.
-            Different versions of a title may have different quality or language options.
-          </p>
-          <p>
-            For series, browse the available seasons and episodes. If something is
-            missing, send the exact season and episode information to support.
-          </p>
-          <p>Films, series and box sets are included within the 140,000+ VOD library.</p>
-          <p>
-            The categories describe the type of content offered. Ask us for current
-            availability rather than assuming that a particular channel or title is included.
-          </p>
+            <p>
+              For US sports, ask about the specific NFL, NBA, MLB, NHL, college sports, soccer, motorsports, boxing, or UFC event you want to watch.
+            </p>
+            <p>
+              For local television, provide the station or network name and your city or ZIP code. Confirm the particular local affiliate or regional broadcast before ordering.
+            </p>
+            <p>
+              Looking for UK IPTV in the USA or another international language group? Send support the channels and programs you want to check.
+            </p>
+            <p>
+              Movies and series are included within the 140,000+ VOD title catalog. Audio, subtitles, and available versions vary by title.
+            </p>
+            <p>
+              Save your regular channels as favorites where the player supports it. For series, check the available seasons and episodes before starting.
+            </p>
           </RevealParts>
         </div>
       </Container>

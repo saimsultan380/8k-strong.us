@@ -7,7 +7,7 @@ import { ContactMethodsForm } from "@/components/sections/contact-methods-form";
 import { ContactCtaSection } from "@/components/sections/contact-cta-section";
 import { ContactHelpTopics } from "@/components/sections/contact-help-topics";
 import { ContactFaqSection } from "@/components/sections/contact-faq-section";
-import { pageDescriptions, pageTitles, createPageMetadata } from "@/lib/site";
+import { pageDescriptions, pageKeywords, pageTitles, createPageMetadata } from "@/lib/site";
 import { routes } from "@/lib/routes";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { pageBreadcrumbs } from "@/lib/breadcrumbs";
@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   title: pageTitles.contactUs,
   description: pageDescriptions.contactUs,
   path: routes.contactUs,
+  keywords: [...pageKeywords.contactUs],
 });
 
 export default function ContactUsPage() {

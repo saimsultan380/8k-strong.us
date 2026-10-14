@@ -5,9 +5,9 @@ import { FadeIn } from "@/components/animation/fade-in";
 import { RevealParts } from "@/components/animation/reveal-parts";
 
 const METHODS = [
-  "A server URL, username and password.",
+  "A server URL, username, and password.",
   "A complete M3U playlist link.",
-  "A device ID, MAC address or key for account linking.",
+  "A device ID, MAC address, or key for account linking.",
 ];
 
 export function InstallationBeforeStart() {
@@ -21,8 +21,8 @@ export function InstallationBeforeStart() {
         </FadeIn>
         <div className="mt-6 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
           <RevealParts>
-          <p>Have your device make and model, an internet connection and an active trial or subscription ready.</p>
-          <p>Contact support for your login details. Depending on the player, setup may use:</p>
+            <p>Have your device make and model, an internet connection, and an active trial or subscription ready.</p>
+            <p>Depending on the player, your setup may use:</p>
           </RevealParts>
         </div>
         <ul className="mt-6 grid gap-3 md:grid-cols-3">
@@ -38,8 +38,8 @@ export function InstallationBeforeStart() {
         </ul>
         <div className="mt-6 max-w-3xl space-y-4 text-sm leading-[1.8] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
           <RevealParts>
-          <p>Some third-party players have a separate licence charge. An app licence and a Strong 8k viewing subscription are separate purchases.</p>
-          <p>If you already have a player installed, tell support its name so we can check the correct account method.</p>
+            <p>Some third-party players charge separately for a license or premium features.</p>
+            <p>Tell support about any player already installed so we can check the appropriate account method.</p>
           </RevealParts>
         </div>
       </Container>

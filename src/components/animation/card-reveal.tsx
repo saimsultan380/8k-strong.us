@@ -36,7 +36,7 @@ export function CardReveal({
   }, []);
 
   const tagProps = {
-    className: `telvis-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`,
+    className: `s8k-motion-reveal${settled ? " motion-settled" : ""}${className ? ` ${className}` : ""}`,
     id,
     style,
   };

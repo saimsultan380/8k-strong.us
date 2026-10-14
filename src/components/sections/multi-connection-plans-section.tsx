@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { HOME_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
+import { PRICING_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { enquiryWhatsApp } from "@/lib/site";
@@ -79,10 +79,10 @@ function PricingCard({
         </p>
         <PriceGlowDivider />
         <p className="text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
-          Included catalogue and features:
+          Every plan includes:
         </p>
         <ul className="mb-8 mt-3 flex flex-1 flex-col gap-2.5">
-          {HOME_PLAN_FEATURES.map((feature) => (
+          {PRICING_PLAN_FEATURES.map((feature) => (
             <li key={feature} className="flex items-start gap-3 text-[13px] leading-[1.55]">
               <span
                 className="mt-[9px] h-px w-3 shrink-0"
@@ -137,16 +137,13 @@ export function MultiConnectionPlansSection() {
               style={{ color: "var(--hero-muted)" }}
             >
               <p>
-                Choose your connection allowance (1–4) and a 1, 3, 6 or 12-month IPTV
-                subscription. Every plan includes the same catalogue and service features.
+                Choose one, two, three, or four connections and a subscription lasting one, three, six, or twelve months.
               </p>
               <p>
-                For multi-connection IPTV, each connection allows one stream at a time;
-                two-screen IPTV needs two. Count the screens playing together.
+                These are full-term totals. Each connection allows one active stream. Two screens playing together require two connections; three screens require three.
               </p>
               <p>
-                Confirm your devices and locations with support before ordering, especially
-                for several addresses or more than four simultaneous streams.
+                Count active streams rather than installed apps. Confirm multiple locations or more than four simultaneous streams with support before ordering.
               </p>
             </div>
           </FadeIn>
@@ -216,14 +213,7 @@ export function MultiConnectionPlansSection() {
         <FadeIn delay={0.15} className="mx-auto mt-10 max-w-3xl text-center">
           <div className="space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
             <p>
-              All displayed prices are full-term totals, rather than monthly instalments.
-              Select your required connection allowance to see the corresponding amount for
-              each duration.
-            </p>
-            <p>
-              Individual channels, titles, languages and features can change. If a particular
-              programme, channel or viewing feature is essential to you, ask us about its
-              current availability before choosing a plan.
+              Specific channels, titles, languages, and features can change. Ask about anything essential to your purchase.
             </p>
           </div>
           <Link
@@ -233,7 +223,7 @@ export function MultiConnectionPlansSection() {
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-black"
             style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
           >
-            Ask About More Connections
+            Ask About Your Selected Plan
           </Link>
         </FadeIn>
       </Container>

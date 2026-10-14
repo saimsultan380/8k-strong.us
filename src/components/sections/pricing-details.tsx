@@ -46,43 +46,67 @@ function Prose({
 
 const PRICING_FAQS: FaqItem[] = [
   {
+    id: "cost",
+    q: "How much does Strong8k cost?",
+    a: "One-connection plans cost $13.24 for one month, $23.82 for three months, $33.10 for six months, and $55.62 for twelve months.",
+  },
+  {
+    id: "annual-billing",
+    q: "Is the annual subscription billed monthly?",
+    a: "The $55.62 price covers the full twelve-month term for one connection. Its approximate monthly equivalent is $4.64.",
+  },
+  {
     id: "change-connections",
-    q: "Can I change my connection allowance after ordering?",
-    a: "Contact us with your current subscription details and the number of simultaneous streams you now require. Support will confirm the available arrangement and any price adjustment before a change is made.",
+    q: "Can I change my connection allowance?",
+    a: "Contact support with your account reference and the number of simultaneous streams you need. We will confirm the available change and any price adjustment.",
+  },
+  {
+    id: "player-license",
+    q: "Does an IPTV premium subscription include the player license?",
+    a: "Third-party players have separate licensing conditions. Check any app charge before purchasing your viewing subscription.",
   },
   {
     id: "replacement-device",
-    q: "Can I move my subscription to a replacement device?",
-    a: "Tell support the old and new device models, along with the player you want to use. The required steps depend on whether your setup uses direct credentials, a playlist or device activation.",
+    q: "Can I move to a replacement device?",
+    a: "Send support the old and new device models and player details. The required steps depend on your account method.",
   },
   {
-    id: "player-licence",
-    q: "Does an IPTV premium subscription include a player licence?",
-    a: "Third-party players have their own activation and licence conditions. Ask support whether your chosen player requires a separate payment before completing your subscription order.",
+    id: "lifetime",
+    q: "Do you offer a Strong8k lifetime subscription?",
+    a: "The published plans on this website run for one, three, six, or twelve months.",
   },
   {
     id: "native-8k",
-    q: "Does an IPTV 8k subscription mean every stream is native 8K?",
-    a: "Strong 8k is our brand name. The subscription offers available HD, FHD and UHD sources. The resolution of an individual channel or title determines its available picture quality.",
+    q: "Does the brand name guarantee native 8K?",
+    a: "Available resolution depends on the original channel or title and your setup. Strong 8k is our brand name.",
   },
 ];
 
 const SETUP_CARDS = [
-  "Watch available HD, FHD and UHD content. Picture quality depends on the channel or film, your device, player and internet connection. EPG programme guides and catch-up are limited, so check your preferred channels with support or during a trial.",
-  "Compatible devices include Smart TVs, Firestick, Fire TV, Android, iPhone, iPad, Apple TV, Windows, Mac and Roku. Our app uses Downloader code 4330396 on compatible Fire OS and Android devices; 439873 is the old code. TiviMate is another option for compatible Android TV devices. Samsung and LG televisions use players from their own app stores. Tell support your device model and existing player before ordering.",
-  "Request a Strong 8k free trial to test your channels, on-demand content and UHD viewing. Support will confirm the duration, access details and conditions. To order a Strong 8k IPTV subscription, choose your connections and 1, 3, 6 or 12 months, then confirm the price, devices, locations and activation details. Keep login and device activation details private. 24/7 customer support is available.",
+  {
+    title: "Device and Player Compatibility",
+    body: "Use the installation guide to check your device and player before ordering. The current Strong8k app code is 4330396 for compatible Fire OS and Android devices. Samsung, LG, Apple devices, computers, and Roku require their appropriate compatible players.",
+  },
+  {
+    title: "Separate Player Licenses",
+    body: "Some third-party players have a separate license charge.",
+  },
+  {
+    title: "Free Trial Testing",
+    body: "Request a trial to check your regular live channels, on-demand titles, audio, subtitles, and available picture quality. EPG and catch-up are limited, so test the channels where you need those features. Support will confirm trial duration and activation details.",
+  },
 ];
 
 export function PricingDetails() {
   return (
     <>
-      <Prose title="Request Favourite Films, Series and Live Event Updates">
-        <p>Looking for a favourite film or series that you cannot find in the catalogue? Send the title to our support team.</p>
-        <p>Include the release year where possible. For a series, tell us which season or episodes you want. These details help us identify the correct content and avoid confusion between titles with similar names.</p>
-        <p>We can add requested films and series to the server, subject to availability. Support will confirm what can be added and any available update on the request.</p>
-        <p>For live events, send the event name, date and approximate start time. We provide event updates and can help you check the available viewing options before it begins.</p>
+      <Prose title="Request Favorite Movies, Series and Live Event Updates">
+        <p>Send support the exact movie title and release year.</p>
+        <p>For a series, include the season and episode numbers. Mention your preferred audio language, subtitles, or version.</p>
+        <p>We will check whether the content is available to add.</p>
+        <p>For a live event, provide its name, date, start time, and time zone. Support can check available viewing options and explain any update.</p>
         <Link href={enquiryWhatsApp("content-request")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-          Request Content or Ask About an Event
+          Request Content or Event Information
         </Link>
       </Prose>
 
@@ -94,31 +118,29 @@ export function PricingDetails() {
             </h2>
           </FadeIn>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {SETUP_CARDS.map((text) => (
-              <article key={text.slice(0, 24)} className="rounded-2xl border p-6" style={cardStyle}>
-                <p className="text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>{text}</p>
+            {SETUP_CARDS.map((card) => (
+              <article key={card.title} className="rounded-2xl border p-6" style={cardStyle}>
+                <h3 className="text-base font-bold" style={{ color: "var(--hero-heading)" }}>{card.title}</h3>
+                <p className="mt-3 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>{card.body}</p>
               </article>
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link href={routes.installationGuide} className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-              Open the Strong 8k Installation Guide
+              Open the Installation Guide
             </Link>
             <Link href={enquiryWhatsApp("free-trial")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-              Request Your Free Trial
-            </Link>
-            <Link href={routes.resellerPanel} className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-              Strong 8k Reseller Panel
+              Request Trial Access
             </Link>
           </div>
         </Container>
       </section>
 
-      <Prose title="Renew Your Strong 8k Subscription Before Access Expires">
-        <p>For subscription renewal, contact us with your existing order reference or the account information requested by support.</p>
-        <p>Tell us whether you want to keep your current duration and connection allowance or discuss a different arrangement. We will confirm the available renewal option and its price before you pay.</p>
-        <p>For an existing Strong8k account, make clear that you are renewing. This helps support identify the correct subscription and explain how the renewal will apply.</p>
-        <p>If you also want to change devices, mention this in the same enquiry. Some players use direct account credentials, while others require device linking or a refreshed playlist.</p>
+      <Prose title="Renew Your Strong8k IPTV Subscription Before Access Expires">
+        <p>Contact support with your existing account or order reference.</p>
+        <p>Tell us whether you want to keep your current duration and connection allowance or discuss another arrangement.</p>
+        <p>We will confirm the available renewal option and price before payment.</p>
+        <p>If you are replacing a device, include the old and new models and your chosen player. Account setup may involve credentials, a refreshed playlist, or device linking.</p>
         <Link href={enquiryWhatsApp("renewal")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
           Ask About Subscription Renewal
         </Link>
@@ -126,15 +148,16 @@ export function PricingDetails() {
 
       <FaqAccordionSection
         faqs={PRICING_FAQS}
-        defaultOpenId="change-connections"
+        defaultOpenId="cost"
         eyebrow="FAQ"
         description=""
         title="Answers to Common Questions About Your IPTV Subscription"
       />
-      <Prose title="Need help choosing your subscription?">
-        <p>Send us your device details, preferred duration and required connection allowance. We can help you check the plan before you order.</p>
+
+      <Prose title="Need Help Choosing Your Subscription?">
+        <p>Send your device details, preferred duration, and simultaneous connection requirements. We can help you check the plan before ordering.</p>
         <Link href={enquiryWhatsApp("subscription")} target="_blank" rel="noopener noreferrer" className={buttonClass} style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}>
-          Contact Strong 8k About Your Subscription
+          Contact Strong8k About Your Plan
         </Link>
       </Prose>
     </>

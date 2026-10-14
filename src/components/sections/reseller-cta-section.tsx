@@ -45,8 +45,7 @@ export function ResellerCtaSection() {
               className="mx-auto mt-7 max-w-[680px] text-[15px] leading-[1.8]"
               style={{ color: "var(--hero-muted)" }}
             >
-              Tell us your credit quantity and any branding or technical requirements.
-              We will confirm the price, panel setup and activation details.
+              Send your credit quantity and branding or technical requirements. We will confirm pricing, setup, and activation details.
             </p>
           </FadeIn>
 
@@ -64,7 +63,7 @@ export function ResellerCtaSection() {
                   color: "var(--hero-cta-primary-fg)",
                 }}
               >
-                Contact Us for a Quote
+                Request Your Reseller Quote
               </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="flex-1 sm:flex-initial">
@@ -77,7 +76,7 @@ export function ResellerCtaSection() {
                   backgroundColor: "transparent",
                 }}
               >
-                Read the Installation Guide
+                Read Installation Instructions
               </Link>
               </motion.div>
             </div>

@@ -17,48 +17,53 @@ export type FaqItem = {
 
 const HOMEPAGE_FAQS: FaqItem[] = [
   {
-    id: "name",
-    q: "Are Strong 8k and Strong8k the same name here?",
-    a: "Strong 8k is our brand. Strong8k is the joined-up spelling. This website uses 8k-strong.co.uk.",
+    id: "brand-name",
+    q: "Are Strong8k and Strong 8k the same name here?",
+    a: "Yes. Strong 8k is our brand, and Strong8k is the spelling without a space. Our US website is 8k-strong.us.",
   },
   {
     id: "provider",
     q: "How do I identify the right provider?",
-    a: "Search terms such as Strong IPTV, Strong IPTV 8k, IPTV Strong 8k or 8k Strong can lead to different sellers. Check the domain and contact route connected with your order.",
+    a: "Searches for Strong IPTV 8k, Strong IPTV, and StrongIPTV can lead to different sellers. Check the domain and contact route associated with your order.",
   },
   {
-    id: "uk-content",
-    q: "How do I choose the best UK content for my household?",
-    a: "Check the channels, titles and languages you actually watch. Ask us about availability and test the service before deciding.",
-  },
-  {
-    id: "premium",
+    id: "every-channel",
     q: "Does a premium IPTV subscription include every channel?",
-    a: "A premium description does not guarantee a specific channel, title or event. Ask us to check the content essential to your purchase.",
+    a: "Check the actual offer and the content important to you. A premium description does not establish that every channel, local station, movie, or event is included.",
+  },
+  {
+    id: "choose-subscription",
+    q: "How do I choose the best IPTV subscription for my household?",
+    a: "Compare your required content, device compatibility, connection allowance, complete term price, player costs, and support. Test the relevant viewing before deciding.",
+  },
+  {
+    id: "multiple-devices",
+    q: "Can I watch on multiple devices?",
+    a: "Your connection allowance determines simultaneous streams. Confirm your devices and locations with support before ordering.",
   },
   {
     id: "reviews",
     q: "Can I read independent reviews?",
     a: (
       <>
-        Yes. Check the exact website, date, device and account described. Our{" "}
+        Yes. Check the exact provider, date, device, and account described. Our{" "}
         <Link
           href={routes.blogs}
           className="font-semibold underline transition-colors hover:text-[var(--hero-accent)]"
           style={{ color: "var(--hero-heading)" }}
         >
-          Blogs
+          Blogs page
         </Link>{" "}
-        page explains how to assess Strong 8k IPTV Reddit discussions.
+        explains how to assess reviews and Reddit discussions.
       </>
     ),
   },
   {
     id: "refund",
-    q: "Where can I read the refund terms?",
+    q: "Where are the refund terms?",
     a: (
       <>
-        Read the refund terms on our{" "}
+        Read the refund policy on our{" "}
         <Link
           href={`${routes.subscriptionPlans}#refund-policy`}
           className="font-semibold underline transition-colors hover:text-[var(--hero-accent)]"
@@ -66,7 +71,7 @@ const HOMEPAGE_FAQS: FaqItem[] = [
         >
           Pricing page
         </Link>{" "}
-        before ordering. They explain the subscription guarantee and request process.
+        before ordering.
       </>
     ),
   },
@@ -210,7 +215,7 @@ export function FaqAccordionSection({
   defaultOpenId,
   eyebrow = "FAQ",
   title,
-  description = "Clear answers about setup, devices, streaming quality, activation, and your subscription.",
+  description = "",
   id = "faq",
 }: FaqSectionProps) {
   return (
@@ -273,7 +278,7 @@ export function FaqSection() {
   return (
     <FaqAccordionSection
       faqs={HOMEPAGE_FAQS}
-      defaultOpenId="name"
+      defaultOpenId="brand-name"
       eyebrow="FAQ"
       description=""
       title="Answers to Common Questions About Your IPTV Subscription"

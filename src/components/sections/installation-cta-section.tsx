@@ -43,10 +43,7 @@ export function InstallationCtaSection() {
           <FadeIn delay={0.15}>
             <div className="mx-auto mt-7 max-w-[680px] space-y-4 text-[15px] leading-[1.8]">
               <p style={{ color: "var(--hero-muted)" }}>
-                Our customer support is available 24/7. Send your device make and model,
-                player name and the installation step you reached. Include the exact error
-                message if one appears. For playback problems, explain whether other channels
-                or titles work. Hide passwords and complete private playlist links in screenshots.
+                Customer support is available 24/7. Send your device make and model, player name, installation step, and any error shown. For playback problems, explain whether other content works. Hide passwords and full private playlist links in screenshots.
               </p>
             </div>
           </FadeIn>
