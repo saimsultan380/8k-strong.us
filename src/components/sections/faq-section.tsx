@@ -24,7 +24,7 @@ const HOMEPAGE_FAQS: FaqItem[] = [
   {
     id: "provider",
     q: "How do I identify the right provider?",
-    a: "Searches for Strong IPTV 8k, Strong IPTV, and StrongIPTV can lead to different sellers. Check the domain and contact route associated with your order.",
+    a: "Whether you searched for Strng IPTV 8K, Strong IPTV 8K, Strong IPTV, or StrongIPTV, check the exact website and support details before ordering. Our US website is 8k-strong.us.",
   },
   {
     id: "every-channel",

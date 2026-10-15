@@ -99,7 +99,7 @@
   --hero-blush-right: transparent;
   --hero-center-glow: transparent;
   --hero-grid: transparent;
-  --hero-muted: rgba(255, 255, 255, 0.82);
+  --hero-muted: rgba(255, 255, 255);
   --hero-pill-bg: rgba(212, 168, 75, 0.08);
   --hero-pill-border: rgba(212, 168, 75, 0.35);
   --hero-pill-text: #f5e6a3;
@@ -135,25 +135,22 @@
   --hero-nav-link: rgba(255, 255, 255, 0.72);
 
   /* Site scrim over hero photo (between image and mesh) */
-  --site-scrim:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.58) 45%,
-      rgba(0, 0, 0, 0.68) 100%
-    );
+  --site-scrim: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.58) 45%,
+    rgba(0, 0, 0, 0.68) 100%
+  );
 
   /* Shared glass — light black panels (no backdrop blur; avoids scroll pop-in) */
   --glass-bg: rgba(0, 0, 0, 0.42);
   --glass-blur: 0px;
   --glass-radius: 20px;
   --glass-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 8px 32px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.14),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   --glass-shadow-hover:
-    0 16px 48px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 16px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -1px 0 rgba(255, 255, 255, 0.06);
   --glass-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --glass-accent-ring: 0 0 0 1px rgba(212, 168, 75, 0.55);
@@ -174,8 +171,8 @@
   --footer-bg: transparent;
   --footer-border: rgba(212, 168, 75, 0.18);
   --footer-heading: #ffffff;
-  --footer-muted: rgba(255, 255, 255, 0.5);
-  --footer-link: rgba(255, 255, 255, 0.68);
+  --footer-muted: #ffffff;
+  --footer-link: #ffffff;
 }
 
 @layer utilities {
@@ -255,7 +252,9 @@
   }
 
   @media (hover: hover) {
-    :is(div, a, form, article)[style*="var(--feature-card-bg)"]:not(.glass-no-hover):hover {
+    :is(div, a, form, article)[style*="var(--feature-card-bg)"]:not(
+        .glass-no-hover
+      ):hover {
       transform: translateY(-4px);
       box-shadow: var(--glass-shadow-hover);
     }
@@ -274,7 +273,10 @@
     box-shadow: var(--glass-shadow);
   }
 
-  :is(div, a, form, article):is(.rounded-2xl, .rounded-xl).border[style*="feature-card-border"] {
+  :is(div, a, form, article):is(
+      .rounded-2xl,
+      .rounded-xl
+    ).border[style*="feature-card-border"] {
     background-color: var(--feature-card-bg) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
@@ -287,9 +289,10 @@
   }
 
   @media (hover: hover) {
-    :is(div, a, form, article):is(.rounded-2xl, .rounded-xl).border[style*="feature-card-border"]:not(
-        .glass-no-hover
-      ):hover {
+    :is(div, a, form, article):is(
+        .rounded-2xl,
+        .rounded-xl
+      ).border[style*="feature-card-border"]:not(.glass-no-hover):hover {
       transform: translateY(-4px);
       box-shadow: var(--glass-shadow-hover);
     }
@@ -517,7 +520,10 @@ button[style*="hero-cta-primary-bg"]::after,
   }
 
   .glass-card-interactive:hover,
-  :is(div, a, form, article):is(.rounded-2xl, .rounded-xl).border[style*="feature-card-border"]:hover {
+  :is(div, a, form, article):is(
+      .rounded-2xl,
+      .rounded-xl
+    ).border[style*="feature-card-border"]:hover {
     transform: none;
   }
 }

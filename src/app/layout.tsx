@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { BrandIconGradient } from "@/components/brand-icon-gradient";
 import SiteBackground from "@/components/site-background";
 import ParticlesBg from "@/components/ui/particles-bg";
@@ -45,8 +44,8 @@ export default function RootLayout({
   return (
     <html
       lang="en-US"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={{ colorScheme: "dark" }}
     >
       <head>
         <link rel="preload" href="/vendor/particles.min.js" as="script" />
@@ -65,20 +64,12 @@ export default function RootLayout({
         <JsonLd data={siteJsonLd()} />
       </head>
       <body className="relative min-h-full flex flex-col bg-black text-white">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <SiteBackground />
-          <ParticlesBg />
-          <BrandIconGradient />
-          <div className="relative z-10 flex min-h-full flex-1 flex-col bg-transparent">
-            {children}
-          </div>
-        </ThemeProvider>
+        <SiteBackground />
+        <ParticlesBg />
+        <BrandIconGradient />
+        <div className="relative z-10 flex min-h-full flex-1 flex-col bg-transparent">
+          {children}
+        </div>
       </body>
     </html>
   );

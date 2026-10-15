@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 /**
  * Static-export fallback for retired URLs.
  * Production 301s are handled in vercel.json.
@@ -11,6 +15,10 @@ export function LegacyRedirect({
   message: string;
   linkLabel: string;
 }) {
+  useEffect(() => {
+    window.location.replace(href);
+  }, [href]);
+
   return (
     <main className="relative flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
       <p className="text-sm" style={{ color: "var(--hero-muted)" }}>
@@ -23,11 +31,6 @@ export function LegacyRedirect({
       >
         {linkLabel}
       </a>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.location.replace(${JSON.stringify(href)});`,
-        }}
-      />
     </main>
   );
 }

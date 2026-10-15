@@ -6,7 +6,12 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { FadeIn } from "@/components/animation/fade-in";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { PRICING_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
+import {
+  PRICING_PLAN_FEATURES,
+  PLAN_DURATIONS,
+  PLAN_PRICES,
+  planEnquiryHref,
+} from "@/lib/plans";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { enquiryWhatsApp } from "@/lib/site";
@@ -33,7 +38,7 @@ function PriceGlowDivider() {
         }}
       />
       <div
-        className="absolute left-1/2 top-1/2 h-[3px] w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="absolute top-1/2 left-1/2 h-[3px] w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
             "radial-gradient(ellipse at center, #ffffff 0%, #fff4c4 35%, transparent 70%)",
@@ -65,7 +70,7 @@ function PricingCard({
           boxShadow: "var(--feature-card-shadow)",
         }}
       >
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-gradient-brand">
+        <p className="text-gradient-brand text-sm font-bold tracking-[0.12em] uppercase">
           {plan.cardTitle}
         </p>
         <p
@@ -73,30 +78,43 @@ function PricingCard({
           style={{ color: "var(--hero-heading)" }}
         >
           {price}
-          <span className="ml-2 text-base font-semibold" style={{ color: "var(--hero-muted)" }}>
+          <span
+            className="ml-2 text-base font-semibold"
+            style={{ color: "var(--hero-muted)" }}
+          >
             total
           </span>
         </p>
         <PriceGlowDivider />
-        <p className="text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
+        <p
+          className="text-[13px] font-semibold"
+          style={{ color: "var(--hero-heading)" }}
+        >
           Every plan includes:
         </p>
-        <ul className="mb-8 mt-3 flex flex-1 flex-col gap-2.5">
+        <ul className="mt-3 mb-8 flex flex-1 flex-col gap-2.5">
           {PRICING_PLAN_FEATURES.map((feature) => (
-            <li key={feature} className="flex items-start gap-3 text-[13px] leading-[1.55]">
+            <li
+              key={feature}
+              className="flex items-start gap-3 text-[13px] leading-[1.55]"
+            >
               <span
                 className="mt-[9px] h-px w-3 shrink-0"
                 style={{ background: "var(--grad-brand)" }}
                 aria-hidden
               />
-              <span style={{ color: "rgba(255, 255, 255, 0.82)" }}>{feature}</span>
+              <span style={{ color: "rgba(255, 255, 255)" }}>{feature}</span>
             </li>
           ))}
         </ul>
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-auto w-full">
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="mt-auto w-full"
+        >
           <Link
             href={href}
-            className="flex w-full items-center justify-center rounded-lg px-6 py-3.5 text-center text-[13px] font-extrabold uppercase tracking-[0.08em] transition-all duration-200 hover:brightness-110"
+            className="flex w-full items-center justify-center rounded-lg px-6 py-3.5 text-center text-[13px] font-extrabold tracking-[0.08em] uppercase transition-all duration-200 hover:brightness-110"
             style={{
               background: "var(--grad-brand)",
               color: "var(--hero-cta-primary-fg)",
@@ -112,7 +130,8 @@ function PricingCard({
 }
 
 export function MultiConnectionPlansSection() {
-  const [connections, setConnections] = useState<(typeof CONNECTION_OPTIONS)[number]>(1);
+  const [connections, setConnections] =
+    useState<(typeof CONNECTION_OPTIONS)[number]>(1);
 
   return (
     <section
@@ -124,7 +143,7 @@ export function MultiConnectionPlansSection() {
         <div className="mb-12 grid gap-6 md:mb-16 md:grid-cols-2 md:items-end md:gap-12">
           <FadeIn delay={0.05}>
             <h2
-              className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
+              className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl md:text-[42px]"
               style={{ color: "var(--hero-heading)" }}
             >
               Choose Your IPTV Subscription Duration and Connection Allowance
@@ -137,13 +156,18 @@ export function MultiConnectionPlansSection() {
               style={{ color: "var(--hero-muted)" }}
             >
               <p>
-                Choose one, two, three, or four connections and a subscription lasting one, three, six, or twelve months.
+                Choose one, two, three, or four connections and a subscription
+                lasting one, three, six, or twelve months.
               </p>
               <p>
-                These are full-term totals. Each connection allows one active stream. Two screens playing together require two connections; three screens require three.
+                These are full-term totals. Each connection allows one active
+                stream. Two screens playing together require two connections;
+                three screens require three.
               </p>
               <p>
-                Count active streams rather than installed apps. Confirm multiple locations or more than four simultaneous streams with support before ordering.
+                Count active streams rather than installed apps. Confirm
+                multiple locations or more than four simultaneous streams with
+                support before ordering.
               </p>
             </div>
           </FadeIn>
@@ -166,11 +190,15 @@ export function MultiConnectionPlansSection() {
                 aria-controls={`pricing-panel-${count}`}
                 onClick={() => setConnections(count)}
                 className={cn(
-                  "rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all duration-200",
+                  "rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all duration-200"
                 )}
                 style={{
-                  borderColor: active ? "transparent" : "var(--feature-card-border)",
-                  color: active ? "var(--hero-cta-primary-fg)" : "var(--hero-muted)",
+                  borderColor: active
+                    ? "transparent"
+                    : "var(--feature-card-border)",
+                  color: active
+                    ? "var(--hero-cta-primary-fg)"
+                    : "var(--hero-muted)",
                   background: active
                     ? "var(--hero-cta-primary-bg)"
                     : "var(--feature-card-bg)",
@@ -211,16 +239,20 @@ export function MultiConnectionPlansSection() {
         })}
 
         <FadeIn delay={0.15} className="mx-auto mt-10 max-w-3xl text-center">
-          <div className="space-y-3 text-sm leading-[1.75]" style={{ color: "var(--hero-muted)" }}>
+          <div
+            className="space-y-3 text-sm leading-[1.75]"
+            style={{ color: "var(--hero-muted)" }}
+          >
             <p>
-              Specific channels, titles, languages, and features can change. Ask about anything essential to your purchase.
+              Specific channels, titles, languages, and features can change. Ask
+              about anything essential to your purchase.
             </p>
           </div>
           <Link
             href={enquiryWhatsApp("subscription")}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-black"
+            className="bg-gradient-brand mt-6 inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold text-black"
             style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
           >
             Ask About Your Selected Plan

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Container } from "@/components/layout/container";
-import { Mail, MessageCircle, Globe } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { siteConfig, whatsappUrl } from "@/lib/site";
 import { routes } from "@/lib/routes";
 import { FadeIn } from "@/components/animation/fade-in";
@@ -24,9 +27,71 @@ const FOOTER_LINKS = {
   ],
 };
 
+function UsFlag() {
+  return (
+    <svg
+      viewBox="0 0 19 10"
+      preserveAspectRatio="none"
+      className="size-5 shrink-0 rounded-[2px] shadow-[0_0_0_1px_rgba(255,255,255,0.35)]"
+      aria-hidden
+    >
+      <rect width="19" height="10" fill="#bf0a30" />
+      <path stroke="#fff" strokeWidth="0.77" d="M0 1.15h19M0 2.69h19M0 4.23h19M0 5.77h19M0 7.31h19M0 8.85h19" />
+      <rect width="7.6" height="5.38" fill="#002868" />
+      <g fill="#fff">
+        <circle cx="1.1" cy="0.85" r="0.28" />
+        <circle cx="2.5" cy="0.85" r="0.28" />
+        <circle cx="3.9" cy="0.85" r="0.28" />
+        <circle cx="5.3" cy="0.85" r="0.28" />
+        <circle cx="6.7" cy="0.85" r="0.28" />
+        <circle cx="1.8" cy="1.7" r="0.28" />
+        <circle cx="3.2" cy="1.7" r="0.28" />
+        <circle cx="4.6" cy="1.7" r="0.28" />
+        <circle cx="6" cy="1.7" r="0.28" />
+        <circle cx="1.1" cy="2.55" r="0.28" />
+        <circle cx="2.5" cy="2.55" r="0.28" />
+        <circle cx="3.9" cy="2.55" r="0.28" />
+        <circle cx="5.3" cy="2.55" r="0.28" />
+        <circle cx="6.7" cy="2.55" r="0.28" />
+        <circle cx="1.8" cy="3.4" r="0.28" />
+        <circle cx="3.2" cy="3.4" r="0.28" />
+        <circle cx="4.6" cy="3.4" r="0.28" />
+        <circle cx="6" cy="3.4" r="0.28" />
+        <circle cx="1.1" cy="4.25" r="0.28" />
+        <circle cx="2.5" cy="4.25" r="0.28" />
+        <circle cx="3.9" cy="4.25" r="0.28" />
+        <circle cx="5.3" cy="4.25" r="0.28" />
+        <circle cx="6.7" cy="4.25" r="0.28" />
+      </g>
+    </svg>
+  );
+}
+
+function UkFlag() {
+  return (
+    <svg
+      viewBox="0 0 60 30"
+      preserveAspectRatio="none"
+      className="size-5 shrink-0 rounded-[2px] shadow-[0_0_0_1px_rgba(255,255,255,0.35)]"
+      aria-hidden
+    >
+      <clipPath id="uk-flag-clip">
+        <path d="M0 0h60v30H0z" />
+      </clipPath>
+      <g clipPath="url(#uk-flag-clip)">
+        <path d="M0 0h60v30H0z" fill="#012169" />
+        <path d="M0 0l60 30M60 0L0 30" stroke="#fff" strokeWidth="6" />
+        <path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" strokeWidth="4" />
+        <path d="M30 0v30M0 15h60" stroke="#fff" strokeWidth="10" />
+        <path d="M30 0v30M0 15h60" stroke="#C8102E" strokeWidth="6" />
+      </g>
+    </svg>
+  );
+}
+
 const REGIONAL_WEBSITES = [
-  { label: "United States — 8k-strong.us", href: "https://8k-strong.us/" },
-  { label: "United Kingdom — 8k-strong.co.uk", href: "https://8k-strong.co.uk/" },
+  { place: "United States", domain: "8k-strong.us", href: "https://8k-strong.us/", Flag: UsFlag },
+  { place: "United Kingdom", domain: "8k-strong.co.uk", href: "https://8k-strong.co.uk/", Flag: UkFlag },
 ];
 
 const TRUST_POINTS = [
@@ -78,7 +143,7 @@ export function Footer() {
                     style={{
                       borderColor: "rgba(255, 255, 255, 0.22)",
                       backgroundColor: "transparent",
-                      color: "var(--hero-pill-text)",
+                      color: "#ffffff",
                     }}
                   >
                     {point}
@@ -115,7 +180,7 @@ export function Footer() {
           </FadeIn>
 
           {/* Link columns */}
-          <FadeIn delay={0.12} className="grid gap-10 sm:grid-cols-3">
+          <FadeIn delay={0.12} className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_max-content]">
             <div>
               <h3
                 className="text-xs font-bold uppercase tracking-[0.18em]"
@@ -167,17 +232,33 @@ export function Footer() {
               >
                 Regional Sites
               </h3>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 space-y-2.5">
                 {REGIONAL_WEBSITES.map((site) => (
-                  <li key={site.label}>
-                    <a
-                      href={site.href}
-                      className="inline-flex items-center gap-1.5 text-sm transition-colors duration-150 hover:text-[var(--hero-accent)]"
-                      style={{ color: "var(--footer-link)" }}
+                  <li key={site.domain}>
+                    <motion.div
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      className="inline-flex w-max"
                     >
-                      <Globe className="h-3.5 w-3.5 opacity-70" />
-                      {site.label}
-                    </a>
+                      <a
+                        href={site.href}
+                        className="btn-shine inline-flex w-max items-center gap-2 whitespace-nowrap rounded-lg border px-3 py-2 text-sm font-medium leading-none transition-colors duration-150 hover:border-[var(--hero-accent)]"
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "rgba(255, 255, 255, 0.06)",
+                          borderColor: "rgba(255, 255, 255, 0.18)",
+                        }}
+                      >
+                        <span className="relative z-[2] shrink-0">
+                          <site.Flag />
+                        </span>
+                        <span className="relative z-[2]">
+                          {site.place}
+                          {" — "}
+                          <span style={{ color: "var(--hero-accent)" }}>{site.domain}</span>
+                        </span>
+                      </a>
+                    </motion.div>
                   </li>
                 ))}
               </ul>

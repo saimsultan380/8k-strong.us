@@ -136,7 +136,7 @@ Answers to Common Questions About Your IPTV Subscription
 Are Strong8k and Strong 8k the same name here?
 Yes. Strong 8k is our brand, and Strong8k is the spelling without a space. Our US website is 8k-strong.us.
 How do I identify the right provider?
-Searches for Strong IPTV 8k, Strong IPTV, and StrongIPTV can lead to different sellers. Check the domain and contact route associated with your order.
+Whether you searched for Strng IPTV 8K, Strong IPTV 8K, Strong IPTV, or StrongIPTV, check the exact website and support details before ordering. Our US website is 8k-strong.us.
 Does a premium IPTV subscription include every channel?
 Check the actual offer and the content important to you. A premium description does not establish that every channel, local station, movie, or event is included.
 How do I choose the best IPTV subscription for my household?

@@ -7,7 +7,12 @@ import { ScrollReveal } from "@/components/animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { routes } from "@/lib/routes";
 import { enquiryWhatsApp } from "@/lib/site";
-import { HOME_PLAN_FEATURES, PLAN_DURATIONS, PLAN_PRICES, planEnquiryHref } from "@/lib/plans";
+import {
+  HOME_PLAN_FEATURES,
+  PLAN_DURATIONS,
+  PLAN_PRICES,
+  planEnquiryHref,
+} from "@/lib/plans";
 
 export function PricingSection() {
   return (
@@ -20,7 +25,7 @@ export function PricingSection() {
         <div className="mb-12 grid gap-6 md:mb-16 md:grid-cols-2 md:items-end md:gap-12">
           <FadeIn delay={0.05}>
             <h2
-              className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[42px]"
+              className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl md:text-[42px]"
               style={{ color: "var(--hero-heading)" }}
             >
               Choose Your Strong8k IPTV Subscription Plan and Duration
@@ -31,14 +36,23 @@ export function PricingSection() {
               className="text-sm leading-[1.75] sm:text-[15px] md:text-right"
               style={{ color: "var(--hero-muted)" }}
             >
-              Choose the subscription duration that suits your viewing. Every plan includes the same available live-channel and on-demand catalog. The prices below cover the complete selected term for one connection, allowing one active stream at a time.
+              Choose the subscription duration that suits your viewing. Every
+              plan includes the same available live-channel and on-demand
+              catalog. The prices below cover the complete selected term for one
+              connection, allowing one active stream at a time.
             </p>
           </FadeIn>
         </div>
 
         <div className="grid w-full items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {PLAN_DURATIONS.map((plan, i) => (
-            <ScrollReveal key={plan.months} direction="up" delay={0.04 * i} once className="h-full">
+            <ScrollReveal
+              key={plan.months}
+              direction="up"
+              delay={0.04 * i}
+              once
+              className="h-full"
+            >
               <article
                 className="flex h-full flex-col rounded-xl border px-6 py-7 md:px-6 md:py-8"
                 style={{
@@ -47,7 +61,7 @@ export function PricingSection() {
                   boxShadow: "var(--feature-card-shadow)",
                 }}
               >
-                <p className="text-sm font-bold uppercase tracking-[0.14em] text-gradient-brand">
+                <p className="text-gradient-brand text-sm font-bold tracking-[0.14em] uppercase">
                   {plan.label}
                 </p>
                 <p
@@ -56,22 +70,33 @@ export function PricingSection() {
                 >
                   {PLAN_PRICES[1][plan.months]}
                 </p>
-                <p className="mt-5 text-[13px] font-semibold" style={{ color: "var(--hero-heading)" }}>
+                <p
+                  className="mt-5 text-[13px] font-semibold"
+                  style={{ color: "var(--hero-heading)" }}
+                >
                   Every plan includes:
                 </p>
-                <ul className="mb-8 mt-3 flex flex-1 flex-col gap-2.5">
+                <ul className="mt-3 mb-8 flex flex-1 flex-col gap-2.5">
                   {HOME_PLAN_FEATURES.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-[13px] leading-[1.55]">
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-[13px] leading-[1.55]"
+                    >
                       <span
                         className="mt-[9px] h-px w-3 shrink-0"
                         style={{ background: "var(--grad-brand)" }}
                         aria-hidden
                       />
-                      <span style={{ color: "rgba(255, 255, 255, 0.82)" }}>{feature}</span>
+                      <span style={{ color: "rgba(255, 255, 255)" }}>
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Link
                     href={planEnquiryHref(plan.months, 1)}
                     className="flex w-full items-center justify-center rounded-xl px-4 py-3.5 text-center text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110"
@@ -89,21 +114,31 @@ export function PricingSection() {
         </div>
 
         <FadeIn delay={0.2} className="mx-auto mt-10 max-w-3xl text-center">
-          <div className="space-y-4 text-sm leading-[1.75] sm:text-[15px]" style={{ color: "var(--hero-muted)" }}>
+          <div
+            className="space-y-4 text-sm leading-[1.75] sm:text-[15px]"
+            style={{ color: "var(--hero-muted)" }}
+          >
             <p>
-              For two, three, or four simultaneous streams, compare the connection options on our{" "}
-              <Link href={routes.subscriptionPlans} className="font-semibold underline" style={{ color: "var(--hero-heading)" }}>
+              For two, three, or four simultaneous streams, compare the
+              connection options on our{" "}
+              <Link
+                href={routes.subscriptionPlans}
+                className="font-semibold underline"
+                style={{ color: "var(--hero-heading)" }}
+              >
                 Pricing page
-              </Link>.
+              </Link>
+              .
             </p>
             <p>
-              All prices are in US dollars and cover the full selected subscription term.
+              All prices are in US dollars and cover the full selected
+              subscription term.
             </p>
           </div>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href={routes.subscriptionPlans}
-              className="inline-flex items-center justify-center rounded-xl bg-gradient-brand px-6 py-3.5 text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110 sm:text-[15px]"
+              className="bg-gradient-brand inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-[13px] font-bold text-black transition-all duration-200 hover:brightness-110 sm:text-[15px]"
               style={{ boxShadow: "var(--hero-cta-primary-shadow)" }}
             >
               View All Subscription Plans
