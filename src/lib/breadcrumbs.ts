@@ -67,12 +67,12 @@ export function siteJsonLd() {
       url: canonicalUrl(routes.home),
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.siteUrl.replace(/\/$/, "")}/brand-logo.png`,
+        url: `${siteConfig.siteUrl.replace(/\/$/, "")}/icon-512.png`,
         width: 512,
         height: 512,
         caption: "Strong 8k",
       },
-      image: `${siteConfig.siteUrl.replace(/\/$/, "")}/brand-logo.png`,
+      image: `${siteConfig.siteUrl.replace(/\/$/, "")}/icon-512.png`,
       contactPoint: {
         "@type": "ContactPoint",
         email: siteConfig.email,

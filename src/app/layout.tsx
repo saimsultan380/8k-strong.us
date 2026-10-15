@@ -23,15 +23,21 @@ export const metadata: Metadata = {
   ...siteMetadataBase,
   metadataBase: new URL(canonicalUrl(routes.home)),
   verification: {
-    google: "mQRPFUjrZxye77pMaig-wBVfguUClB7P72FIJQ6Xib0",
+    google: "KYACr84TCBCas0pp1qW-EG20eNHlo-6Zu0cX1lZo63A",
   },
   icons: {
+    // Stable public URLs only — Google SERP prefers crawlable root icons
+    // (multiples of 48px). Avoid hashed /_next/static/media icon routes.
     icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/favicon-48x48.png",
+    shortcut: [{ url: "/favicon.ico" }],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
