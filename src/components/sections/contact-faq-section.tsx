@@ -31,7 +31,7 @@ const CONTACT_FAQS: FaqItem[] = [
   {
     id: "whatsapp-us",
     q: "Can US customers use the WhatsApp number?",
-    a: "Use the published WhatsApp link and retain the complete international number, including the +44 country code.",
+    a: "Use the published WhatsApp link and retain the complete international number, including the +1 country code.",
   },
 ];
 

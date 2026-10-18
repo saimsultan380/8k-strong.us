@@ -21,5 +21,5 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Brand notes
 
 - Brand spelling: **Strong 8k** / **Strong8k**
-- Support: WhatsApp `+44 7460 676632`, email `support@strong8k.com`
+- Support: WhatsApp `+1 716 494 3064`, email `support@strong8k.com`
 - Prices and WhatsApp links are centralised in `src/lib/plans.ts` and `src/lib/site.ts`

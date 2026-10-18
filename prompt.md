@@ -707,7 +707,7 @@ Tell us the quantity you want and any personal domain, white label branding, pan
 Panel activation uses the email address and username you supply after payment confirmation.
 View Reseller Information⁠
 Send Your Inquiry With the Relevant Account Details
-WhatsApp: +44 7460 676632⁠
+WhatsApp: +1 716 494 3064⁠
 Email: support@strong8k.com⁠
 For renewal inquiries, include the existing account reference and the duration and connections you want.
 For refund requests, identify the account concerned and review the applicable seven-day window.
@@ -739,7 +739,7 @@ Send the app name and device model so we can check its account requirements.
 What if my login information has not arrived?
 Check the contact details used for the order and your email spam folder. Send support your order reference.
 Can US customers use the WhatsApp number?
-Use the published WhatsApp link and retain the complete international number, including the +44 country code.
+Use the published WhatsApp link and retain the complete international number, including the +1 country code.
 
 6. Blogs
 URL: https://8k-strong.us/blogs/⁠
@@ -900,7 +900,7 @@ Header button: View Plans
 Footer description
 Live television and on-demand viewing through supported devices: 40,000+ available live channels, 140,000+ VOD titles, and HD, Full HD, and UHD sources where supported.
 Support
-WhatsApp: +44 7460 676632⁠
+WhatsApp: +1 716 494 3064⁠
  Email: support@strong8k.com⁠
 Support links
 Pricing⁠ · Free Trial⁠ · Installation Guide⁠ · Blogs⁠ · Refund Policy⁠

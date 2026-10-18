@@ -237,7 +237,7 @@ export function ContactMethodsForm() {
                   name="whatsapp"
                   type="tel"
                   autoComplete="tel"
-                  placeholder="+44 7xxx xxx xxx"
+                  placeholder="+1 716 494 3064"
                   className={inputClass}
                   style={inputStyle}
                 />
