@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { routes } from "@/lib/routes";
+import { BLOG_POSTS } from "@/data/blogs";
 import { HeroReveal } from "@/components/animation/hero-reveal";
 
 const NAV_LINKS = [
@@ -15,6 +16,14 @@ const NAV_LINKS = [
   { label: "Reseller Panel", href: routes.resellerPanel },
   { label: "Contact Us", href: routes.contactUs },
   { label: "Blogs", href: routes.blogs },
+];
+
+const BLOG_NAV_LINKS = [
+  { label: "All Blogs", href: routes.blogs },
+  ...BLOG_POSTS.map((post) => ({
+    label: post.navLabel,
+    href: post.path,
+  })),
 ];
 
 export function Header() {
@@ -61,13 +70,48 @@ export function Header() {
             <div className="hidden items-center gap-6 md:flex">
               {NAV_LINKS.map((link, index) => (
                 <HeroReveal key={link.label} delay={0.08 + index * 0.04}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium transition-colors duration-150 hover:text-[var(--hero-accent)]"
-                    style={{ color: "var(--hero-nav-link)" }}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.label === "Blogs" ? (
+                    <div className="group relative">
+                      <Link
+                        href={link.href}
+                        className="text-sm font-medium transition-colors duration-150 hover:text-[var(--hero-accent)]"
+                        style={{ color: "var(--hero-nav-link)" }}
+                      >
+                        {link.label}
+                      </Link>
+                      <div
+                        className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                      >
+                        <div
+                          className="rounded-xl border py-2 shadow-lg"
+                          style={{
+                            backgroundColor: "rgba(10, 10, 10, 0.96)",
+                            borderColor: "var(--feature-card-border)",
+                            boxShadow: "var(--feature-card-shadow)",
+                          }}
+                        >
+                          {BLOG_NAV_LINKS.map((blogLink) => (
+                            <Link
+                              key={blogLink.href}
+                              href={blogLink.href}
+                              className="block px-4 py-2.5 text-sm transition-colors hover:text-[var(--hero-accent)]"
+                              style={{ color: "var(--hero-nav-link)" }}
+                            >
+                              {blogLink.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm font-medium transition-colors duration-150 hover:text-[var(--hero-accent)]"
+                      style={{ color: "var(--hero-nav-link)" }}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </HeroReveal>
               ))}
             </div>
@@ -160,7 +204,38 @@ export function Header() {
                 <motion.div
                   initial={{ opacity: 0, y: -12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.22 }}
+                  transition={{ delay: 0.28 }}
+                  className="mt-4 px-4"
+                >
+                  <p
+                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                    style={{ color: "var(--hero-accent)" }}
+                  >
+                    Blog Guides
+                  </p>
+                </motion.div>
+                {BLOG_NAV_LINKS.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.03 }}
+                  >
+                    <Link
+                      href={link.href}
+                      className="block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-black/5 hover:text-[var(--hero-accent)] dark:hover:bg-white/5"
+                      style={{ color: "var(--hero-nav-text)" }}
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: -12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
                   className="mt-4 px-4"
                 >
                   <motion.div

@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/container";
 import { Mail, MessageCircle } from "lucide-react";
 import { siteConfig, whatsappUrl } from "@/lib/site";
 import { routes } from "@/lib/routes";
+import { BLOG_POSTS } from "@/data/blogs";
 import { FadeIn } from "@/components/animation/fade-in";
 
 const FOOTER_LINKS = {
@@ -22,8 +23,14 @@ const FOOTER_LINKS = {
     { label: "Pricing", href: `${routes.subscriptionPlans}#pricing` },
     { label: "Free Trial", href: `${routes.contactUs}#free-trial` },
     { label: "Installation Guide", href: routes.installationGuide },
-    { label: "Blogs", href: routes.blogs },
     { label: "Refund Policy", href: `${routes.subscriptionPlans}#refund-policy` },
+  ],
+  blogs: [
+    { label: "All Blogs", href: routes.blogs },
+    ...BLOG_POSTS.map((post) => ({
+      label: post.navLabel,
+      href: post.path,
+    })),
   ],
 };
 
@@ -180,7 +187,7 @@ export function Footer() {
           </FadeIn>
 
           {/* Link columns */}
-          <FadeIn delay={0.12} className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_max-content]">
+          <FadeIn delay={0.12} className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3
                 className="text-xs font-bold uppercase tracking-[0.18em]"
@@ -213,6 +220,28 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.support.map((link) => (
                   <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors duration-150 hover:text-[var(--hero-accent)]"
+                      style={{ color: "var(--footer-link)" }}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3
+                className="text-xs font-bold uppercase tracking-[0.18em]"
+                style={{ color: "var(--hero-accent)" }}
+              >
+                Blogs
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {FOOTER_LINKS.blogs.map((link) => (
+                  <li key={link.href}>
                     <Link
                       href={link.href}
                       className="text-sm transition-colors duration-150 hover:text-[var(--hero-accent)]"
