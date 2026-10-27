@@ -25,6 +25,8 @@ export const siteConfig = {
   language: "en-US",
   currency: "USD",
   twitterHandle: "@strong8k",
+  /** Google Analytics 4 measurement ID */
+  gaMeasurementId: "G-Y02Z2XBPWC",
 } as const;
 
 /** WhatsApp chat URL for all CTAs and support buttons */
