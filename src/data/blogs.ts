@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Learn what Strong 8K IPTV is, how strong8k works, and how strong 8k iptv delivers live TV, movies, and series with compatible devices and streaming options.",
     metaTitle: "What Is Strong 8K IPTV or 8K IPTV? Easy Guide for Beginners",
-    image: "/strong8k-iptv-blog-thumbnail.png",
+    image: "/strong8k-iptv-beginners-thumbnail.webp",
     imageAlt: "Strong 8K IPTV beginner guide thumbnail",
   },
   {
@@ -39,8 +39,32 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Explore the Strong8K reseller panel, Strong 8K panel credit system, reseller packages & practical ways to calculate potential IPTV 8K Panel business earnings",
     metaTitle: "Strong8K Reseller Panel: Earn $ as a Strong 8K IPTV Reseller",
-    image: "/strong8k-reseller-panel-blog-thumbnail.png",
+    image: "/strong8k-reseller-panel-thumbnail.webp",
     imageAlt: "Strong8K reseller panel guide thumbnail",
+  },
+  {
+    slug: "does-strong-8k-iptv-use-invoices",
+    path: "/does-strong-8k-iptv-use-invoices/",
+    title: "Does Strong 8K IPTV Use Invoices? Payment Methods and Subscription Process Explained",
+    navLabel: "Strong 8K IPTV Invoices",
+    line: "Does Strong 8K IPTV use invoices? Learn how Strong8K handles payments, request a Stripe invoice or secure link, pay securely, and activate your subscription.",
+    description:
+      "Does Strong 8K IPTV use invoices? Learn how Strong8K handles payments, request a Stripe invoice or secure link, pay securely, and activate your subscription.",
+    metaTitle: "Does Strong 8K IPTV Use Invoices? Payment Methods Guide",
+    image: "/strong8k-invoices-payments-thumbnail.webp",
+    imageAlt: "Strong 8K IPTV invoices and payment methods guide thumbnail",
+  },
+  {
+    slug: "strong-8k-down",
+    path: "/strong-8k-down/",
+    title: "Is Strong 8K Down? How to Check Strong8K IPTV Status and Fix Streaming Problems",
+    navLabel: "Is Strong 8K Down?",
+    line: "Is Strong 8K down or is Strong8K IPTV not working? Check possible service issues, fix buffering, troubleshoot channels, and restore your IPTV connection.",
+    description:
+      "Is Strong 8K down or is Strong8K IPTV not working? Check possible service issues, fix buffering, troubleshoot channels, and restore your IPTV connection.",
+    metaTitle: "Is Strong 8K Down? Strong8K IPTV Server Status & Easy Fixes",
+    image: "/strong8k-status-troubleshooting-thumbnail.webp",
+    imageAlt: "Is Strong 8K down and IPTV troubleshooting guide thumbnail",
   },
 ] as const;
 

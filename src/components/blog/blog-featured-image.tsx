@@ -5,9 +5,10 @@ export function BlogFeaturedImage({
   src,
   alt,
 }: {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
 }) {
+  if (!src) return null;
   return (
     <div
       className="relative mx-auto mt-8 aspect-[16/9] w-full max-w-4xl overflow-hidden rounded-2xl border"
@@ -19,7 +20,7 @@ export function BlogFeaturedImage({
     >
       <Image
         src={src}
-        alt={alt}
+        alt={alt || "Strong 8K IPTV"}
         fill
         unoptimized
         className="object-cover"

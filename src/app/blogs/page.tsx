@@ -81,14 +81,29 @@ export default function BlogsPage() {
                       backgroundColor: "rgba(0,0,0,0.4)",
                     }}
                   >
-                    <Image
-                      src={post.image}
-                      alt={post.imageAlt}
-                      fill
-                      unoptimized
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt}
+                        fill
+                        unoptimized
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center p-6 text-center">
+                        <span
+                          className="rounded-full border px-3.5 py-1 text-xs font-semibold uppercase tracking-wider"
+                          style={{
+                            borderColor: "var(--feature-card-border)",
+                            color: "var(--hero-accent)",
+                            backgroundColor: "rgba(255,255,255,0.03)",
+                          }}
+                        >
+                          Strong 8K Guide
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <p
