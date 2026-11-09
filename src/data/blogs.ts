@@ -66,6 +66,30 @@ export const BLOG_POSTS: BlogPost[] = [
     image: "/strong8k-status-troubleshooting-thumbnail.webp",
     imageAlt: "Is Strong 8K down and IPTV troubleshooting guide thumbnail",
   },
+  {
+    slug: "install-strong-8k-iptv-on-firestick",
+    path: "/install-strong-8k-iptv-on-firestick/",
+    title: "How to Install or Set Up Strong 8K IPTV on Firestick? Complete Guide",
+    navLabel: "Install Strong 8K on Firestick",
+    line: "Learn how to install Strong 8K IPTV on Firestick, set up a compatible IPTV player, add your subscription details, and fix common setup and playback issues.",
+    description:
+      "Learn how to install Strong 8K IPTV on Firestick, set up a compatible IPTV player, add your subscription details, and fix common setup and playback issues.",
+    metaTitle: "How to Install & Setup Strong 8K IPTV on Firestick in 5 Mint?",
+    image: "/strong8k-firestick-installation-thumbnail.webp",
+    imageAlt: "How to install and set up Strong 8K IPTV on Firestick thumbnail",
+  },
+  {
+    slug: "strong-8k-iptv-multiple-connections",
+    path: "/strong-8k-iptv-multiple-connections/",
+    title: "Strong 8K IPTV Multiple Connections: How to Watch on Multiple Devices",
+    navLabel: "Multiple Connections",
+    line: "Learn how Strong 8K IPTV multiple connections work, use your subscription on different devices, watch simultaneously, and choose the right connection plan for your needs.",
+    description:
+      "Learn how Strong 8K IPTV multiple connections work, use your subscription on different devices, watch simultaneously, and choose the right connection plan for your needs.",
+    metaTitle: "Strong 8K IPTV Multiple Connections: Watch on Multiple Devices",
+    image: "/strong8k-multiple-connections-thumbnail.webp",
+    imageAlt: "Strong 8K IPTV multiple connections and devices guide thumbnail",
+  },
 ] as const;
 
 export function blogPath(slug: string): string {
